@@ -241,6 +241,7 @@ a.white {
 .form-group {
 	position: relative;
 	margin-bottom: 1.25rem;
+	
 }
 
 .form-group.has-error.has-danger {
@@ -293,6 +294,14 @@ a.white {
 	font: 400 0.875rem/1.875rem "Open Sans", sans-serif;
 	transition: all 0.2s;
 	-webkit-appearance: none; /* removes inner shadow on form inputs on ios safari */
+}
+
+.form-control-input:sname {
+	float: left;
+}
+
+.form-control-input:slastname {
+	float: right;
 }
 
 .form-control-select {
@@ -1599,10 +1608,11 @@ a:hover.back-to-top {
 	margin-right: auto;
 	margin-bottom: 2.5rem;
 	margin-left: auto;
+	color: #fff;
 }
 
 .ex-2-header .form-container {
-	max-width: 26rem;
+	max-width: 75rem;
 	margin-right: auto;
 	margin-left: auto;
 	padding: 2.25rem 1.25rem 1.25rem 1.25rem;
@@ -1614,6 +1624,7 @@ a:hover.back-to-top {
 	text-align: left;
 }
 
+.ex-2-header 
 
 /*****************************/
 /*     19. Media Queries     */
