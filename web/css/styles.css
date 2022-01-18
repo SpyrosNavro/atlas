@@ -123,7 +123,7 @@ h6 {
 }
 
 a {
-	color: #555;
+	color: rgb(255, 255, 255);
 	text-decoration: underline;
 }
 
@@ -669,8 +669,8 @@ input[type='checkbox'] {
 }
 
 .navbar-custom .navbar-brand.logo-image img {
-    width: 4.4375rem;
-	height: 1.75rem;
+    width: 11.4375rem;
+	height: 3.75rem;
 }
 
 .navbar-custom .navbar-brand.logo-text {
@@ -1538,7 +1538,7 @@ a:hover.back-to-top {
 	margin-bottom: 1rem;
 }
 
-.ex-basic-2 .text-container {
+.ex-basic-2 .text-	 {
 	margin-bottom: 3.625rem;
 }
 
@@ -1624,7 +1624,43 @@ a:hover.back-to-top {
 	text-align: left;
 }
 
-.ex-2-header 
+/****************************************/
+/*             Applications             */
+/****************************************/
+
+.creation {
+	width: 750px;
+	height: 70px;
+
+	display: inline-block;
+	padding: 0.875rem 1.5rem 0.875rem 1.5rem;
+	border: 0.125rem solid #5f4dee;
+	border-radius: 2rem;
+	background-color: white;
+	color: #5f4dee;
+	font: 700 0.875rem/0 "Open Sans", sans-serif;
+	text-decoration: none;
+	transition: all 0.2s;
+}
+
+.warning-for-creation {
+	width: 330px; height: 210px;
+	background-color: rgb(255, 0, 0);
+	color: rgb(255, 255, 255);
+	margin: auto;
+}
+
+.button-for-next-step {
+	border: 0.125rem solid #5f4dee;
+	border-radius: 2rem;
+}
+
+.btn-group button{
+	width: 100px;
+	margin:auto;
+	margin-bottom: 50px;
+}
+
 
 /*****************************/
 /*     19. Media Queries     */
