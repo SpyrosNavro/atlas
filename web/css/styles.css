@@ -1624,6 +1624,7 @@ a:hover.back-to-top {
 	text-align: left;
 }
 
+
 /****************************************/
 /*             Applications             */
 /****************************************/
@@ -1659,6 +1660,16 @@ a:hover.back-to-top {
 	width: 100px;
 	margin:auto;
 	margin-bottom: 50px;
+}
+
+
+/****************************************/
+/*            Communication             */
+/****************************************/
+
+.info {
+	color: white;
+	align-content: flex-start;
 }
 
 
