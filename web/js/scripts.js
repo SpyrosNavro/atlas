@@ -20,7 +20,6 @@
 		hidePreloader();
 	});
 
-	
 	/* Navbar Scripts */
 	// jQuery to collapse the navbar on scroll
     $(window).on('scroll load', function() {
