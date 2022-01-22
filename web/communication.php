@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    require_once './php/connect.php'; // connect to db
+    unset($_SESSION['failure']);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +23,7 @@
 	<meta property="og:type" content="article" />
 
     <!-- Website Title -->
-    <title>Δημιουργία Αίτησης</title>
+    <title>Επικοινωνία</title>
     
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext" rel="stylesheet">
@@ -27,15 +32,10 @@
     <link href="css/swiper.css" rel="stylesheet">
 	<link href="css/magnific-popup.css" rel="stylesheet">
 	<link href="css/styles.css" rel="stylesheet">
-    
+	
 	<!-- Favicon  -->
-    <!-- <link rel="icon" href="images/doatap_logo.png"> -->
+    <!-- <link rel="icon" href="images/favicon.png"> -->
 </head>
-
-
-
-
-
 <body data-spy="scroll" data-target=".fixed-top">
     
     <!-- Preloader -->
@@ -47,15 +47,17 @@
         </div>
     </div>
     <!-- end of preloader -->
+    
 
+    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
         <div class="container">
 
             <!-- Text Logo - Use this if you don't have a graphic logo -->
-            <!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Tivo</a> -->
+            <!-- <a class="navbar-brand logo-text page-scroll" href="index.php">Tivo</a> -->
 
             <!-- Image Logo -->
-            <a class="navbar-brand logo-image" href="index.html"><img src="images/doatap_logo.png" alt="DOATAP logo"></a> 
+            <a class="navbar-brand logo-image" href="index.php"><img src="images/doatap_logo.png" alt="DOATAP logo"></a> 
             <!-- Mobile Menu Toggle Button -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-awesome fas fa-bars"></span>
@@ -66,7 +68,7 @@
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="index.html">ΑΡΧΙΚΗ <span class="sr-only">(current)</span></a>
+                        <a class="nav-link page-scroll" href="index.php">ΑΡΧΙΚΗ <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link page-scroll" href="#features">ΟΙ ΑΙΤΗΣΕΙΣ ΜΟΥ</a>
@@ -94,13 +96,40 @@
                         <a class="nav-link page-scroll" href="#pricing">ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ</a>
                     </li>
                 </ul>
-                <span class="nav-item">
-                    <a class="btn-outline-sm" href="log-in.html">ΣΥΝΔΕΣΗ</a>
+                <span class="nav-item" >
+                    <a class="btn-outline-sm" id="login-btn" href="log-in.php">ΣΥΝΔΕΣΗ</a>
                 </span>
 
-                <span class="nav-item">
-                    <a class="btn-outline-sm" href="sign-up.html">ΕΓΓΡΑΦΗ</a>
+                <span class="nav-item" >
+                    <a class="btn-outline-sm" id="signup-btn" href="sign-up.php">ΕΓΓΡΑΦΗ</a>
                 </span>
+
+                <span class="nav-item" >
+                    <a class="btn-outline-sm" id="disconnect-btn" href="php/disconnect.php">ΑΠΟΣΥΝΔΕΣΗ</a>
+                </span>
+                <?php 
+                    if( isset($_SESSION['email']))
+                    { ?>
+
+                        <script>
+                            console.log("success");
+                             document.getElementById("login-btn").style.display = "none";
+                             document.getElementById("signup-btn").style.display = "none";
+                             document.getElementById("disconnect-btn").style.display = "block";
+                        </script>
+
+
+                    <?php
+                    } else {
+                    ?>
+                        <script>
+                             document.getElementById("login-btn").style.display = "block";
+                             document.getElementById("signup-btn").style.display = "block";
+                             document.getElementById("disconnect-btn").style.display = "none";
+                        </script>
+                    <?php
+                    }
+                    ?>
             </div>
         </div> <!-- end of container -->
     </nav> <!-- end of navbar -->
@@ -108,56 +137,66 @@
 
 
 
-
-    
     <!-- Header -->
     <header id="header" class="ex-2-header">
         <div class="container">
-            <div class="title">
-                <h1>Δημιουργία Αίτησης</h1>
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Επικοινωνία</h1>
+                    <h2>Αθήνα</h2>
+                    <img class="map" src="images/athens_map.png" alt="location of greek department">
+                    
+                    <br>
+
+                    <div class="info"> Τηλέφωνο: 210-5281000 (Δευτέρα έως Παρασκευή, ώρες 12:30-14:00) </div>
+                    <div class="info"> Email: information_dep@doatap.gr </div>
+
+                    <br> <br> <br>
+
+                    <div class="info"> Η δια ζώσης εξυπηρέτηση του κοινού πραγματοποιείται από Δευτέρα έως Πέμπτη
+                        και ώρες 9:00-12:00.
+                        Προς ανάσχεση της διασποράς του ιού, η δια ζώσης εξυπηρέτηση από υπαλλήλους
+                        περιορίζεται στο κοινό που προσέρχεται για να παραλάβει έγγραφα. Το κοινό που
+                        προσέρχεται για ενημέρωση εξυπηρετείται από υπαλλήλους τηλεφωνικά από την
+                        είσοδο του κτιρίου.
+                    </div>
+
+                    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+                    
+                    <h2>Θεσσαλονίκη</h2>
+                    <img class="map" src="images/thessaloniki_map.png" alt="location of thessalonikian department">
+                    
+                    <br>
+
+                    <div class="info"> Τηλέφωνο: 2313-501372 ή 3, 2313-501106, 2313-501315. (Δευτέρα έως Παρασκευή, ώρες 12:30-14:00) </div>
+                    <div class="info"> Email: information_dep@doatap.gr </div>
+
+                    <br> <br> <br>
+
+                    <div class="info"> Η δια ζώσης εξυπηρέτηση του κοινού πραγματοποιείται από Δευτέρα έως Πέμπτη
+                        και ώρες 9:00-12:00.
+                        Προς ανάσχεση της διασποράς του ιού, η δια ζώσης εξυπηρέτηση από υπαλλήλους
+                        περιορίζεται στο κοινό που προσέρχεται για να παραλάβει έγγραφα. Το κοινό που
+                        προσέρχεται για ενημέρωση εξυπηρετείται από υπαλλήλους τηλεφωνικά από την
+                        είσοδο του κτιρίου.
+                    </div>
+
+                    <br> <br> <br> <br> <br> <br>
+
+                    <h3>ΕΠΙΚΟΙΝΩΝΊΑ ΓΙΑ ΆΛΛΑ ΖΗΤΉΜΑΤΑ</h3>
+                    <br>
+                    <div class="info"> Διεύθυνση Αναγνώρισης Ακαδημαϊκών Τίτλων: recognition@doatap.gr </div>
+                    <div class="info"> Επικοινωνία με τη Διεύθυνση Ενημέρωσης: main_information@doatap.gr </div>
+                    <div class="info"> Επικοινωνία με τη Διεύθυνση Διοικητικών και Οικονομικών Υπηρεσιών: administration@doatap.gr </div>
+                    <div class="info"> Λοιπές ενημερώσεις: information@doatap.gr </div>
+
+                    <br><br><br><br><br>
+
+                </div> <!-- end of col -->
             </div> <!-- end of row -->
-
-            <div class = "warning-for-creation"> 
-                Προσοχή! <br>
-                Εάν επιθυμείτε αναγνώριση
-                Μεταπτυχιακού ή Διδακτορικού, σε
-                περίπτωση που το Προπτυχιακό σας
-                έχει γίνει στο εξωτερικό και δεν έχει
-                αναγνωριστεί ήδη από τον ΔΟΑΤΑΠ,
-                θα πρέπει να συμπεριληφθεί και αυτό
-                στην αίτηση
-            </p> </div>
-            
-            <br>
-
-            <h3>Προπτυχιακό:</h3>
-            <div class="btn-group">
-                <button>-</button>
-                <button>+</button>
-            </div>
-
-            <h3>Μεταπτυχιακό:</h3>
-            <div class="btn-group">
-                <button>-</button>
-                <button>+</button>
-            </div>
-
-            <h3>Διδακτορικό:</h3>
-            <div class="btn-group">
-                <button>-</button>
-                <button>+</button>
-            </div>
-
-            <br><br><br>
-            <a class="button-for-next-step" href="create_application_.html"> <font size="5"> Επόμενο Βήμα </font> </a>
-
         </div> <!-- end of container -->
     </header> <!-- end of ex-header -->
     <!-- end of header -->
-
-
-
-
 
     <!-- Footer -->
     <div class="footer">
@@ -205,6 +244,7 @@
         </div> <!-- end of container -->
     </div> <!-- end of footer -->  
     <!-- end of footer -->
+
 
     <!-- Scripts -->
     <script src="js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->

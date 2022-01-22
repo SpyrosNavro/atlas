@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    require_once './php/connect.php'; // connect to db
+    unset($_SESSION['failure']);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,10 +46,10 @@
         <div class="container">
 
             <!-- Text Logo - Use this if you don't have a graphic logo -->
-            <!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Tivo</a> -->
+            <!-- <a class="navbar-brand logo-text page-scroll" href="index.php">Tivo</a> -->
 
             <!-- Image Logo -->
-            <a class="navbar-brand logo-image" href="index.html"><img src="images/doatap_logo.png" alt="DOATAP logo"></a> 
+            <a class="navbar-brand logo-image" href="index.php"><img src="images/doatap_logo.png" alt="DOATAP logo"></a> 
             <!-- Mobile Menu Toggle Button -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-awesome fas fa-bars"></span>
@@ -57,7 +63,7 @@
                         <a class="nav-link page-scroll" href="#header">ΑΡΧΙΚΗ <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="applications.html">ΟΙ ΑΙΤΗΣΕΙΣ ΜΟΥ</a>
+                        <a class="nav-link page-scroll" href="applications.php">ΟΙ ΑΙΤΗΣΕΙΣ ΜΟΥ</a>
                     </li>
 
                     <li class="nav-item dropdown">
@@ -75,20 +81,47 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="communication.html">ΕΠΙΚΟΙΝΩΝΙΑ</a>
+                        <a class="nav-link page-scroll" href="communication.php">ΕΠΙΚΟΙΝΩΝΙΑ</a>
                     </li>
 
                     <li class="nav-item">
                         <a class="nav-link page-scroll" href="#pricing">ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ</a>
                     </li>
                 </ul>
-                <span class="nav-item">
-                    <a class="btn-outline-sm" href="log-in.html">ΣΥΝΔΕΣΗ</a>
+                <span class="nav-item" >
+                    <a class="btn-outline-sm" id="login-btn" href="log-in.php">ΣΥΝΔΕΣΗ</a>
                 </span>
 
-                <span class="nav-item">
-                    <a class="btn-outline-sm" href="sign-up.html">ΕΓΓΡΑΦΗ</a>
+                <span class="nav-item" >
+                    <a class="btn-outline-sm" id="signup-btn" href="sign-up.php">ΕΓΓΡΑΦΗ</a>
                 </span>
+
+                <span class="nav-item" >
+                    <a class="btn-outline-sm" id="disconnect-btn" href="php/disconnect.php">ΑΠΟΣΥΝΔΕΣΗ</a>
+                </span>
+                <?php 
+                    if( isset($_SESSION['email']))
+                    { ?>
+
+                        <script>
+                            console.log("success");
+                             document.getElementById("login-btn").style.display = "none";
+                             document.getElementById("signup-btn").style.display = "none";
+                             document.getElementById("disconnect-btn").style.display = "block";
+                        </script>
+
+
+                    <?php
+                    } else {
+                    ?>
+                        <script>
+                             document.getElementById("login-btn").style.display = "block";
+                             document.getElementById("signup-btn").style.display = "block";
+                             document.getElementById("disconnect-btn").style.display = "none";
+                        </script>
+                    <?php
+                    }
+                    ?>
             </div>
         </div> <!-- end of container -->
     </nav> <!-- end of navbar -->
@@ -109,7 +142,7 @@
                                 • Ταυτότητα </br>
                             </p>
                             
-                            <a class="btn-solid-lg page-scroll" href="sign-up.html">ΔΗΜΙΟΥΡΓΙΑ ΑΙΤΗΣΗΣ</a>
+                            <a class="btn-solid-lg page-scroll" href="sign-up.php">ΔΗΜΙΟΥΡΓΙΑ ΑΙΤΗΣΗΣ</a>
                         </div> <!-- end of text-container -->
                     </div> <!-- end of col -->
                     <div class="col-lg-6 col-xl-7">
@@ -263,7 +296,7 @@
                                 <div class="col-lg-6">
                                     <div class="text-container">
                                         <h3>List Building Is Easier Than Ever</h3>
-                                        <p>It's very easy to start using Tivo. You just need to fill out and submit the <a class="blue page-scroll" href="sign-up.html">Sign Up Form</a> and you will receive access to the app and all of its features in no more than 24h.</p>
+                                        <p>It's very easy to start using Tivo. You just need to fill out and submit the <a class="blue page-scroll" href="sign-up.php">Sign Up Form</a> and you will receive access to the app and all of its features in no more than 24h.</p>
                                         <ul class="list-unstyled li-space-lg">
                                             <li class="media">
                                                 <i class="fas fa-square"></i>
@@ -397,7 +430,7 @@
                             <i class="fas fa-square"></i><div class="media-body">Fast email checking</div>
                         </li>
                     </ul>
-                    <a class="btn-solid-reg mfp-close" href="sign-up.html">SIGN UP</a> <a class="btn-outline-reg mfp-close as-button" href="#screenshots">BACK</a>
+                    <a class="btn-solid-reg mfp-close" href="sign-up.php">SIGN UP</a> <a class="btn-outline-reg mfp-close as-button" href="#screenshots">BACK</a>
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
         </div> <!-- end of container -->
@@ -439,7 +472,7 @@
                             <i class="fas fa-square"></i><div class="media-body">Fast email checking</div>
                         </li>
                     </ul>
-                    <a class="btn-solid-reg mfp-close" href="sign-up.html">SIGN UP</a> <a class="btn-outline-reg mfp-close as-button" href="#screenshots">BACK</a>
+                    <a class="btn-solid-reg mfp-close" href="sign-up.php">SIGN UP</a> <a class="btn-outline-reg mfp-close as-button" href="#screenshots">BACK</a>
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
         </div> <!-- end of container -->
@@ -481,7 +514,7 @@
                             <i class="fas fa-square"></i><div class="media-body">Fast email checking</div>
                         </li>
                     </ul>
-                    <a class="btn-solid-reg mfp-close" href="sign-up.html">SIGN UP</a> <a class="btn-outline-reg mfp-close as-button" href="#screenshots">BACK</a>
+                    <a class="btn-solid-reg mfp-close" href="sign-up.php">SIGN UP</a> <a class="btn-outline-reg mfp-close as-button" href="#screenshots">BACK</a>
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
         </div> <!-- end of container -->
@@ -508,7 +541,7 @@
                                 <div class="media-body">Targeted client base with Tivo's efficient technology</div>
                             </li>
                         </ul>
-                        <a class="btn-solid-reg page-scroll" href="sign-up.html">SIGN UP</a>
+                        <a class="btn-solid-reg page-scroll" href="sign-up.php">SIGN UP</a>
                     </div> <!-- end of text-container -->
                 </div> <!-- end of col -->
                 <div class="col-lg-6">
@@ -586,7 +619,7 @@
                                 </li>
                             </ul>
                             <div class="button-wrapper">
-                                <a class="btn-solid-reg page-scroll" href="sign-up.html">SIGN UP</a>
+                                <a class="btn-solid-reg page-scroll" href="sign-up.php">SIGN UP</a>
                             </div>
                         </div>
                     </div> <!-- end of card -->
@@ -617,7 +650,7 @@
                                 </li>
                             </ul>
                             <div class="button-wrapper">
-                                <a class="btn-solid-reg page-scroll" href="sign-up.html">SIGN UP</a>
+                                <a class="btn-solid-reg page-scroll" href="sign-up.php">SIGN UP</a>
                             </div>
                         </div>
                     </div> <!-- end of card -->
@@ -651,7 +684,7 @@
                                 </li>
                             </ul>
                             <div class="button-wrapper">
-                                <a class="btn-solid-reg page-scroll" href="sign-up.html">SIGN UP</a>
+                                <a class="btn-solid-reg page-scroll" href="sign-up.php">SIGN UP</a>
                             </div>
                         </div>
                     </div> <!-- end of card -->

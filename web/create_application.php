@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    require_once './php/connect.php'; // connect to db
+    unset($_SESSION['failure']);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,10 +58,10 @@
         <div class="container">
 
             <!-- Text Logo - Use this if you don't have a graphic logo -->
-            <!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Tivo</a> -->
+            <!-- <a class="navbar-brand logo-text page-scroll" href="index.php">Tivo</a> -->
 
             <!-- Image Logo -->
-            <a class="navbar-brand logo-image" href="index.html"><img src="images/doatap_logo.png" alt="DOATAP logo"></a> 
+            <a class="navbar-brand logo-image" href="index.php"><img src="images/doatap_logo.png" alt="DOATAP logo"></a> 
             <!-- Mobile Menu Toggle Button -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-awesome fas fa-bars"></span>
@@ -66,7 +72,7 @@
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="index.html">ΑΡΧΙΚΗ <span class="sr-only">(current)</span></a>
+                        <a class="nav-link page-scroll" href="index.php">ΑΡΧΙΚΗ <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link page-scroll" href="#features">ΟΙ ΑΙΤΗΣΕΙΣ ΜΟΥ</a>
@@ -94,13 +100,40 @@
                         <a class="nav-link page-scroll" href="#pricing">ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ</a>
                     </li>
                 </ul>
-                <span class="nav-item">
-                    <a class="btn-outline-sm" href="log-in.html">ΣΥΝΔΕΣΗ</a>
+                <span class="nav-item" >
+                    <a class="btn-outline-sm" id="login-btn" href="log-in.php">ΣΥΝΔΕΣΗ</a>
                 </span>
 
-                <span class="nav-item">
-                    <a class="btn-outline-sm" href="sign-up.html">ΕΓΓΡΑΦΗ</a>
+                <span class="nav-item" >
+                    <a class="btn-outline-sm" id="signup-btn" href="sign-up.php">ΕΓΓΡΑΦΗ</a>
                 </span>
+
+                <span class="nav-item" >
+                    <a class="btn-outline-sm" id="disconnect-btn" href="php/disconnect.php">ΑΠΟΣΥΝΔΕΣΗ</a>
+                </span>
+                <?php 
+                    if( isset($_SESSION['email']))
+                    { ?>
+
+                        <script>
+                            console.log("success");
+                             document.getElementById("login-btn").style.display = "none";
+                             document.getElementById("signup-btn").style.display = "none";
+                             document.getElementById("disconnect-btn").style.display = "block";
+                        </script>
+
+
+                    <?php
+                    } else {
+                    ?>
+                        <script>
+                             document.getElementById("login-btn").style.display = "block";
+                             document.getElementById("signup-btn").style.display = "block";
+                             document.getElementById("disconnect-btn").style.display = "none";
+                        </script>
+                    <?php
+                    }
+                    ?>
             </div>
         </div> <!-- end of container -->
     </nav> <!-- end of navbar -->
@@ -117,102 +150,46 @@
                 <h1>Δημιουργία Αίτησης</h1>
             </div> <!-- end of row -->
 
-            <div class="form-container">
-                <form id="signUpForm" data-toggle="validator" data-focus="false">
-
-                    <div class="form-group">
-                        <input type="text" class="form-control-input" id="sname" required>
-                        <label class="label-control" for="sname">Χώρα Σπουδών</label>
-                        <div class="help-block with-errors"></div>
-                    </div>
-
-                    <div class="form-group">
-                        <input type="text" class="form-control-input" id="slastname" required>
-                        <label class="label-control" for="slastname">Πανεπιστήμιο</label>
-                        <div class="help-block with-errors"></div>
-                    </div>
-
-                    <div class="form-group">
-                        <input type="text" class="form-control-input" id="slastname" required>
-                        <label class="label-control" for="slastname">Τίτλος Σπουδών</label>
-                        <div class="help-block with-errors"></div>
-                    </div>
-
-                    <div class="form-group">
-                        <input type="text" class="form-control-input" id="slastname" required>
-                        <label class="label-control" for="slastname">ECTS</label>
-                        <div class="help-block with-errors"></div>
-                    </div>
-
-                    <div class="form-group">
-                        <input type="date" class="form-control-input" id="start" value="01-05-2018" max="01-20-2022" required>
-                        <label class="label-control" for="slastname">Ημερ. Εγγραφής</label>
-                        <div class="help-block with-errors"></div>
-                    </div>
-
-                    <div class="form-group">
-                        <input type="date" class="form-control-input" id="end" value="01-05-2018" max="01-20-2022" required>
-                        <label class="label-control" for="slastname">Ημερ. Αποφοίτησης</label>
-                        <div class="help-block with-errors"></div>
-                    </div>
-
-                    <div class="form-group">
-                        Πτυχίο:
-                        <form action="/action_page.php">
-                            <input type="file" id="myFile" name="filename">
-                        </form>                          
-                    </div>
-
-                    <div class="form-group">
-                        Ταυτότητα:
-                        <form action="/action_page.php">
-                            <input type="file" id="myFile" name="filename">
-                        </form>                          
-                    </div>
-                    
-                    <br>
-
-                    Τι από τα παρακάτω κάνατε;
-
-                    <div class="form-group"style="margin: 10px;">
-                        <input type="checkbox" id="research" name="research">
-                        <label for="research">Πτυχιακή</label>
-                    </div>
-
-                    <div class="form-group" style="margin: 10px;">
-                        <input type="checkbox" id="work" name="work">
-                        <label for="work">Πρακτική</label>
-                    </div>
-
-                    <div class="form-group" style="margin: 10px;">
-                        <input type="checkbox" id="nothing" name="nothing">
-                        <label for="nothing">Τίποτα από τα παραπάνω</label>
-                    </div>
-
-                    <div class="form-group">
-                        Ανεβάστε αντίστοιχο αρχείο:
-                        <form action="/action_page.php">
-                            <input type="file" id="myFile" name="filename">
-                        </form>                          
-                    </div>
-
-                    <div class="form-message">
-                        <div id="smsgSubmit" class="h3 text-center hidden"></div>
-                    </div>
-                </form>
-            </div> <!-- end of form container -->
+            <div class = "warning-for-creation"> 
+                Προσοχή! <br>
+                Εάν επιθυμείτε αναγνώριση
+                Μεταπτυχιακού ή Διδακτορικού, σε
+                περίπτωση που το Προπτυχιακό σας
+                έχει γίνει στο εξωτερικό και δεν έχει
+                αναγνωριστεί ήδη από τον ΔΟΑΤΑΠ,
+                θα πρέπει να συμπεριληφθεί και αυτό
+                στην αίτηση
+            </p> </div>
             
-            
+            <br>
+
+            <h3>Προπτυχιακό:</h3>
+            <div class="btn-group">
+                <button>-</button>
+                <button>+</button>
+            </div>
+
+            <h3>Μεταπτυχιακό:</h3>
+            <div class="btn-group">
+                <button>-</button>
+                <button>+</button>
+            </div>
+
+            <h3>Διδακτορικό:</h3>
+            <div class="btn-group">
+                <button>-</button>
+                <button>+</button>
+            </div>
 
             <br><br><br>
-            <a class="button-for-next-step" href="sign-up.html"> <font size="5"> Επόμενο Βήμα </font> </a>
+            <a class="button-for-next-step" href="create_application_.php"> <font size="5"> Επόμενο Βήμα </font> </a>
 
         </div> <!-- end of container -->
     </header> <!-- end of ex-header -->
     <!-- end of header -->
 
 
-    
+
 
 
     <!-- Footer -->

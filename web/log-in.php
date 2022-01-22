@@ -1,3 +1,48 @@
+<?php
+    session_start();
+    require_once './php/connect.php';
+    if(isset($_POST['submit']))
+    {
+
+        $_SESSION['failure'] ="";
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+    
+        $result = mysqli_query($conn,"SELECT * FROM user WHERE email='$email' AND psw='$password'");
+    
+        if ($result)
+        {
+
+            $arr = $result->fetch_array();
+            if ($arr)
+            {
+                $_SESSION['id']=$arr[0];
+                $_SESSION['firstname']=$arr[1];
+                $_SESSION['lastname']=$arr[2];
+                $_SESSION['country']=$arr[3];
+                $_SESSION['address']=$arr[4];
+                $_SESSION['city']=$arr[5];
+                $_SESSION['region']=$arr[6];
+                $_SESSION['email']=$arr[7];
+                $_SESSION['tel']=$arr[8];
+                $_SESSION['postcode']=$arr[9];
+                $_SESSION['password']=$arr[10];
+                $_SESSION['type_of_user']=$arr[11];
+
+                //header("Location: ./index.php");
+            }
+            else
+            {
+                $_SESSION['failure'] = 'Λάθος email ή κωδικός.';
+            }
+        }
+        else
+        {
+            $_SESSION['failure'] = 'Λάθος email ή κωδικός.';
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +63,7 @@
 	<meta property="og:type" content="article" />
 
     <!-- Website Title -->
-    <title>Δημιουργία Προφίλ στο ΔΟΑΤΑΠ</title>
+    <title>Σύνδεση ΔΟΑΤΑΠ</title>
     
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext" rel="stylesheet">
@@ -27,9 +72,9 @@
     <link href="css/swiper.css" rel="stylesheet">
 	<link href="css/magnific-popup.css" rel="stylesheet">
 	<link href="css/styles.css" rel="stylesheet">
-	
+    
 	<!-- Favicon  -->
-    <!-- <link rel="icon" href="images/favicon.png"> -->
+    <!-- <link rel="icon" href="images/doatap_logo.png"> -->
 </head>
 <body data-spy="scroll" data-target=".fixed-top">
     
@@ -42,17 +87,15 @@
         </div>
     </div>
     <!-- end of preloader -->
-    
 
-    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
         <div class="container">
 
             <!-- Text Logo - Use this if you don't have a graphic logo -->
-            <!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Tivo</a> -->
+            <!-- <a class="navbar-brand logo-text page-scroll" href="index.php">Tivo</a> -->
 
             <!-- Image Logo -->
-            <a class="navbar-brand logo-image" href="index.html"><img src="images/doatap_logo.png" alt="DOATAP logo"></a> 
+            <a class="navbar-brand logo-image" href="index.php"><img src="images/doatap_logo.png" alt="DOATAP logo"></a> 
             <!-- Mobile Menu Toggle Button -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-awesome fas fa-bars"></span>
@@ -63,7 +106,7 @@
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="index.html">ΑΡΧΙΚΗ <span class="sr-only">(current)</span></a>
+                        <a class="nav-link page-scroll" href="index.php">ΑΡΧΙΚΗ <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link page-scroll" href="#features">ΟΙ ΑΙΤΗΣΕΙΣ ΜΟΥ</a>
@@ -91,115 +134,73 @@
                         <a class="nav-link page-scroll" href="#pricing">ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ</a>
                     </li>
                 </ul>
-                <span class="nav-item">
-                    <a class="btn-outline-sm" href="log-in.html">ΣΥΝΔΕΣΗ</a>
+                <span class="nav-item" >
+                    <a class="btn-outline-sm" id="login-btn" href="log-in.php">ΣΥΝΔΕΣΗ</a>
                 </span>
 
-                <span class="nav-item">
-                    <a class="btn-outline-sm" href="sign-up.html">ΕΓΓΡΑΦΗ</a>
+                <span class="nav-item" >
+                    <a class="btn-outline-sm" id="signup-btn" href="sign-up.php">ΕΓΓΡΑΦΗ</a>
                 </span>
+
+                <span class="nav-item" >
+                    <a class="btn-outline-sm" id="disconnect-btn" href="php/disconnect.php">ΑΠΟΣΥΝΔΕΣΗ</a>
+                </span>
+                <?php 
+                    if( isset($_SESSION['email']))
+                    { ?>
+
+                        <script>
+                            console.log("success");
+                             document.getElementById("login-btn").style.display = "none";
+                             document.getElementById("signup-btn").style.display = "none";
+                             document.getElementById("disconnect-btn").style.display = "block";
+                        </script>
+
+
+                    <?php
+                    } else {
+                    ?>
+                        <script>
+                             document.getElementById("login-btn").style.display = "block";
+                             document.getElementById("signup-btn").style.display = "block";
+                             document.getElementById("disconnect-btn").style.display = "none";
+                        </script>
+                    <?php
+                    }
+                    ?>
             </div>
         </div> <!-- end of container -->
     </nav> <!-- end of navbar -->
     <!-- end of navigation -->
-
-
 
     <!-- Header -->
     <header id="header" class="ex-2-header">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1>Εγγραφή</h1>
-                   <p>Έχετε ήδη λογαριασμό στον ΔΟΑΤΑΠ; <a class="white" href="log-in.html">Συνδεθείτε</a></p> 
+                    <h1>Σύνδεση</h1>
+                   <p>Δεν έχετε λογαριασμό; <a class="white" href="sign-up.php">Εγγραφή</a></p> 
                     <!-- Sign Up Form -->
                     <div class="form-container">
-                        <form id="signUpForm" data-toggle="validator" data-focus="false">
-                            Είδος χρήστη:
-                            <div class="form-group radio button">
-                                
-                                <input type="radio" id="Common" name="type_of_user" value="Common"> Απλός &nbsp &nbsp
-                                <input type="radio" id="Manager" name="type_of_user" value="Manager"> Διαχειριστής
-                            </div>
-
+                        <form action="" method="post">
                             <div class="form-group">
-                                <input type="text" class="form-control-input" id="sname" required>
-                                <label class="label-control" for="sname">Όνομα</label>
-                                <div class="help-block with-errors"></div>
-                            </div>
-
-                            <div class="form-group">
-                                <input type="text" class="form-control-input" id="slastname" required>
-                                <label class="label-control" for="slastname">Επίθετο</label>
-                                <div class="help-block with-errors"></div>
-                            </div>
-
-                            <div class="form-group">
-                                <input type="text" class="form-control-input" id="slastname" required>
-                                <label class="label-control" for="slastname">Χώρα Διαμονής</label>
-                                <div class="help-block with-errors"></div>
-                            </div>
-
-                            <div class="form-group">
-                                <input type="text" class="form-control-input" id="slastname" required>
-                                <label class="label-control" for="slastname">Διεύθυνση Κατοικίας</label>
-                                <div class="help-block with-errors"></div>
-                            </div>
-
-                            <div class="form-group">
-                                <input type="text" class="form-control-input" id="slastname" required>
-                                <label class="label-control" for="slastname">Πόλη</label>
-                                <div class="help-block with-errors"></div>
-                            </div>
-
-                            <div class="form-group">
-                                <input type="text" class="form-control-input" id="slastname" required>
-                                <label class="label-control" for="slastname">Περιοχή</label>
-                                <div class="help-block with-errors"></div>
-                            </div>
-
-                            <div class="form-group">
-                                <input type="text" class="form-control-input" id="slastname" required>
-                                <label class="label-control" for="slastname">ΤΚ</label>
-                                <div class="help-block with-errors"></div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <input type="text" class="form-control-input" id="slastname" required>
-                                <label class="label-control" for="slastname">Τηλέφωνο</label>
-                                <div class="help-block with-errors"></div>
-                            </div>
-
-                            <div class="form-group">
-                                <input type="email" class="form-control-input" id="slastname" required>
-                                <label class="label-control" for="slastname">Email</label>
-                                <div class="help-block with-errors"></div>
-                            </div>
-
-                            Password: <input type="password" value="FakePSW" id="myInput"><br>
-                            <input type="checkbox" onclick="myFunction()">Show Password
-
-                            <script>
-                            function myFunction() {
-                                var x = document.getElementById("myInput");
-                                if (x.type === "password") {
-                                    x.type = "text";
-                                } else {
-                                    x.type = "password";
-                                }
-                            }
-                            </script>
-
-                            <div class="form-group checkbox">
-                                <input type="checkbox" id="sterms" value="Agreed-to-Terms" required>Συμφωνώ με τους <a href="privacy-policy.html">Όρους</a> του ΔΟΑΤΑΠ
+                                <input type="email" class="form-control-input" name="email" required>
+                                <label class="label-control" for="email">Email</label>
                                 <div class="help-block with-errors"></div>
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="form-control-submit-button">SIGN UP</button>
+                                <input type="password" class="form-control-input" name="password" required>
+                                <label class="label-control" for="password">Κωδικός</label>
+                                <div class="help-block with-errors"></div>
                             </div>
-                            <div class="form-message">
-                                <div id="smsgSubmit" class="h3 text-center hidden"></div>
+                            <div class="form-group">
+                                <button name="submit" type="submit" class="btn">ΣΥΝΔΕΣΗ</button>
                             </div>
+                            <?php 
+                            if (isset($_SESSION['failure']) && ($_SESSION['failure']!="")) {?>                               
+                                <div class="failure" style="margin-bottom: 10px;font-size: 18px;color: red;"><?php echo $_SESSION['failure']; ?></div>
+                            <?php }?>
+
                         </form>
                     </div> <!-- end of form container -->
                     <!-- end of sign up form -->
@@ -256,7 +257,6 @@
         </div> <!-- end of container -->
     </div> <!-- end of footer -->  
     <!-- end of footer -->
-
 
     <!-- Scripts -->
     <script src="js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->

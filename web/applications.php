@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    require_once './php/connect.php'; // connect to db
+    unset($_SESSION['failure']);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,10 +57,10 @@
         <div class="container">
 
             <!-- Text Logo - Use this if you don't have a graphic logo -->
-            <!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Tivo</a> -->
+            <!-- <a class="navbar-brand logo-text page-scroll" href="index.php">Tivo</a> -->
 
             <!-- Image Logo -->
-            <a class="navbar-brand logo-image" href="index.html"><img src="images/doatap_logo.png" alt="DOATAP logo"></a> 
+            <a class="navbar-brand logo-image" href="index.php"><img src="images/doatap_logo.png" alt="DOATAP logo"></a> 
             <!-- Mobile Menu Toggle Button -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-awesome fas fa-bars"></span>
@@ -66,7 +71,7 @@
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="index.html">ΑΡΧΙΚΗ <span class="sr-only">(current)</span></a>
+                        <a class="nav-link page-scroll" href="index.php">ΑΡΧΙΚΗ <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link page-scroll" href="#features">ΟΙ ΑΙΤΗΣΕΙΣ ΜΟΥ</a>
@@ -94,13 +99,40 @@
                         <a class="nav-link page-scroll" href="#pricing">ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ</a>
                     </li>
                 </ul>
-                <span class="nav-item">
-                    <a class="btn-outline-sm" href="log-in.html">ΣΥΝΔΕΣΗ</a>
+                <span class="nav-item" >
+                    <a class="btn-outline-sm" id="login-btn" href="log-in.php">ΣΥΝΔΕΣΗ</a>
                 </span>
 
-                <span class="nav-item">
-                    <a class="btn-outline-sm" href="sign-up.html">ΕΓΓΡΑΦΗ</a>
+                <span class="nav-item" >
+                    <a class="btn-outline-sm" id="signup-btn" href="sign-up.php">ΕΓΓΡΑΦΗ</a>
                 </span>
+
+                <span class="nav-item" >
+                    <a class="btn-outline-sm" id="disconnect-btn" href="php/disconnect.php">ΑΠΟΣΥΝΔΕΣΗ</a>
+                </span>
+                <?php 
+                    if( isset($_SESSION['email']))
+                    { ?>
+
+                        <script>
+                            console.log("success");
+                             document.getElementById("login-btn").style.display = "none";
+                             document.getElementById("signup-btn").style.display = "none";
+                             document.getElementById("disconnect-btn").style.display = "block";
+                        </script>
+
+
+                    <?php
+                    } else {
+                    ?>
+                        <script>
+                             document.getElementById("login-btn").style.display = "block";
+                             document.getElementById("signup-btn").style.display = "block";
+                             document.getElementById("disconnect-btn").style.display = "none";
+                        </script>
+                    <?php
+                    }
+                    ?>
             </div>
         </div> <!-- end of container -->
     </nav> <!-- end of navbar -->
@@ -118,7 +150,7 @@
             </div> <!-- end of row -->
 
             <div class = "button-for-creation">
-                <a class="creation" href="create_application.html"> <font size="5"> Δημιουργία Αίτησης </font> </a>
+                <a class="creation" href="create_application.php"> <font size="5"> Δημιουργία Αίτησης </font> </a>
             </div>
 
         </div> <!-- end of container -->
