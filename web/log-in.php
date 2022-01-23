@@ -108,9 +108,27 @@
                     <li class="nav-item">
                         <a class="nav-link page-scroll" href="index.php">ΑΡΧΙΚΗ <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#features">ΟΙ ΑΙΤΗΣΕΙΣ ΜΟΥ</a>
-                    </li>
+
+
+                    <?php 
+                    if( isset($_SESSION['email']))
+                    { ?>
+
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll" href="applications.php">ΟΙ ΑΙΤΗΣΕΙΣ ΜΟΥ</a>
+                        </li>
+
+                    <?php
+                    } else {
+                    ?>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll" href="log-in.php">ΟΙ ΑΙΤΗΣΕΙΣ ΜΟΥ</a>
+                        </li>
+
+                    <?php
+                    }
+                    ?>
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle page-scroll" href="#video" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">ΥΠΗΡΕΣΙΕΣ</a>
@@ -127,7 +145,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#pricing">ΕΠΙΚΟΙΝΩΝΙΑ</a>
+                        <a class="nav-link page-scroll" href="communication.php">ΕΠΙΚΟΙΝΩΝΙΑ</a>
                     </li>
 
                     <li class="nav-item">
