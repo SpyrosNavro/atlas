@@ -2,6 +2,44 @@
     session_start();
     require_once './php/connect.php'; // connect to db
     unset($_SESSION['failure']);
+
+    if(isset($_POST['submit_application']))
+	{
+		$country_of_university = $_POST["country_of_university"];
+		$university = $_POST["university"];
+		$title = $_POST["title"];
+		$ects = $_POST["ects"];
+		$registration_date = $_POST["registration_date"];
+		$graduation_date = $_POST["graduation_date"];
+		$certificate = $_POST["certificate"];
+		$id_card = $_POST["id_card"];
+		$research_or_work = $_POST["research_or_work"];
+	    $id_of_person;
+
+        //$hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+		$query = "INSERT INTO applications (country_of_university, university, title, ects, registration_date, graduation_date, certificate, id_card, research_or_work, id_of_person) VALUES ('$country_of_university', '$university', '$title', '$ects', '$registration_date', '$graduation_date', '$certificate', '$id_card', '$research_or_work', '$id_of_person');";
+        $result = mysqli_query($conn,$query);
+        if ($result && $_SESSION['failure']=='')
+        {
+			$_SESSION['id_of_application']=mysqli_insert_id($conn);
+            $_SESSION['country_of_university']=$country_of_university;
+            $_SESSION['university']=$university;
+            $_SESSION['title']=$title;
+            $_SESSION['ects']=$ects;
+            $_SESSION['registration_date']=$registration_date;
+            $_SESSION['graduation_date']=$graduation_date;
+            $_SESSION['certificate']=$certificate;
+            $_SESSION['id_card']=$id_card;
+            $_SESSION['research_or_work']=$research_or_work;
+            $_SESSION['id_of_person']=$id_of_person;
+
+            header("Location: ./index.php");
+        }
+        else
+        {
+            $_SESSION['failure'] = 'Μη έγκυρα δεδομένα';
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -153,52 +191,52 @@
                 <form id="signUpForm2" data-toggle="validator" data-focus="false">
 
                     <div class="form-group">
-                        <input type="text" class="form-control-input" id="sname" required>
-                        <label class="label-control" for="sname">Χώρα Σπουδών</label>
+                        <input type="text" class="form-control-input" id="country_of_university" required>
+                        <label class="label-control" for="country_of_university">Χώρα Σπουδών</label>
                         <div class="help-block with-errors"></div>
                     </div>
 
                     <div class="form-group">
-                        <input type="text" class="form-control-input" id="slastname" required>
-                        <label class="label-control" for="slastname">Πανεπιστήμιο</label>
+                        <input type="text" class="form-control-input" id="university" required>
+                        <label class="label-control" for="university">Πανεπιστήμιο</label>
                         <div class="help-block with-errors"></div>
                     </div>
 
                     <div class="form-group">
-                        <input type="text" class="form-control-input" id="slastname" required>
-                        <label class="label-control" for="slastname">Τίτλος Σπουδών</label>
+                        <input type="text" class="form-control-input" id="title" required>
+                        <label class="label-control" for="title">Τίτλος Σπουδών</label>
                         <div class="help-block with-errors"></div>
                     </div>
 
                     <div class="form-group">
-                        <input type="text" class="form-control-input" id="slastname" required>
-                        <label class="label-control" for="slastname">ECTS</label>
+                        <input type="text" class="form-control-input" id="ects" required>
+                        <label class="label-control" for="ects">ECTS</label>
                         <div class="help-block with-errors"></div>
                     </div>
 
                     <div class="form-group">
-                        <input type="date" class="form-control-input" id="start" value="01-05-2018" max="01-20-2022" required>
-                        <label class="label-control" for="slastname">Ημερ. Εγγραφής</label>
+                        <input type="date" class="form-control-input" id="registration_date" value="01-05-2018" max="01-20-2022" required>
+                        <label class="label-control" for="registration_date">Ημερ. Εγγραφής</label>
                         <div class="help-block with-errors"></div>
                     </div>
 
                     <div class="form-group">
-                        <input type="date" class="form-control-input" id="end" value="01-05-2018" max="01-20-2022" required>
-                        <label class="label-control" for="slastname">Ημερ. Αποφοίτησης</label>
+                        <input type="date" class="form-control-input" id="graduation_date" value="01-05-2018" max="01-20-2022" required>
+                        <label class="label-control" for="graduation_date">Ημερ. Αποφοίτησης</label>
                         <div class="help-block with-errors"></div>
                     </div>
 
                     <div class="form-group">
                         Πτυχίο:
                         <form action="/action_page.php">
-                            <input type="file" id="myFile" name="filename">
+                            <input type="file" id="certificate" name="filename">
                         </form>                          
                     </div>
 
                     <div class="form-group">
                         Ταυτότητα:
                         <form action="/action_page.php">
-                            <input type="file" id="myFile" name="filename">
+                            <input type="file" id="id_card" name="filename">
                         </form>                          
                     </div>
                     
@@ -224,7 +262,7 @@
                     <div class="form-group">
                         Ανεβάστε αντίστοιχο αρχείο:
                         <form action="/action_page.php">
-                            <input type="file" id="myFile" name="filename">
+                            <input type="file" id="research_or_work" name="filename">
                         </form>                          
                     </div>
 
@@ -237,7 +275,7 @@
             
 
             <br><br><br>
-            <a class="button-for-next-step" href="sign-up.php"> <font size="5"> Επόμενο Βήμα </font> </a>
+            <button type="submit" name="submit_application" class="btn"> Υποβολή </a>
 
         </div> <!-- end of container -->
     </header> <!-- end of ex-header -->
