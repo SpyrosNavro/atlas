@@ -14,7 +14,6 @@
 		$certificate = $_POST["certificate"];
 		$id_card = $_POST["id_card"];
 		$research_or_work = $_POST["research_or_work"];
-	    $id_of_person;
 
         //$hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 		$query = "INSERT INTO applications (country_of_university, university, title, ects, registration_date, graduation_date, certificate, id_card, research_or_work, id_of_person) VALUES ('$country_of_university', '$university', '$title', '$ects', '$registration_date', '$graduation_date', '$certificate', '$id_card', '$research_or_work', '$id_of_person');";
@@ -31,7 +30,7 @@
             $_SESSION['certificate']=$certificate;
             $_SESSION['id_card']=$id_card;
             $_SESSION['research_or_work']=$research_or_work;
-            $_SESSION['id_of_person']=$id_of_person;
+            $_SESSION['id_of_person']=$_SESSION['id'];
 
             header("Location: ./index.php");
         }
