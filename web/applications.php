@@ -74,7 +74,7 @@
                         <a class="nav-link page-scroll" href="index.php">ΑΡΧΙΚΗ <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#features">ΟΙ ΑΙΤΗΣΕΙΣ ΜΟΥ</a>
+                        <a class="nav-link page-scroll" href="applications.php">ΟΙ ΑΙΤΗΣΕΙΣ ΜΟΥ</a>
                     </li>
 
                     <li class="nav-item dropdown">
@@ -92,7 +92,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#pricing">ΕΠΙΚΟΙΝΩΝΙΑ</a>
+                        <a class="nav-link page-scroll" href="communication.php">ΕΠΙΚΟΙΝΩΝΙΑ</a>
                     </li>
 
                     <li class="nav-item">
