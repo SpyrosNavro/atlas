@@ -159,7 +159,25 @@
                                 • Ταυτότητα </br>
                             </p>
                             
-                            <a class="btn-solid-lg page-scroll" href="sign-up.php">ΔΗΜΙΟΥΡΓΙΑ ΑΙΤΗΣΗΣ</a>
+                            <?php 
+                            if( isset($_SESSION['email']))
+                            { ?>
+
+                                <li class="nav-item">
+                                    <a class="btn-solid-lg page-scroll" href="create_application.php">ΔΗΜΙΟΥΡΓΙΑ ΑΙΤΗΣΗΣ</a>
+                                </li>
+
+                            <?php
+                            } else {
+                            ?>
+                                
+                                <li class="nav-item">
+                                    <a class="btn-solid-lg page-scroll" href="log-in.php"> ΔΗΜΙΟΥΡΓΙΑ ΑΙΤΗΣΗΣ </a>
+                                </li>
+
+                            <?php
+                                }
+                            ?>
                         </div> <!-- end of text-container -->
                     </div> <!-- end of col -->
                     <div class="col-lg-6 col-xl-7">
