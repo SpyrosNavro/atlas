@@ -15,7 +15,7 @@
     <meta name="author" content="Inovatik">
 
     <!-- Website Title -->
-    <title>ΑΤΛΑΣ 4</title>
+    <title>ΑΤΛΑΣ</title>
     
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext" rel="stylesheet">
