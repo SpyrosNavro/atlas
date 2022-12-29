@@ -76,7 +76,7 @@
                     ?>
                         
                         <li class="nav-item">
-                            <a class="nav-link page-scroll" href="log-in.php">ΟΙ ΑΙΤΗΣΕΙΣ ΜΟΥ</a>
+                            <a class="nav-link page-scroll" href="log-in.php">ΚΑΛΗΜΕΡΑ</a>
                         </li>
 
                     <?php
