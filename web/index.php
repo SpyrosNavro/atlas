@@ -68,7 +68,7 @@
                     { ?>
 
                         <li class="nav-item">
-                            <a class="nav-link page-scroll" href="applications.php">ΟΙ ΑΙΤΗΣΕΙΣ ΜΟΥ</a>
+                            <a class="nav-link page-scroll" href="applications.php">ΚΑΛΗΜΕΡΑ</a>
                         </li>
 
                     <?php
