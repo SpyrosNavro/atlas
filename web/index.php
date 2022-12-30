@@ -94,7 +94,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#pricing">ΑΝΑΚΟΙΝΩΣΕΙΣ</a>
+                        <a class="nav-link page-scroll" href="#pricing">ΑΝΑΚΟΙΝΩΣΕΙΣ222222</a>
                     </li>
 
                     <li class="nav-item">
