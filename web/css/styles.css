@@ -669,8 +669,8 @@ input[type='checkbox'] {
 }
 
 .navbar-custom .navbar-brand.logo-image img {
-    width: 11.4375rem;
-	height: 3.75rem;
+    width: 7rem;
+	height: 7rem;
 }
 
 .navbar-custom .navbar-brand.logo-text {
@@ -686,7 +686,7 @@ input[type='checkbox'] {
 
 .navbar-custom .nav-item .nav-link {
 	padding: 0.625rem 0.75rem 0.625rem 0.75rem;
-	color: #f7f5f5;
+	color: rgb(0, 0, 0);
 	opacity: 0.8;
 	text-decoration: none;
 	transition: all 0.2s ease;
@@ -753,8 +753,8 @@ input[type='checkbox'] {
 	margin-top: 0.25rem;
 	margin-bottom: 1.375rem;
 	margin-left: 0.5rem;
-	border: 0.125rem solid #fff;
-	color: #fff;
+	border: 0.125rem solid #3026a2;
+	color: #3026a2;
 }
 
 .navbar-custom .nav-item .btn-outline-sm:hover {
