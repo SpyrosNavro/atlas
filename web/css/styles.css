@@ -739,6 +739,14 @@ input[type='checkbox'] {
 	opacity: 1;
 }
 
+#breadcrumb {
+	background-color: #f0f0f0;
+	border-bottom: 1px solid #e0e0e0;
+	height: 1.4em;
+	font-size: 0.917em;
+	padding: .417em .667em;
+  }
+
 .navbar-custom .dropdown-items-divide-hr {
 	width: 100%;
 	height: 1px;
