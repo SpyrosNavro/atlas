@@ -1759,6 +1759,7 @@ a:hover.back-to-top {
 	.ex-header {
 		padding-top: 11rem;
 		padding-bottom: 9rem;
+		background-color: white;
 	}
 
 	.ex-basic-2 .text-container.dark {

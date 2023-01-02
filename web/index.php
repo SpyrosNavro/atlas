@@ -129,7 +129,7 @@
         </div> <!-- end of container -->
     </nav> <!-- end of navbar -->
     <!-- end of navigation -->
-
+    </br></br>
 
     <!-- Pricing -->
     <div id="pricing" class="cards-2">
