@@ -150,8 +150,9 @@
             <li><a href="index.php">Αρχική Σελίδα</a></li>
 
             <li> -> Συχνές Ερωτήσεις</li>
-          </ul>
+        </ul>
 
+        <h3 class = "faq-section"> Φοιτητές </h6> </br>
         <section class="faq-container">
             <div class="faq-one">
 
@@ -165,7 +166,7 @@
                     </p>
                 </div>
             </div>
-            <hr class="hr-line">
+            </br>
 
             <div class="faq-two">
 
@@ -184,7 +185,7 @@
                     </p>
                 </div>
             </div>
-            <hr class="hr-line">
+            </br>
 
 
             <div class="faq-three">
@@ -194,12 +195,12 @@
 
                 <!-- faq answer -->
                 <div class="faq-body">
-                    <p>Δυστυχώς, αυτό δεν μπορεί να το προβλέψει ο ΑΤΛΑΣ. Είναι ένα ζήτημα το οποίο εξαρτάται από τον Φορέα Υποδοχής.
+                    <p>Δυστυχώς, αυτό δεν μπορεί να το προβλέψει ο ΑΤΛΑΣ.</br>Είναι ένα ζήτημα το οποίο εξαρτάται από τον Φορέα Υποδοχής.
                     </p>
                 </div>
             </div>
 
-            <hr class="hr-line">
+            </br>
 
             <div class="faq-four">
 
@@ -212,7 +213,7 @@
                 </div>
             </div>
 
-            <hr class="hr-line">
+            </br>
 
 
             <div class="faq-five">
@@ -227,7 +228,7 @@
                 </div>
             </div>
 
-            <hr class="hr-line">
+            </br>
 
 
             <div class="faq-six">
@@ -246,7 +247,7 @@
 
             <hr class="hr-line">
 
-
+            <h3 class = "faq-section"> Φορείς Υποδοχής Πρακτικής Άσκησης </h6> </br>
             <div class="faq-seven">
 
                 <!-- faq question -->
@@ -260,7 +261,7 @@
                 </div>
             </div>
 
-            <hr class="hr-line">
+            </br>
 
 
             <div class="faq-eight">
@@ -278,6 +279,7 @@
                     </p>
                 </div>
             </div>
+            </br>
 
             <div class="faq-nine">
 
@@ -291,6 +293,7 @@
                     </p>
                 </div>
             </div>
+            </br>
 
             <div class="faq-ten">
 
@@ -309,6 +312,9 @@
                 </div>
             </div>
 
+            <hr class="hr-line">
+
+            <h3 class = "faq-section"> Γραφείο Πρακτικής Άσκησης </h6> </br>
             <div class="faq-eleven">
 
                 <!-- faq question -->
@@ -323,6 +329,7 @@
                     </p>
                 </div>
             </div>
+            </br>
 
             <div class="faq-twelve">
 
@@ -335,12 +342,7 @@
                     <p>Το αντίστοιχο τμήμα της σχολής το οποίο ασχολείται με το ζήτημα της Πρακτικής Άσκησης.
                     </p>
                 </div>
-            </div>
-
-            
-
-            <hr class="hr-line">
-            
+            </div>            
 
         </section>
 
@@ -357,27 +359,23 @@
                         <h4>Επικοινωνία</h4>
                         <p class="p-small">
                             Ώρες εξυπηρέτησης τηλεφώνων: </br>
-                             Δευ-Παρ, 12:30-14:00 </br> </br>
-                            Αθήνα </br>
-                            Τηλ: 2105281000 </br> </br>
-                            Θεσσαλονίκη </br>
-                            Τηλ: 2313501372/2313501373 </br>
-                            2313501106/2313501315 </br> </br>
-                            Email: information_dep@doatap.gr
+                             Δευ-Παρ, 9:00-15:00 </br> </br>
+                            Τηλέφωνα: </br>
+                            2102400000 </br>
+                            2102400001 </br> </br>
+                            Email: help@atlas.gr
                         </p>
                     </div>
                 </div> <!-- end of col -->
 
                 <div class="col-md-4">
                     <div class="footer-col middle">
-                        <h4>Προσβασιμότητα</h4>
+                        <h4>Διοργανωτές</h4>
                         <p class="p-small">
-                            Η δια ζώσης εξυπηρέτηση του κοινού: </br>
-                             Δευτέρα και Πέμπτη, 9:00-12:00 </br> </br>
-                            Αθήνα </br>
-                            Αγ. Κωνσταντίνος 54, Τ.Κ. 104 37 </br> </br>
-                            Θεσσαλονίκη </br>
-                            Υπουργείο Μακεδονίας Θράκης - Διοικητήριο, Τ.Κ. 541 23
+                           Ελληνική Δημοκρατία </br>
+                           Υποργείο Υγείας και Θρησκευμάτων </br>
+                           Ευρωπαϊκή Ένωση </br>
+                           ΕΣΠΑ </br>
                         </p>
                     </div>
                 </div> <!-- end of col -->
