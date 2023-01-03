@@ -24,7 +24,7 @@
 	<meta property="og:type" content="article" />
 
     <!-- Website Title -->
-    <title>Information- SaaS App HTML Landing Page Template</title>
+    <title>FAQs</title>
     
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext" rel="stylesheet">
@@ -58,7 +58,7 @@
             <!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Tivo</a> -->
 
             <!-- Image Logo -->
-            <a class="navbar-brand logo-image" href="index.html"><img src="images/doatap_logo.png" alt="DOATAP logo"></a> 
+            <a class="navbar-brand logo-image" href="index.php"><img src="images/atlas_logo.png" alt="ATLAS logo"></a> 
             <!-- Mobile Menu Toggle Button -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-awesome fas fa-bars"></span>
@@ -69,14 +69,15 @@
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="index.html">ΑΡΧΙΚΗ <span class="sr-only">(current)</span></a>
+                        <a class="nav-link page-scroll" href="index.php">ΑΡΧΙΚΗ ΣΕΛΙΔΑ</span></a>
                     </li>
+
                     <?php 
                     if( isset($_SESSION['email']))
                     { ?>
 
                         <li class="nav-item">
-                            <a class="nav-link page-scroll" href="applications.php">ΟΙ ΑΙΤΗΣΕΙΣ ΜΟΥ</a>
+                            <a class="nav-link page-scroll" href="announcements.php">ΑΝΑΚΟΙΝΩΣΕΙΣ</a>
                         </li>
 
                     <?php
@@ -84,85 +85,19 @@
                     ?>
                         
                         <li class="nav-item">
-                            <a class="nav-link page-scroll" href="log-in.php">ΟΙ ΑΙΤΗΣΕΙΣ ΜΟΥ</a>
+                            <a class="nav-link page-scroll" href="log-in.php">ΑΝΑΚΟΙΝΩΣΕΙΣ</a>
                         </li>
 
                     <?php
                     }
                     ?>
 
-<!---                   <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle page-scroll" href="#video" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">ΥΠΗΡΕΣΙΕΣ</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            
-                            <div class="dropdown-items-divide-hr"></div> 
-
-                            <li class="nav-item dropdown">
-                           <a class="dropdown-item" href="terms-conditions.html"><span class="item-text">ΕΝΗΜΕΡΩΣΗ ΑΙΤΟΥΝΤΑ</span></a>  
-                            
-                                
-                            <div class="dropdown-items-divide-hr"></div>      
-                            <ul class="nav-item dropdown">
-                                <li><a href="#">3rd level dropdown</a></li>
-                                <li><a href="#">3rd level dropdown</a></li>
-                            </ul>   
-
-                            </li>
-                 
---->
-                            <div class="nav-item dropdown">
-                            <!---    <button class="nav-link dropdown-toggle page-scroll" href="#video" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">ΥΠΗΡΕΣΙΕΣ   --->
-                            <a class="nav-link dropdown-toggle page-scroll" href="index.html#video" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">ΥΠΗΡΕΣΙΕΣ</a>
-                            
-                               
-                    
-
-                            <!---    <div class="dropdown-items-divide-hr"></div>    --->
-                                <ul class="nav-item dropdown-menu">
-            
-                                <li class="nav-item dropdown-submenu">
-                                    <a class="nav-link dropdown-toggle page-scroll item" href="#" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">ΕΝΗΜΕΡΩΣΗ ΑΙΤΟΥΝΤΑ <span class="caret"></span></a>    
-                                <!---    <a class="nav-item dropdown-item"  tabindex="-1" href="#" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">ΕΝΗΜΕΡΩΣΗ ΑΙΤΟΥΝΤΑ</a> --->
-
-                                    <div class="dropdown-items-divide-hr"></div> 
-                                    <ul class="nav-item dropdown-submenu">
-                                        <li><a class="nav-item dropdown-item"  href="#information.html">Διαδικασία</a></li>
-                                        <div class="dropdown-items-divide-hr"></div> 
-                                        <li class="nav-item dropdown-submenu">
-                                            <a class="nav-item dropdown-item" tabindex="-1" href="#">Πανεπιστήμια<span class="caret"></a>
-                                            <ul class="nav-item dropdown-submenu">
-                                                <li><a class="nav-item dropdown-item" tabindex="-1" href="greek_unis.php">Ελληνικά Πανεπιστήμια<span class="caret"></a></li>
-                                                <li><a class="nav-item dropdown-item" tabindex="-1" href="other_unis.php">Πανεπιστήμια Εξωτερικού<span class="caret"></a></li>
-                                            </ul>
-                                        <div class="dropdown-items-divide-hr"></div>
-                                        <li><a class="nav-item dropdown-item" tabindex="-1" href="paravola.html">Παράβολα<span class="caret"></a></li>
-                                        <div class="dropdown-items-divide-hr"></div>
-                                    </ul>
-
-                                </li>
-                                
-                            
-                    
-                                
-
-
-                            <a class="nav-item dropdown-item" tabindex="-1" href="extra_help.html">ΣΥΜΠΛΗΡΩΜΑΤΙΚΑ ΑΙΤΗΜΑΤΑ<span class="caret"></span></a>
-                            
-
-                        </ul>
-                        </div>
-                    </li>
-
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="announcements.php">ΑΝΑΚΟΙΝΩΣΕΙΣ</a>
+                        <a class="nav-link page-scroll" href="faq.php">ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ</a>
                     </li>
 
                     <li class="nav-item">
                         <a class="nav-link page-scroll" href="communication.php">ΕΠΙΚΟΙΝΩΝΙΑ</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link page-scroll" href="faq.php">ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ</a>
                     </li>
                 </ul>
                 <span class="nav-item" >
@@ -210,103 +145,101 @@
 
  
     <div id="faqs" class="questions">
-        
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">  
-                    <div class="above-heading"><center>ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ</center></div>
-                </div>   
-            </div> 
-        </div>
 
         <ul class="breadcrumb">
-            <li><a href="index.html">Αρχική</a></li>
+            <li><a href="index.php">Αρχική Σελίδα</a></li>
 
-            <li>Συχνές Ερωτήσεις</li>
-          </ul>
+            <li> -> Συχνές Ερωτήσεις</li>
+        </ul>
 
+        <h3 class = "faq-section"> Φοιτητές </h6> </br>
         <section class="faq-container">
             <div class="faq-one">
 
                 <!-- faq question -->
-                <h6 class="faq-page"> Έχω υποβάλλει οριστικά την αίτησή μου, πως μπορώ να δω τον Αριθμό Πρωτοκόλλου της;</h6>
+                <h6 class="faq-page">1) Πως μπαίνω στο σύστημα για να κάνω αίτηση;</h6>
 
                 <!-- faq answer -->
                 <div class="faq-body">
-                    <p> Η αίτηση παίρνει Αριθμό Πρωτοκόλλου όταν ελεγχθεί και διαπιστωθεί πλήρης ο φάκελός σας, οπότε και μπορεί να ξεκινήσει η διαδικασία αναγνώρισης. Αυτό απαιτεί επιπλέον την παραλαβή και αντιπαραβολή των εγγράφων που αναμένονται να σταλούν από το Πανεπιστήμιο. Έτσι, όταν εσείς υποβάλλετε την αίτησή σας, δεν παίρνει αυτόματα αριθμό πρωτοκόλλου, αλλά έναν άτυπο αριθμό καταχώρησης. Όταν η αίτησή σας περάσει επιτυχώς τον προέλεγχο, τότε πρωτοκολλείται, και ενημερώνεστε με αντίστοιχο email, καθώς επίσης και μέσω του Doatap. Σε αυτήν την περίπτωση ο αριθμός πρωτοκόλλου θα εμφανίζεται στο πάνω-δεξιά μέρος των καρτελών. 
+                    <p> Ως φοιτητής δεν χρειάζεται να εγγραφείτε στο σύστημα. Η σύνδεση γίνεται αυτόματα με τους κωδικούς του e-class.
+ 
                     </p>
                 </div>
             </div>
-            <hr class="hr-line">
+            </br>
 
             <div class="faq-two">
 
                 <!-- faq question -->
-                <h6 class="faq-page">Πόσο διαρκεί η διαδικασία του προελέγχου προκειμένου να πάρω Αριθμό Πρωτοκόλλου; </h6>
+                <h6 class="faq-page">2) Τι δικαιολογητικά χρειάζομαι για να κάνω μια αίτηση;</h6>
 
                 <!-- faq answer -->
 
                 <div class="faq-body">
-                    <p>Η διαδικασία προελέγχου διαρκεί περίπου 40 ημέρες οριζόντια για κάθε κλάδο και κάθε τύπο τίτλου. 
+                    <p>Θα σας ζητηθεί να ανεβάσετε: </br>
+                    1. Φοιτητική Ταυτότητα (πάσο) σε μορφή pdf </br>
+                    2. Πρόσφατη φωτογραφία </br>
+                    3. Αναλυτική βαθμολογία </br>
+                    Αν επιθυμείτε ή σας ζητηθεί από τον Φορέα Υποδοχής να ανεβάσετε κάποιο συμπληρωματικό έγγραφο,</br>υπάρχει ξεχωριστός τμήμα στην αίτηση
+
                     </p>
                 </div>
             </div>
-            <hr class="hr-line">
+            </br>
 
 
             <div class="faq-three">
 
                 <!-- faq question -->
-                <h6 class="faq-page"> Η αίτησή μου δεν έχει αλλάξει κατάσταση για ένα χρονικό διάστημα. Έχει κολλήσει η εφαρμογή;</h6>
+                <h6 class="faq-page">3) Πόσο χρόνο παίρνει η έγκριση για Πρακτική Άσκηση;</h6>
 
                 <!-- faq answer -->
                 <div class="faq-body">
-                    <p>Τυχόν καθυστερήσεις οφείλονται στο στο μεγάλο όγκο αιτήσεων, και όχι στη λειτουργία της πλατφόρμας.
+                    <p>Δυστυχώς, αυτό δεν μπορεί να το προβλέψει ο ΑΤΛΑΣ.</br>Είναι ένα ζήτημα το οποίο εξαρτάται από τον Φορέα Υποδοχής.
                     </p>
                 </div>
             </div>
 
-            <hr class="hr-line">
+            </br>
 
             <div class="faq-four">
 
                 <!-- faq question -->
-                <h6 class="faq-page"> Υπάρχει η δυνατότητα υπέρβασης σειράς προτεραιότητας;</h6>
+                <h6 class="faq-page">4) Μπορώ μέσω του ΑΤΛΑΣ να κάνω αίτηση για Πρακτική Άσκηση στο εξωτερικό;</h6>
 
                 <!-- faq answer -->
                 <div class="faq-body">
-                    <p>Για λόγους ισονομίας και ίσης μεταχείρισης η σειρά προτεραιότητας δεν παραβιάζεται. Μοναδική εξαίρεση αποτελεί η περίπτωση της αδικαιολόγητης καθυστέρησης, πέραν του συνήθους.</p>
+                    <p>Ναι είναι εφικτό. Παρ’όλα αυτά, υπάρχει πιθανότητα να σας ζητηθούν επιπλέον δικαιολογητικά,</br>τα οποία θα πρέπει να καταθέσετε στο τμήμα “Επιπλέον Δικαιολογητικά”</p>
                 </div>
             </div>
 
-            <hr class="hr-line">
+            </br>
 
 
             <div class="faq-five">
 
                 <!-- faq question -->
-                <h6 class="faq-page"> Ποιος είναι ο χρόνος διεκπεραίωσης των αιτήσεων; </h6>
+                <h6 class="faq-page">5) Μπορώ να πάρω βεβαίωση για την συμμετοχή μου στη Πρακτική Άσκηση; </h6>
 
                 <!-- faq answer -->
                 <div class="faq-body">
-                    <p>  Η πλειοψηφία των αιτήσεων ολοκληρώνεται σε διάστημα κάτω των 6 μηνών. 
-
+                    <p>  Ναι είναι εφικτό. Μετά την ολοκλήρωση της Πρακτικής Άσκησης μπορείτε να εκτυπώσετε μια βεβαίωση συμμετοχής.
                     </p>
                 </div>
             </div>
 
-            <hr class="hr-line">
+            </br>
 
 
             <div class="faq-six">
 
                 <!-- faq question -->
-                <h6 class="faq-page">Τι ισχύει για τους απονεμόμενους τίτλους και τα δικαιώματα εργασίας στη συγκεκριμένη χώρα;
+                <h6 class="faq-page">6) Τι ισχύει για τους απονεμόμενους τίτλους και τα δικαιώματα εργασίας στη συγκεκριμένη χώρα;
                 </h6>
 
                 <!-- faq answer -->
                 <div class="faq-body">
-                    <p> Όταν οι απονεμόμενοι τίτλοι οδηγούν σε επαγγελματικά δικαιώματα, τα δικαιώματα αυτά αναγνωρίζονται στη χώρα που λειτουργεί το ανώτατο εκπαιδευτικό ίδρυμα.
+                    <p> Όταν οι απονεμόμενοι τίτλοι οδηγούν σε επαγγελματικά δικαιώματα,</br>τα δικαιώματα αυτά αναγνωρίζονται στη χώρα που λειτουργεί το ανώτατο εκπαιδευτικό ίδρυμα.
 
                     </p>
                 </div>
@@ -314,39 +247,102 @@
 
             <hr class="hr-line">
 
-
+            <h3 class = "faq-section"> Φορείς Υποδοχής Πρακτικής Άσκησης </h6> </br>
             <div class="faq-seven">
 
                 <!-- faq question -->
-                <h6 class="faq-page"> Πως μπορώ να εξοφλήσω το απαραίτητο χρηματικό ποσό;
+                <h6 class="faq-page">1) Ποιοί μπορούν να εγγραφούν ως Φορείς Υποδοχής Πρακτικής Άσκησης;
                 </h6>
 
                 <!-- faq answer -->
                 <div class="faq-body">
-                    <p>Η κατάθεση πραγματοποιείται, είτε στο Κεντρικό Κατάστημα της Τράπεζας Ελλάδος (Ελ. Βενιζέλου -πρώην Πανεπιστημίου- 
-                        αρ. 21), είτε σε κάποιο υποκατάστημα ή πρακτορείο. Εναλλακτικά, μπορείτε να απευθυνθείτε σε όποια Τράπεζα που σας εξυπηρετεί (στο κατάστημα ή μέσω e-banking) και να καταθέσετε το σχετικό ποσό στον λογαριασμό του ΔΟΑΤΑΠ στην Τράπεζα Της Ελλάδος , με τα στοιχεία που περιλαμβάνονται στην κατηγορία <<Υπηρεσίες / Παράβολα>>.
-                        
+                    <p>Κάθε Ιδιωτική Επιχείρηση, Μη Κυβερνητικός Οργανισμός, Δημόσιος Φορέας ή Διεθνής Φορέας,</br>ο οποίος προσφέρει θέσεις Πρακτικής Άσκησης για φοιτητές Πανεπιστημίων και ΤΕΙ, στο εσωτερικό ή στο εξωτερικό,</br>μπορεί να εγγραφεί ως Φορέας Υποδοχής Πρακτικής Άσκησης.                        
                     </p>
                 </div>
             </div>
 
-            <hr class="hr-line">
+            </br>
 
 
             <div class="faq-eight">
 
                 <!-- faq question -->
-                <h6 class="faq-page">Σπούδασα ένα χρόνο στο πρώτο πανεπιστήμιο και μετά έκανε μετεγγραφή στο 2ο έτος σε άλλο πανεπιστήμιο. Χρειάζομαι δικαιολογητικά και από τα δύο πανεπιστήμια ; </h6>
+                <h6 class="faq-page">2) Πως προκύπτει η αμοιβή του φοιτητή;</h6>
 
                 <!-- faq answer -->
                 <div class="faq-body">
-                    <p>    Δικαιολογητικά απαιτούνται από κάθε Ίδρυμα στο οποίο έχει πραγματοποιηθεί μέρος ή το σύνολο των σπουδών. Υπενθυμίζουμε σχετικά ότι ο Ν.3328/2005 για την διαδικασία αναγνώρισης προβλέπει ότι το ήμισυ τουλάχιστον των σπουδών ή σε περίπτωση που η διάρκεια των σπουδών είναι πενταετής τα δύο τουλάχιστον έτη, θα πρέπει να έχει πραγματοποιηθεί στο Ίδρυμα που απένειμε τον τίτλο.
+                    <p>Η αμοιβή του φοιτητή μπορεί να προέλθει (αναλόγως την διαθεσιμότητα) από: </br>
+                    1. Προγράμματα επιδότησης ΕΣΠΑ </br>
+                    2. Το οικείο ακαδημαϊκό ίδρυμα του φοιτητή </br>
+                    3. Πρόγραμμα επιδότησης ΟΑΕΔ </br>
+                    4. Τον Φορέα Υποδοχής Πρακτικής Άσκησης </br>
+                    </p>
+                </div>
+            </div>
+            </br>
+
+            <div class="faq-nine">
+
+                <!-- faq question -->
+                <h6 class="faq-page">3) Μπορώ να τροποποιήσω τις διαθέσιμες θέσεις Πρακτικής Άσκησης που έχω καταχωρήσει;
+                </h6>
+
+                <!-- faq answer -->
+                <div class="faq-body">
+                    <p>Μπορείτε να τροποποιήσετε τις διαθέσιμες θέσεις Πρακτικής Άσκησης που έχετε καταχωρήσει,</br>εφόσον βέβαια αυτές δεν έχουν δεσμευτεί από κάποιο Γραφείο Πρακτικής Άσκησης.
+                    </p>
+                </div>
+            </div>
+            </br>
+
+            <div class="faq-ten">
+
+                <!-- faq question -->
+                <h6 class="faq-page">4) Ποιά είναι η διαδικασία αλλαγής στοιχείων του Φορέα Υποδοχής Πρακτικής Άσκησης;
+                </h6>
+
+                <!-- faq answer -->
+                <div class="faq-body">
+                    <p>Μπορείτε να αλλάξετε τα στοιχεία του Φορέα Υποδοχής Πρακτικής Άσκησης στο τμήμα “Στοιχεία Φορέα”. </br>
+                    Σε περίπτωση που έχετε στείλει ήδη Βεβαίωση Συμμετοχής, είναι απαραίτητο να την στείλετε ξανά στο Γραφείο Αρωγής Χρηστών </br> για να μπορέσει να ολοκληρωθεί ορθά η πιστοποίηση της.
+                    Μετά την ολοκλήρωση της πιστοποίησης, </br> μπορείτε να τροποποιείται δευτερεύοντα χαρακτηριστικα, όπως Διεύθυνση, email κτλ. </br>
+                    Για αλλαγή πρωτευόντων στοιχείων απαιτείται η επικοινωνία με το Γραφείο Αρωγής Χρηστών </br>
+
                     </p>
                 </div>
             </div>
 
             <hr class="hr-line">
-            
+
+            <h3 class = "faq-section"> Γραφείο Πρακτικής Άσκησης </h6> </br>
+            <div class="faq-eleven">
+
+                <!-- faq question -->
+                <h6 class="faq-page">1) Ποιά είναι η διαδικασία αλλαγής στοιχείων του Γραφείου Πρακτικής Άσκησης αφού ολοκληρωθεί η διαδικασία πιστοποίησης;
+                </h6>
+
+                <!-- faq answer -->
+                <div class="faq-body">
+                    <p>Μετά την ολοκλήρωση της πιστοποίησης, μπορείτε να τροποποιείται δευτερεύοντα χαρακτηριστικα, όπως Διεύθυνση, email κτλ. </br>
+                    Για αλλαγή πρωτευόντων στοιχείων απαιτείται η επικοινωνία με το Γραφείο Αρωγής Χρηστών
+
+                    </p>
+                </div>
+            </div>
+            </br>
+
+            <div class="faq-twelve">
+
+                <!-- faq question -->
+                <h6 class="faq-page">2) Ποιοί μπορούν να εγγραφούν ως Γραφείο Πρακτικής Άσκησης
+                </h6>
+
+                <!-- faq answer -->
+                <div class="faq-body">
+                    <p>Το αντίστοιχο τμήμα της σχολής το οποίο ασχολείται με το ζήτημα της Πρακτικής Άσκησης.
+                    </p>
+                </div>
+            </div>            
 
         </section>
 
@@ -356,34 +352,30 @@
     <!-- Footer -->
     <svg class="footer-frame" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1920 79"><defs><style>.cls-2{fill:#5f4def;}</style></defs><title>footer-frame</title><path class="cls-2" d="M0,72.427C143,12.138,255.5,4.577,328.644,7.943c147.721,6.8,183.881,60.242,320.83,53.737,143-6.793,167.826-68.128,293-60.9,109.095,6.3,115.68,54.364,225.251,57.319,113.58,3.064,138.8-47.711,251.189-41.8,104.012,5.474,109.713,50.4,197.369,46.572,89.549-3.91,124.375-52.563,227.622-50.155A338.646,338.646,0,0,1,1920,23.467V79.75H0V72.427Z" transform="translate(0 -0.188)"/></svg>
     <div class="footer">
-        <div class="container">
+        <div class="footer-container">
             <div class="row">
                 <div class="col-md-4">
                     <div class="footer-col first">
                         <h4>Επικοινωνία</h4>
                         <p class="p-small">
                             Ώρες εξυπηρέτησης τηλεφώνων: </br>
-                             Δευ-Παρ, 12:30-14:00 </br> </br>
-                            Αθήνα </br>
-                            Τηλ: 2105281000 </br> </br>
-                            Θεσσαλονίκη </br>
-                            Τηλ: 2313501372/2313501373 </br>
-                            2313501106/2313501315 </br> </br>
-                            Email: information_dep@doatap.gr
+                             Δευ-Παρ, 9:00-15:00 </br> </br>
+                            Τηλέφωνα: </br>
+                            2102400000 </br>
+                            2102400001 </br> </br>
+                            Email: help@atlas.gr
                         </p>
                     </div>
                 </div> <!-- end of col -->
 
                 <div class="col-md-4">
                     <div class="footer-col middle">
-                        <h4>Προσβασιμότητα</h4>
+                        <h4>Διοργανωτές</h4>
                         <p class="p-small">
-                            Η δια ζώσης εξυπηρέτηση του κοινού: </br>
-                             Δευτέρα και Πέμπτη, 9:00-12:00 </br> </br>
-                            Αθήνα </br>
-                            Αγ. Κωνσταντίνος 54, Τ.Κ. 104 37 </br> </br>
-                            Θεσσαλονίκη </br>
-                            Υπουργείο Μακεδονίας Θράκης - Διοικητήριο, Τ.Κ. 541 23
+                           Ελληνική Δημοκρατία </br>
+                           Υποργείο Υγείας και Θρησκευμάτων </br>
+                           Ευρωπαϊκή Ένωση </br>
+                           ΕΣΠΑ </br>
                         </p>
                     </div>
                 </div> <!-- end of col -->

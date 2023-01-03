@@ -47,8 +47,9 @@ html {
 }
 
 body, p {
-	color: #555; 
-	font: 400 1rem/1.625rem "Open Sans", sans-serif;;
+	color: black; 
+	font: 400 1rem/1.625rem "Open Sans", sans-serif;
+	background-color: white;
 }
 
 .p-large {
@@ -72,7 +73,7 @@ h2 {
 }
 
 h3 {
-	color: #333;
+	color: rgb(0, 0, 0);
 	font: 700 1.625rem/2.125rem "Open Sans", sans-serif;
 	letter-spacing: -0.2px;
 }
@@ -123,7 +124,7 @@ h6 {
 }
 
 a {
-	color: rgb(255, 255, 255);
+	color: rgb(0, 0, 0);
 	text-decoration: underline;
 }
 
@@ -1418,6 +1419,10 @@ input[type='checkbox'] {
 	height: 1.5rem;
 }
 
+.footer-container {
+	background-color: #5f4dee;
+}
+
 .footer {
 	padding-top: 3rem;
 	padding-bottom: 0.5rem;
@@ -1436,6 +1441,7 @@ input[type='checkbox'] {
 .footer .list-unstyled,
 .footer p {
 	color: #f3f7fd;
+	background-color: #5f4dee;
 }
 
 .footer .footer-col.middle .list-unstyled .fas {
@@ -1758,6 +1764,7 @@ a:hover.back-to-top {
 	.ex-header {
 		padding-top: 11rem;
 		padding-bottom: 9rem;
+		background-color: white;
 	}
 
 	.ex-basic-2 .text-container.dark {
