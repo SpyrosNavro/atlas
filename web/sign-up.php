@@ -193,32 +193,34 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1>Εγγραφή</h1>
-                   <p>Έχετε ήδη λογαριασμό στον ΔΟΑΤΑΠ; <a class="white" href="log-in.php">Συνδεθείτε</a></p> 
+                    <b><div class="warning1">Η εγγραφή προορίζεται μόνο για Φορείς Υποδοχής. </div></b> 
+                    <b><div class="warning2">Η εγγραφή δεν είναι για φοιτητές!</div></b> <br>
+                    <p>Έχετε ήδη λογαριασμό στον ΑΤΛΑΣ; <a class="white" href="log-in.php">Συνδεθείτε</a></p> 
                     <!-- Sign Up Form -->
                     <div class="form-container">
                         <form  action="" method="post">
-                            Είδος χρήστη:
+                            Τύπος Εγγράφου Πιστοποίησης:
                             <div class="form-group radio button">
                                 
-                                <input type="radio" id="Common" name="type_of_user" value="Common" checked> Απλός
-                                <input type="radio" id="Manager" name="type_of_user" value="Manager"> Διαχειριστής
+                                <input type="radio" id="Common" name="type_of_user" value="Common" checked> Αστυνομική Ταυτότητα
+                                <input type="radio" id="Manager" name="type_of_user" value="Manager"> Διαβατήριο
                             </div>
 
                             <div class="form-group">
                                 <input type="text" class="form-control-input" name="firstname"  required>
-                                <label class="label-control" for="firstname">Όνομα</label>
+                                <label class="label-control" for="firstname">Όνομα Χρήστη</label>
                                 <div class="help-block with-errors"></div>
                             </div>
 
                             <div class="form-group">
                                 <input type="text" class="form-control-input" name="lastname"  required>
-                                <label class="label-control" for="lastname">Επίθετο</label>
+                                <label class="label-control" for="lastname">Email</label>
                                 <div class="help-block with-errors"></div>
                             </div>
 
                             <div class="form-group">
                                 <input type="text" class="form-control-input" name="country"  required>
-                                <label class="label-control" for="country">Χώρα Διαμονής</label>
+                                <label class="label-control" for="country">Κωδικός</label>
                                 <div class="help-block with-errors"></div>
                             </div>
 

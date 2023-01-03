@@ -133,10 +133,6 @@ a:hover {
 	text-decoration: underline;
 }
 
-a.white {
-	color: #fff;
-}
-
 .decorative-line {
 	display: block;
 	width: 5rem;
@@ -1619,7 +1615,7 @@ a:hover.back-to-top {
 
 .ex-2-header h1,
 .ex-2-header p {
-	color: #fff;
+	color: rgb(18, 17, 17);
 }
 
 .ex-2-header p {
@@ -1627,7 +1623,19 @@ a:hover.back-to-top {
 	margin-right: auto;
 	margin-bottom: 2.5rem;
 	margin-left: auto;
-	color: #fff;
+	color: rgb(0, 0, 0);
+}
+
+.warning1 {
+	color:rgb(0, 0, 0);
+}
+
+.warning2 {
+	color:red;
+}
+
+a.white {
+	color: rgb(79, 33, 186);
 }
 
 .ex-2-header .form-container {
