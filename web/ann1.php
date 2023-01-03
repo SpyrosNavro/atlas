@@ -251,8 +251,9 @@
      </div>
 
     <ul class="breadcrumb">
-        <li><a href="index.php">Αρχική / </a></li>
-        <li> Ανακοινώσεις</li>
+        <li><a href="index.html">Αρχική/ </a></li>
+        <li> <a href="announcements.php">Ανακοινώσεις</li>
+
     </ul>
 
       <div id="announcements" class="cards-2">
@@ -333,11 +334,12 @@
                             <h6>ΤΙΤΛΟΣ</h6>
                             <hr style="width:110%;text-align:left;margin-left:0">
                             <p class="p-small">
-                        <a class=blue page-scroll href="ann1.php">Νέος κύκλος χρηματοδότησης Πρακτικής Άσκησης μέσω ΕΣΠΑ- Πρόσκληση αιτήσεων 2023</a>
-                        </br>
+                        <a class=blue page-scroll href="ann1.php">ANN1111Νέος κύκλος χρηματοδότησης Πρακτικής Άσκησης μέσω ΕΣΠΑ- Πρόσκληση αιτήσεων 2023</a>
+                        </br>  
+                        <p>Επισυναπτώμενα αρχεία:  <a href="images/ΠΡΟΣΚΛΗΣΗ%20ΑΙΤΗΣΕΩΝ%20ΕΣΠΑ%202023-ΑΠ.pdf">Πρόσκληση</a>.</p>
                                 </br>
                                 </br>
-                                </br>
+                                </br> 
                         
                                 </br>
                                 <hr style="width:150%;text-align:left;margin-left:0">
@@ -362,14 +364,7 @@
                         
                                 </br>
                                 <hr style="width:110%;text-align:left;margin-left:0">
-                            <p class="p-small"><a class=blue page-scroll href="announcements.php">Γενικές</a>
-                              
-                            </br>
 
-
-
-                            <!---    <div class="media-body"><a class="white" href="">Όροι χρήσης - Δήλωση Απορρήτου</a></div>  --->
-                            </p>
                         </div>
                     </div> <!-- end of col -->
                 </div> <!-- end of row -->

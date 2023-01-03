@@ -76,7 +76,7 @@
                     ?>
                         
                         <li class="nav-item">
-                            <a class="nav-link page-scroll" href="log-in.php">ΑΝΑΚΟΙΝΩΣΕΙΣ</a>
+                            <a class="nav-link page-scroll" href="announcements.php">ΑΝΑΚΟΙΝΩΣΕΙΣ</a>
                         </li>
 
                     <?php
