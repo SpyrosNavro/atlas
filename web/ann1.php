@@ -24,7 +24,7 @@
 	<meta property="og:type" content="article" />
 
     <!-- Website Title -->
-    <title>Announcements</title>
+    <title>Announcements- SaaS App HTML Landing Page Template</title>
     
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext" rel="stylesheet">
@@ -59,7 +59,7 @@
             <!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Tivo</a> -->
 
             <!-- Image Logo -->
-            <a class="navbar-brand logo-image" href="index.php"><img src="images/atlas_logo.png" alt="ATLAS logo"></a> 
+            <a class="navbar-brand logo-image" href="index.php"><img src="images/doatap_logo.png" alt="DOATAP logo"></a> 
             <!-- Mobile Menu Toggle Button -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-awesome fas fa-bars"></span>
@@ -251,8 +251,9 @@
      </div>
 
     <ul class="breadcrumb">
-        <li><a href="index.php">Αρχική / </a></li>
-        <li> Ανακοινώσεις</li>
+        <li><a href="index.html">Αρχική/ </a></li>
+        <li> <a href="announcements.php">Ανακοινώσεις</li>
+
     </ul>
 
       <div id="announcements" class="cards-2">
@@ -333,11 +334,12 @@
                             <h6>ΤΙΤΛΟΣ</h6>
                             <hr style="width:110%;text-align:left;margin-left:0">
                             <p class="p-small">
-                        <a class=blue page-scroll href="ann1.php">Νέος κύκλος χρηματοδότησης Πρακτικής Άσκησης μέσω ΕΣΠΑ- Πρόσκληση αιτήσεων 2023</a>
-                        </br>
+                        <a class=blue page-scroll href="ann1.php">ANN1111Νέος κύκλος χρηματοδότησης Πρακτικής Άσκησης μέσω ΕΣΠΑ- Πρόσκληση αιτήσεων 2023</a>
+                        </br>  
+                        <p>Επισυναπτώμενα αρχεία:  <a href="images/ΠΡΟΣΚΛΗΣΗ%20ΑΙΤΗΣΕΩΝ%20ΕΣΠΑ%202023-ΑΠ.pdf">Πρόσκληση</a>.</p>
                                 </br>
                                 </br>
-                                </br>
+                                </br> 
                         
                                 </br>
                                 <hr style="width:150%;text-align:left;margin-left:0">
@@ -362,14 +364,7 @@
                         
                                 </br>
                                 <hr style="width:110%;text-align:left;margin-left:0">
-                            <p class="p-small"><a class=blue page-scroll href="announcements.php">Γενικές</a>
-                              
-                            </br>
 
-
-
-                            <!---    <div class="media-body"><a class="white" href="">Όροι χρήσης - Δήλωση Απορρήτου</a></div>  --->
-                            </p>
                         </div>
                     </div> <!-- end of col -->
                 </div> <!-- end of row -->

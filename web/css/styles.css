@@ -294,7 +294,7 @@ a.white {
 	color: #555;
 	font: 400 0.875rem/1.875rem "Open Sans", sans-serif;
 	transition: all 0.2s;
-	-webkit-appearance: none; /* removes inner shadow on form inputs on ios safari */
+	-webkit-appearance: compatibility; /* removes inner shadow on form inputs on ios safari */
 }
 
 .form-control-input:sname {
@@ -676,7 +676,7 @@ input[type='checkbox'] {
 
 .navbar-custom .navbar-brand.logo-text {
 	font: 700 2rem/1.5rem "Open Sans", sans-serif;
-	color: #fff;;
+	color: rgb(32, 3, 46);;
 	text-decoration: none;
 }
 
@@ -1510,7 +1510,7 @@ a.back-to-top {
 }
 
 a:hover.back-to-top {
-	background-color: #4332c5; 
+	background-color: #9a94c4; 
 }
 
 
@@ -1520,7 +1520,7 @@ a:hover.back-to-top {
 .ex-header {
 	padding-top: 8rem;
 	padding-bottom: 5rem;
-	background-color: #5f4dee;
+	background-color: #c1bed2;
 	text-align: center;
 }
 
