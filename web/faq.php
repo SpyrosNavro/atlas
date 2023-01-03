@@ -24,7 +24,7 @@
 	<meta property="og:type" content="article" />
 
     <!-- Website Title -->
-    <title>FAQs</title>
+    <title>ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ</title>
     
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext" rel="stylesheet">
@@ -93,7 +93,7 @@
                     ?>
 
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="faq.php">ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ</a>
+                        <a class="nav-link page-scroll" href="#header">ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ</a>
                     </li>
 
                     <li class="nav-item">
@@ -147,9 +147,7 @@
     <div id="faqs" class="questions">
 
         <ul class="breadcrumb">
-            <li><a href="index.php">Αρχική Σελίδα</a></li>
-
-            <li> -> Συχνές Ερωτήσεις</li>
+            <li>Συχνές Ερωτήσεις</li>
         </ul>
 
         <h3 class = "faq-section"> Φοιτητές </h6> </br>
@@ -249,6 +247,8 @@
 
             <h3 class = "faq-section"> Φορείς Υποδοχής Πρακτικής Άσκησης </h6> </br>
             <div class="faq-seven">
+
+                <a class = "guide" href="index.php"> ΟΔΗΓΟΣ ΓΙΑ ΝΕΟΥΣ ΧΡΗΣΤΕΣ </a>
 
                 <!-- faq question -->
                 <h6 class="faq-page">1) Ποιοί μπορούν να εγγραφούν ως Φορείς Υποδοχής Πρακτικής Άσκησης;
@@ -352,7 +352,7 @@
     <!-- Footer -->
     <svg class="footer-frame" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1920 79"><defs><style>.cls-2{fill:#5f4def;}</style></defs><title>footer-frame</title><path class="cls-2" d="M0,72.427C143,12.138,255.5,4.577,328.644,7.943c147.721,6.8,183.881,60.242,320.83,53.737,143-6.793,167.826-68.128,293-60.9,109.095,6.3,115.68,54.364,225.251,57.319,113.58,3.064,138.8-47.711,251.189-41.8,104.012,5.474,109.713,50.4,197.369,46.572,89.549-3.91,124.375-52.563,227.622-50.155A338.646,338.646,0,0,1,1920,23.467V79.75H0V72.427Z" transform="translate(0 -0.188)"/></svg>
     <div class="footer">
-        <div class="footer-container">
+        <div class="container">
             <div class="row">
                 <div class="col-md-4">
                     <div class="footer-col first">
