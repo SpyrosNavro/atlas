@@ -85,7 +85,7 @@
                     ?>
                         
                         <li class="nav-item">
-                            <a class="nav-link page-scroll" href="log-in.php">ΑΝΑΚΟΙΝΩΣΕΙΣ</a>
+                            <a class="nav-link page-scroll" href="announcements.php">ΑΝΑΚΟΙΝΩΣΕΙΣ</a>
                         </li>
 
                     <?php
@@ -394,13 +394,13 @@
     <!-- end of footer -->
 
 
-    <!-- Copyright -->
+    <!-- Copyright 
     <div class="copyright">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <p class="p-small">Copyright © 2020 <a href="https://inovatik.com">Template by Inovatik</a></p>
-                </div> <!-- end of col -->
+                </div> end of col -->
             </div> <!-- enf of row -->
         </div> <!-- end of container -->
     </div> <!-- end of copyright --> 
