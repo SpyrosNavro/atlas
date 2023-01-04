@@ -138,20 +138,15 @@
     </nav> <!-- end of navbar -->
     <!-- end of navigation -->
 
+    <br><br><br>
+    <ul class="breadcrumb">
+        <li> Επικοινωνία</li>
+    </ul>
     <!-- Header -->
     <header id="header" class="ex-2-header">
-        <ul class="breadcrumb">
-            <li> Επικοινωνία</li>
-        </ul>
-
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    
-                
-
-                    </br></br></br>
-
                     <h3>Επικοινωνία με Γραφείο Αρωγής Χρηστών</h3>
                     <br>
                     <div class="info">Για οποιοδήποτε πρόβλημα αντιμετωπίζεται, μπορείτε να απευθυνθείτε στο Γραφείο Αρωγής Χρηστών.
