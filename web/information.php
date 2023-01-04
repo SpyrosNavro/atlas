@@ -139,16 +139,16 @@
     </nav> <!-- end of navbar -->
     <!-- end of navigation -->
     
-<header id="header" class="ex-header">
-<div id="information" class="cards-2">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">  
-                <div class="above-heading">Η ΠΟΡΕΙΑ ΜΙΑΣ ΑΙΤΗΣΗΣ</div>
-              </div>   
-        </div> 
-    </div>
-</div>
+    <div id="announcements" class="cards-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">  
+                        <div class="above-heading">ΕΠΙΚΟΙΝΩΝΙΑ</div>  
+                    </div>   
+                </div> 
+                
+            </div>
+        </div>
 
 <ul class="breadcrumb">
     <li><a href="index.html">Αρχική</a></li>
