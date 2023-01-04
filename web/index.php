@@ -134,9 +134,11 @@
 
     <!-- Pricing -->
     <div id="pricing" class="cards-2">
+
         <ul class="breadcrumb">
             <li>Αρχική Σελίδα</li>
         </ul>
+
         </br>
         <div class="container">            
             <div class="row">
