@@ -59,7 +59,7 @@
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#header">ΑΡΧΙΚΗ ΣΕΛΙΔΑ<span class="sr-only">(current)</span></a>
+                        <a class="nav-link page-scroll" href="index.php">ΑΡΧΙΚΗ ΣΕΛΙΔΑ<span class="sr-only">(current)</span></a>
                     </li>
 
                     <?php 
@@ -67,7 +67,7 @@
                     { ?>
 
                         <li class="nav-item">
-                            <a class="nav-link page-scroll" href="announcements.php">ΑΝΑΚΟΙΝΩΣΕΙΣ</a>
+                            <a class="nav-link page-scroll active" href="#header">ΑΝΑΚΟΙΝΩΣΕΙΣ</a>
                         </li>
 
                     <?php
@@ -75,7 +75,7 @@
                     ?>
                         
                         <li class="nav-item">
-                            <a class="nav-link page-scroll" href="announcements.php">ΑΝΑΚΟΙΝΩΣΕΙΣ</a>
+                            <a class="nav-link page-scroll active" href="#header">ΑΝΑΚΟΙΝΩΣΕΙΣ</a>
                         </li>
 
                     <?php
