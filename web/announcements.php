@@ -131,16 +131,6 @@
     </br></br></br>
 
 
-<<<<<<< HEAD
-        <ul class="breadcrumb">
-            <li><a href="index.php">Αρχική </a></li>
-            <li><div class="breadcrumb-item">/</div>
-
-            <li> Ανακοινώσεις</li>
-        </ul>
-
-        
-=======
     <ul class="breadcrumb">
         <li><a href="index.php">Αρχική </a></li>
         <li><div class="breadcrumb-item">/</div>
@@ -150,7 +140,6 @@
     <!-- Announcements -->
     <header id="header" class="ex-header">
     
->>>>>>> a749b526b7017cc6df406040f1ed05b130ac0396
         <div id="announcements" class="cards-2">
             <div class="container">
                 <div class="row">
@@ -161,15 +150,7 @@
                 
             </div>
         </div>
-<<<<<<< HEAD
-
-        
-
-
-
-=======
     
->>>>>>> a749b526b7017cc6df406040f1ed05b130ac0396
 
         <div id="announcements" class="cards-2">
             <div class="container">
