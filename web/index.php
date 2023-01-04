@@ -60,7 +60,7 @@
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#header">ΑΡΧΙΚΗ ΣΕΛΙΔΑ<span class="sr-only">(current)</span></a>
+                        <a class="nav-link page-scroll" href="#header">ΑΡΧΙΚΗ ΣΕΛΙΔΑ</a>
                     </li>
 
                     <?php 
@@ -91,6 +91,7 @@
                         <a class="nav-link page-scroll" href="communication.php">ΕΠΙΚΟΙΝΩΝΙΑ</a>
                     </li>
                 </ul>
+
                 <span class="nav-item" >
                     <a class="btn-outline-sm" id="login-btn" href="log-in.php">ΣΥΝΔΕΣΗ</a>
                 </span>
@@ -129,15 +130,15 @@
         </div> <!-- end of container -->
     </nav> <!-- end of navbar -->
     <!-- end of navigation -->
-    </br></br></br>
+    </br></br>
 
     <!-- Pricing -->
     <div id="pricing" class="cards-2">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
+        <ul class="breadcrumb">
+            <li>Αρχική Σελίδα</li>
+        </ul>
+        </br>
+        <div class="container">            
             <div class="row">
                 <div class="col-lg-12">
 
