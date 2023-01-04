@@ -1868,7 +1868,7 @@ a.blue {
 
 	.navbar-custom.top-nav-collapse .nav-item .nav-link:hover,
 	.navbar-custom.top-nav-collapse .nav-item .nav-link.active {
-		color: #fff;
+		color: rgb(255, 0, 0);
 	}
 
 	.navbar-custom .dropdown-menu {

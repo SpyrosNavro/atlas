@@ -4806,7 +4806,11 @@ input[type="button"].btn-block {
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   padding: 1rem 1rem;
+<<<<<<< HEAD
   margin-top: 2rem;
+=======
+  margin-top: 6rem;
+>>>>>>> a749b526b7017cc6df406040f1ed05b130ac0396
   list-style: none;
   background-color: #e9ecef;
   border-radius: 0.25rem;
