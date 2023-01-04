@@ -130,10 +130,15 @@
     <!-- end of navigation -->
     </br></br></br>
 
+
+    <ul class="breadcrumb">
+        <li><a href="index.php">Αρχική </a></li>
+        <li><div class="breadcrumb-item">/</div>
+    
+        <li> Ανακοινώσεις</li>
+    </ul>
     <!-- Announcements -->
     <header id="header" class="ex-header">
-
-    
     
         <div id="announcements" class="cards-2">
             <div class="container">
@@ -145,13 +150,7 @@
                 
             </div>
         </div>
-        
-        <ul class="breadcrumb">
-            <li><a href="index.php">Αρχική </a></li>
-            <li><div class="breadcrumb-item">/</div>
-
-            <li> Ανακοινώσεις</li>
-        </ul>
+    
 
         <div id="announcements" class="cards-2">
             <div class="container">
