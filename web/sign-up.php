@@ -195,67 +195,21 @@
                     <h1>Εγγραφή</h1>
                     <b><div class="warning1">Η εγγραφή προορίζεται μόνο για Φορείς Υποδοχής. </div></b> 
                     <b><div class="warning2">Η εγγραφή δεν είναι για φοιτητές!</div></b> <br>
-                    <p>Έχετε ήδη λογαριασμό στον ΑΤΛΑΣ; <a class="white" href="log-in.php">Συνδεθείτε</a></p> 
+                    <p>Έχετε ήδη λογαριασμό στον ΑΤΛΑΣ; <a class="blue" href="log-in.php">Συνδεθείτε</a></p> 
+
+
                     <!-- Sign Up Form -->
                     <div class="form-container">
                         <form  action="" method="post">
-                            Τύπος Εγγράφου Πιστοποίησης:
-                            <div class="form-group radio button">
-                                
-                                <input type="radio" id="Common" name="type_of_user" value="Common" checked> Αστυνομική Ταυτότητα
-                                <input type="radio" id="Manager" name="type_of_user" value="Manager"> Διαβατήριο
-                            </div>
-
+                            <h6> Βασικά Στοιχεία </h6>
                             <div class="form-group">
                                 <input type="text" class="form-control-input" name="firstname"  required>
-                                <label class="label-control" for="firstname">Όνομα Χρήστη</label>
+                                <label class="label-control" for="username">Όνομα Χρήστη</label>
                                 <div class="help-block with-errors"></div>
                             </div>
 
                             <div class="form-group">
                                 <input type="text" class="form-control-input" name="lastname"  required>
-                                <label class="label-control" for="lastname">Email</label>
-                                <div class="help-block with-errors"></div>
-                            </div>
-
-                            <div class="form-group">
-                                <input type="text" class="form-control-input" name="country"  required>
-                                <label class="label-control" for="country">Κωδικός</label>
-                                <div class="help-block with-errors"></div>
-                            </div>
-
-                            <div class="form-group">
-                                <input type="text" class="form-control-input" name="address"  required>
-                                <label class="label-control" for="address">Διεύθυνση Κατοικίας</label>
-                                <div class="help-block with-errors"></div>
-                            </div>
-
-                            <div class="form-group">
-                                <input type="text" class="form-control-input" name="city"  required>
-                                <label class="label-control" for="city">Πόλη</label>
-                                <div class="help-block with-errors"></div>
-                            </div>
-
-                            <div class="form-group">
-                                <input type="text" class="form-control-input" name="region"  required>
-                                <label class="label-control" for="region">Περιοχή</label>
-                                <div class="help-block with-errors"></div>
-                            </div>
-
-                            <div class="form-group">
-                                <input type="text" class="form-control-input" name="postcode"  required>
-                                <label class="label-control" for="postcode">ΤΚ</label>
-                                <div class="help-block with-errors"></div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <input type="text" class="form-control-input" name="tel"  required>
-                                <label class="label-control" for="tel">Τηλέφωνο</label>
-                                <div class="help-block with-errors"></div>
-                            </div>
-
-                            <div class="form-group">
-                                <input type="email" class="form-control-input" name="email" required>
                                 <label class="label-control" for="email">Email</label>
                                 <div class="help-block with-errors"></div>
                             </div>
@@ -263,13 +217,11 @@
                             <div class="form-group">
                                 <input type="password" id="password" name="password"  placeholder="Κωδικός" required>
                                 <div class="help-block with-errors"></div>
-                                <br>
                             </div>
 
                             <div class="form-group">
                                 <input type="password" id="confirmation" name="confirmation"  placeholder="Επιβεβαίωση" required>
                                 <div class="help-block with-errors"></div>
-                                <br>
                             </div>
                             
                             <input type="checkbox" onclick="myFunction()">Εμφάνιση κωδικού
@@ -291,11 +243,48 @@
                             }
                             </script>
 
+                            <hr class="hr-line">
 
-                            <div class="form-group checkbox">
-                                <input type="checkbox" id="sterms" value="Agreed-to-Terms" required>Συμφωνώ με τους <a href="privacy-policy.html" style="color:blue !important">Όρους</a> του ΔΟΑΤΑΠ
+                            <h6> Προσωπικά Στοιχεία </h6>
+
+                            <div class="form-group">
+                                <input type="text" class="form-control-input" name="country"  required>
+                                <label class="label-control" for="name-lastname">Όνοματεπώνυμο</label>
                                 <div class="help-block with-errors"></div>
                             </div>
+
+                            <div class="form-group">
+                                <input type="text" class="form-control-input" name="address"  required>
+                                <label class="label-control" for="number">Τηλέφωνο</label>
+                                <div class="help-block with-errors"></div>
+                            </div>
+
+                            Τύπος Εγγράφου Πιστοποίησης:
+                            <div class="form-group radio button">
+                                
+                                <input type="radio" id="Common" name="type_of_user" value="Common" checked> Αστυνομική Ταυτότητα <br>
+                                <input type="radio" id="Manager" name="type_of_user" value="Manager"> Διαβατήριο
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" class="form-control-input" name="city"  required>
+                                <label class="label-control" for="id-passport">Αριθμός Ταυτότητας/Διαβατηρίου</label>
+                                <div class="help-block with-errors"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" class="form-control-input" name="region"  required>
+                                <label class="label-control" for="time">Αρχή Έκδοσης Εγγράφου Πιστοποίησης</label>
+                                <div class="help-block with-errors"></div>
+                            </div>
+
+                            <div class="form-group checkbox">
+                                <input type="checkbox" id="sterms" value="Agreed-to-Terms" required>Συμφωνώ με τους <a href="privacy-policy.html" style="color:blue !important">Όρους</a> του ΑΤΛΑΣ
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+
+                            <br>
                             <div class="form-group">
                                 <button type="submit" name="submit_signup" class="btn">ΕΓΓΡΑΦΗ</button>
                             </div>

@@ -184,7 +184,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1>Σύνδεση</h1>
-                   <p>Δεν έχετε λογαριασμό; <a class="white" href="sign-up.php">Εγγραφή</a></p> 
+                   <p>Δεν έχετε λογαριασμό; <a class="blue" href="sign-up.php">Εγγραφή</a></p> 
                     <!-- Sign Up Form -->
                     <div class="form-container">
                         <form action="" method="post">

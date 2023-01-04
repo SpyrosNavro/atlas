@@ -1635,8 +1635,14 @@ a:hover.back-to-top {
 }
 
 a.white {
-	color: rgb(79, 33, 186);
+	color: rgb(255, 255, 255);
 }
+
+a.blue {
+	color:#3026a2;
+}
+
+
 
 .ex-2-header .form-container {
 	max-width: 50rem;
@@ -1648,7 +1654,7 @@ a.white {
 }
 
 .ex-2-header .checkbox {
-	text-align: left;
+	text-align: center;
 }
 
 
