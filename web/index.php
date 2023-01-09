@@ -181,7 +181,7 @@
                                 </li>
                             </ul>
                             <div class="button-wrapper">
-                                <a class="btn-solid-reg page-scroll" href="sign-up.php">Είσοδος</a>
+                                <a class="btn-solid-reg page-scroll" href="fy-index.php">Είσοδος</a>
                             </div>
                         </div>
                     </div> <!-- end of card -->
