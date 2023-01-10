@@ -159,12 +159,22 @@
         <br>
         <div class="total-applications">
             <div class="application">
-                <a class="profile-picture" href="index.php"><img src="images/chuu1.webp" alt="Profile Picture"></a> software enginner <br>
+                <a class="profile-picture" href="index.php"><img src="images/chuu1.webp" alt="Profile Picture"></a>
+                <a class="applicator-info" href="index.php">
+                    Μαρία Παπαδοπούλου <br>
+                    Ειδίκευση: Δήμαρχος <br>
+                    Ημερομηνία Υποβολής: 15/1/2023
+                </a>
             </div>
-            <br>
             <div class="application">
-                <a class="profile-picture" href="index.php"><img src="images/yves.webp" alt="Profile Picture"></a> software enginner <br>
+                <a class="profile-picture" href="index.php"><img src="images/yves.webp" alt="Profile Picture"></a>
+                <a class="applicator-name" href="index.php">
+                    Αντωνία Βασιλειάδου <br>
+                    Ειδίκευση: Σλατινα <br>
+                    Ημερομηνία Υποβολής: 15/1/2023
+                </a>
             </div>
+            
         </div>
 
 
