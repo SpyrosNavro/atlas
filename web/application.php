@@ -133,57 +133,48 @@
     </br></br>
 
     <!-- Pricing -->
-    <div id="pricing" class="card-3">
+    <div id="pricing" class="cards-2">
 
         <ul class="breadcrumb">
-            <li>Αρχική Σελίδα/Αιτήσεις</li>
-        </ul>
+            <li>Αρχική Σελίδα</li>
+        </ul> </br>
 
-        </br>
-        <form action="index.php">
-            <label for="choose">Επιλέξτε:</label>
+        <div class="section-title">Στοιχεία Ενδιαφερόμενου</div> <br>
+        <div class="full-applicator-info">
+            <a class="profile-picture"><img src="images/chuu1.webp" alt="Profile Picture"></a>
+            <label class="info" for="fullName"> Ονοματεπώνυμο </label>
+            <label class="info" for="email"> Email </label>
+            <label class="info" for="phone"> Τηλέφωνο </label>
+            <label class="info" for="university"> Πανεπιστήμιο </label>
+            <label class="info" for="department">Τμήμα </label>
+        </div>
 
-            <select name="options" id="options">
-                <option value="application">Αιτήσεις</option>
-                <option value="ad">Αγγελίες</option>
-            </select>
-
-            <select name="suboptions" id="suboptions">
-                <option value="new">Καινούργιες</option>
-                <option value="edited">Υπό επεξεργασία</option>
-                <option value="finished">Ολοκληρωμένες</option>
-            </select>
-
-            <input type="submit" value="OK">
-        </form>
-        <br>
-        <ul class="total-applications">
-            <div class="application">
-                <a class="profile-picture" href="application.php"><img src="images/chuu1.webp" alt="Profile Picture"></a>
-                <a class="applicator-info" href="application.php">
-                    Μαρία Παπαδοπούλου <br>
-                    Ειδίκευση: Δήμαρχος <br>
-                    Ημερομηνία Υποβολής: 15/1/2023
-                </a>
-            </div>
-            <div class="application">
-                <a class="profile-picture" href="index.php"><img src="images/yves.webp" alt="Profile Picture"></a>
-                <a class="applicator-name" href="application.php">
-                    Αντωνία Βασιλειάδου <br>
-                    Ειδίκευση: Σλατινα <br>
-                    Ημερομηνία Υποβολής: 15/1/2023
-                </a>
-            </div>
+        <div class="section-title">Λεπτομέρειες Αίτησης</div> <br>
+        <div class="full-applicator-info">
+            <label class="info" for="application-id"> Αριθμός Αίτησης </label>
+            <label class="info" for="title"> Τίτλος Θέσης </label>
+            <label class="info" for="submit-date"> Ημερομηνία Υποβολής </label>
+            <label class="info" for="payment"> Αμοιβή </label> <br>
+            <label class="info" for="full-part"> Τρόπος Απασχόλησης </label>
+            <label class="info" for="exec-date"> Ημερομηνία Εκτέλεσης </label>
+            <label class="info" for="duration"> Διάρκεια Πρακτικής </label>
+            <label class="info" for="place"> Τοποθεσία </label>
+        </div>
+        <div class="section-title">Απαραίτητα Έγγραφα</div> <br>
+        <div class="full-applicator-info">
+            <label class="info" for="photo"> Φωτογραφία </label>
+            <label class="info" for="university-id"> Φοιτητική Ταυτότητα (Πάσο) </label>
+            <label class="info" for="grades"> Αναλυτική βαθμολογία </label>
+            <label class="info" for="uni-certificate"> Βεβαίωση Πανεπιστημίου </label> <br>
+            <label class="info" for="reasoning"> Αναφορά για τον λόγο πρακτικής </label>
+        </div>
             
-        </ul>
-
-
-
-
-
-
+        
+        </div>
 
     </div>
+    <!-- end of pricing -->
+
     <!-- Footer -->
     <svg class="footer-frame" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1920 79"><defs><style>.cls-2{fill:#5f4def;}</style></defs><title>footer-frame</title><path class="cls-2" d="M0,72.427C143,12.138,255.5,4.577,328.644,7.943c147.721,6.8,183.881,60.242,320.83,53.737,143-6.793,167.826-68.128,293-60.9,109.095,6.3,115.68,54.364,225.251,57.319,113.58,3.064,138.8-47.711,251.189-41.8,104.012,5.474,109.713,50.4,197.369,46.572,89.549-3.91,124.375-52.563,227.622-50.155A338.646,338.646,0,0,1,1920,23.467V79.75H0V72.427Z" transform="translate(0 -0.188)"/></svg>
     <div class="footer">

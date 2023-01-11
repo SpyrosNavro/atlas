@@ -717,12 +717,26 @@ input[type='checkbox'] {
 	overflow-y: scroll;
 }
 
+.info {
+	border: solid black !important;
+	font-size: 2ch;
+	padding: 10px;
+	width: 14rem;
+	height: 2rem;
+	padding: initial;
+}
+
 .applicator-info {
 	display: grid;
 }
 
 .profession-of-candidate {
 	align-self:baseline;
+}
+
+.section-title {
+	background-color: #5d4dd8;
+	color: white;
 }
 
 .navbar-custom .navbar-brand.logo-text {
