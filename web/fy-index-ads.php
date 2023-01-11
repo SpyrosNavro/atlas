@@ -157,7 +157,7 @@
         </form>
         <br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <button class="create-ad" type="submit"> Δημιουργία Αίτησης </button> <br>
+        <a class="create-ad" method="POST" href="ad.php"> Δημιουργία Αίτησης </a> <br>
 
         <br>
         <ul class="total-ads">
