@@ -133,64 +133,50 @@
     </br></br>
 
     <!-- Pricing -->
-    <div id="pricing" class="cards-2">
+    <div id="pricing" class="card-3">
 
         <ul class="breadcrumb">
-            <li>Αρχική Σελίδα</li>
-        </ul> </br>
+            <li>Αρχική Σελίδα/Αιτήσεις</li>
+        </ul>
 
-        <div class="section-title">Στοιχεία Ενδιαφερόμενου</div> <br>
-        <div class="full-applicator-info">
-            <label class="basic-info" for="fullName"> Ονοματεπώνυμο </label>
-            <label class="basic-info" for="email"> Email </label>
-            <label class="basic-info" for="phone"> Τηλέφωνο </label>
-            <label class="basic-info" for="university"> Πανεπιστήμιο </label>
-            <label class="basic-info" for="department">Τμήμα </label>
-            <br>
-            <label class="basic-info" for="fullName"> &nbsp; </label>
-            <label class="basic-info" for="email"> &nbsp; </label>
-            <label class="basic-info" for="phone"> &nbsp; </label>
-            <label class="basic-info" for="university"> &nbsp; </label>
-            <label class="basic-info" for="department">&nbsp; </label>
-        </div>
+        </br>
+        <form action="fy-index-ads.php">
+            <label for="choose">Επιλέξτε:</label>
+
+            <select name="options" id="options">
+                <option value="application">Αιτήσεις</option>
+                <option value="ad">Αγγελίες</option>
+            </select>
+
+            <select name="suboptions" id="suboptions">
+                <option value="new">Καινούργιες</option>
+                <option value="edited">Υπό επεξεργασία</option>
+                <option value="finished">Ολοκληρωμένες</option>
+            </select>
+
+            <input type="submit" value="OK">
+        </form>
         <br>
-        <div class="section-title">Λεπτομέρειες Αίτησης</div> <br>
-        <div class="full-applicator-info">
-            <label class="applicator-info" for="application-id"> Αριθμός Αίτησης </label>
-            <label class="applicator-info" for="title"> Τίτλος Θέσης </label>
-            <label class="applicator-info" for="submit-date"> Ημερομηνία Υποβολής </label>
-            <label class="applicator-info" for="payment"> Αμοιβή </label> <br>
-
-            <label class="applicator-info" for="application-id"> &nbsp; </label>
-            <label class="applicator-info" for="title"> &nbsp; </label>
-            <label class="applicator-info" for="submit-date"> &nbsp; </label>
-            <label class="applicator-info" for="payment"> &nbsp; </label> <br> <br>
-
-            <label class="applicator-info" for="full-part"> Τρόπος Απασχόλησης </label>
-            <label class="applicator-info" for="exec-date"> Ημερομηνία Εκτέλεσης </label>
-            <label class="applicator-info" for="duration"> Διάρκεια Πρακτικής </label>
-            <label class="applicator-info" for="place"> Τοποθεσία </label> <br>
-
-            <label class="applicator-info" for="full-part"> &nbsp; </label>
-            <label class="applicator-info" for="exec-date"> &nbsp; </label>
-            <label class="applicator-info" for="duration"> &nbsp; </label>
-            <label class="applicator-info" for="place"> &nbsp; </label>
-        </div>
-        <div class="section-title">Απαραίτητα Έγγραφα</div> <br>
-        <div class="full-applicator-info">
-            <label class="applicator-files" for="photo"> Φωτογραφία </label> <button class="x" type="submit"> <b> x </b> </button> <br>
-            <label class="applicator-files" for="university-id"> Φοιτητική Ταυτότητα (Πάσο) </label> <button class="x" type="submit"> <b> x </b> </button> <br>
-            <label class="applicator-files" for="grades"> Αναλυτική βαθμολογία </label> <button class="x" type="submit"> <b> x </b> </button> <br>
-            <label class="applicator-files" for="uni-certificate"> Βεβαίωση Πανεπιστημίου </label> <button class="x" type="submit"> <b> x </b> </button> <br>
-            <label class="applicator-files" for="reasoning"> Αναφορά για τον λόγο πρακτικής </label> <button class="x" type="submit"> <b> x </b> </button> <br>
-        </div>
-
-        <br><br>
-        <button class="accept" type="submit"> Αποδοχή </button>
-        <button class="decline" type="submit"> Απόρριψη </button>
+        <ul class="total-applications">
+            <div class="application">
+                <a class="profile-picture" href="application.php"><img src="images/chuu1.webp" alt="Profile Picture"></a>
+                <a class="applicator-name" href="application.php">
+                    Μαρία Παπαδοπούλου <br>
+                    Ειδίκευση: Δήμαρχος <br>
+                    Ημερομηνία Υποβολής: 15/1/2023
+                </a>
+            </div>
+            <div class="application">
+                <a class="profile-picture" href="index.php"><img src="images/yves.webp" alt="Profile Picture"></a>
+                <a class="applicator-name" href="application.php">
+                    Αντωνία Βασιλειάδου <br>
+                    Ειδίκευση: Σλατινα <br>
+                    Ημερομηνία Υποβολής: 15/1/2023
+                </a>
+            </div>
+            
+        </ul>
     </div>
-    <!-- end of pricing -->
-
     <!-- Footer -->
     <svg class="footer-frame" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1920 79"><defs><style>.cls-2{fill:#5f4def;}</style></defs><title>footer-frame</title><path class="cls-2" d="M0,72.427C143,12.138,255.5,4.577,328.644,7.943c147.721,6.8,183.881,60.242,320.83,53.737,143-6.793,167.826-68.128,293-60.9,109.095,6.3,115.68,54.364,225.251,57.319,113.58,3.064,138.8-47.711,251.189-41.8,104.012,5.474,109.713,50.4,197.369,46.572,89.549-3.91,124.375-52.563,227.622-50.155A338.646,338.646,0,0,1,1920,23.467V79.75H0V72.427Z" transform="translate(0 -0.188)"/></svg>
     <div class="footer">

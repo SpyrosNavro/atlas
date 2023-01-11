@@ -702,9 +702,18 @@ input[type='checkbox'] {
 	width: 5rem;
 	height: 5rem;
 	border-radius: 50%;
+	float: left;
 }
 
 .application {
+	border:1px solid black;
+	border-radius: 16px;
+	padding: 15px;
+	width: 20rem;
+	display: grid;
+}
+
+.ad {
 	border:1px solid black;
 	border-radius: 16px;
 	padding: 15px;
@@ -717,8 +726,13 @@ input[type='checkbox'] {
 	overflow-y: scroll;
 }
 
+.total-ads {
+	display: table-cell;
+	overflow-y: scroll;
+}
+
 .basic-info {
-	border: solid rgb(0, 0, 0);
+	border: solid #b9b3b3;
 	font-size: 2ch;
 	padding: 10px;
 	width: 12rem;
@@ -727,7 +741,12 @@ input[type='checkbox'] {
 }
 
 .info {
-	border: solid black;
+	font-size: 2ch;
+	padding: initial;
+}
+
+.applicator-info {
+	border: solid #b9b3b3;
 	font-size: 2ch;
 	padding: 10px;
 	width: 14rem;
@@ -736,16 +755,12 @@ input[type='checkbox'] {
 }
 
 .applicator-files {
-	border: solid black !important;
+	border: solid  #b9b3b3;
 	font-size: 2ch;
 	padding: 10px;
 	width: 19rem;
 	height: 2rem;
 	padding: initial;
-}
-
-.applicator-info {
-	display: grid;
 }
 
 .profession-of-candidate {
@@ -766,6 +781,18 @@ input[type='checkbox'] {
 	text-decoration: none;
 	display: inline-block;
 	font-size: 16px;
+}
+
+.create-ad {
+	background-color: #4c51af;
+	border:solid 2px #333;
+	color: white;
+	padding: 11px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	border-radius:10ch;
 }
 
 .x {

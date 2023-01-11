@@ -60,7 +60,7 @@
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link page-scroll active" href="index.php">ΑΡΧΙΚΗ ΣΕΛΙΔΑ</a>
+                        <a class="nav-link page-scroll active" href="fy-index-applications.php">ΑΡΧΙΚΗ ΣΕΛΙΔΑ</a>
                     </li>
 
                     <?php 
@@ -136,42 +136,106 @@
     <div id="pricing" class="card-3">
 
         <ul class="breadcrumb">
-            <li>Αρχική Σελίδα/Αιτήσεις</li>
+            <li>Αρχική Σελίδα/Αγγελίες</li>
         </ul>
 
         </br>
-        <form action="index.php">
+        <form action="fy-index-applications.php">
             <label for="choose">Επιλέξτε:</label>
 
             <select name="options" id="options">
-                <option value="application">Αιτήσεις</option>
                 <option value="ad">Αγγελίες</option>
+                <option value="application">Αιτήσεις</option>
             </select>
 
             <select name="suboptions" id="suboptions">
-                <option value="new">Καινούργιες</option>
-                <option value="edited">Υπό επεξεργασία</option>
-                <option value="finished">Ολοκληρωμένες</option>
+                <option value="edited"> Προσωρινά Αποθηκευμένη </option>
+                <option value="finished"> Οριστικές </option>
             </select>
 
             <input type="submit" value="OK">
         </form>
         <br>
-        <ul class="total-applications">
-            <div class="application">
-                <a class="profile-picture" href="application.php"><img src="images/chuu1.webp" alt="Profile Picture"></a>
-                <a class="applicator-info" href="application.php">
-                    Μαρία Παπαδοπούλου <br>
-                    Ειδίκευση: Δήμαρχος <br>
-                    Ημερομηνία Υποβολής: 15/1/2023
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="create-ad" type="submit"> Δημιουργία Αίτησης </button> <br>
+
+        <br>
+        <ul class="total-ads">
+            <div class="ad">
+                <a class="ad-position" href="application.php">
+                    Ηλεκτρολόγος Μηχανικός (Κηφισιά)
+                </a>
+            </div> 
+            
+            <br>
+            
+            <div class="ad">
+                <a class="ad-poistion" href="application.php">
+                    Ταμείας (Μενίδι)
                 </a>
             </div>
-            <div class="application">
-                <a class="profile-picture" href="index.php"><img src="images/yves.webp" alt="Profile Picture"></a>
-                <a class="applicator-name" href="application.php">
-                    Αντωνία Βασιλειάδου <br>
-                    Ειδίκευση: Σλατινα <br>
-                    Ημερομηνία Υποβολής: 15/1/2023
+
+            <br>
+
+            <div class="ad">
+                <a class="ad-position" href="application.php">
+                    Ηλεκτρολόγος Μηχανικός (Κηφισιά)
+                </a>
+            </div>
+            
+            <br>
+            
+            <div class="ad">
+                <a class="ad-poistion" href="application.php">
+                    Ταμείας (Μενίδι)
+                </a>
+            </div>
+            
+            <br>
+
+            <div class="ad">
+                <a class="ad-position" href="application.php">
+                    Ηλεκτρολόγος Μηχανικός (Κηφισιά)
+                </a>
+            </div>
+            
+            <br>
+            
+            <div class="ad">
+                <a class="ad-poistion" href="application.php">
+                    Ταμείας (Μενίδι)
+                </a>
+            </div>
+            
+            <br>
+            
+            <div class="ad">
+                <a class="ad-position" href="application.php">
+                    Ηλεκτρολόγος Μηχανικός (Κηφισιά)
+                </a>
+            </div>
+            
+            <br>
+            
+            <div class="ad">
+                <a class="ad-poistion" href="application.php">
+                    Ταμείας (Μενίδι)
+                </a>
+            </div>
+            
+            <br>
+            
+            <div class="ad">
+                <a class="ad-position" href="application.php">
+                    Ηλεκτρολόγος Μηχανικός (Κηφισιά)
+                </a>
+            </div>
+            
+            <br>
+            
+            <div class="ad">
+                <a class="ad-poistion" href="application.php">
+                    Ταμείας (Μενίδι)
                 </a>
             </div>
             

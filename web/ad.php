@@ -60,7 +60,7 @@
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link page-scroll active" href="fy-index-applications.php">ΑΡΧΙΚΗ ΣΕΛΙΔΑ</a>
+                        <a class="nav-link page-scroll active" href="index.php">ΑΡΧΙΚΗ ΣΕΛΙΔΑ</a>
                     </li>
 
                     <?php 
@@ -137,58 +137,83 @@
 
         <ul class="breadcrumb">
             <li>Αρχική Σελίδα</li>
-        </ul> </br>
+        </ul>
 
-        <div class="section-title">Στοιχεία Ενδιαφερόμενου</div> <br>
-        <div class="full-applicator-info">
-            <label class="basic-info" for="fullName"> Ονοματεπώνυμο </label>
-            <label class="basic-info" for="email"> Email </label>
-            <label class="basic-info" for="phone"> Τηλέφωνο </label>
-            <label class="basic-info" for="university"> Πανεπιστήμιο </label>
-            <label class="basic-info" for="department">Τμήμα </label>
-            <br>
-            <label class="basic-info" for="fullName"> &nbsp; </label>
-            <label class="basic-info" for="email"> &nbsp; </label>
-            <label class="basic-info" for="phone"> &nbsp; </label>
-            <label class="basic-info" for="university"> &nbsp; </label>
-            <label class="basic-info" for="department">&nbsp; </label>
-        </div>
-        <br>
-        <div class="section-title">Λεπτομέρειες Αίτησης</div> <br>
-        <div class="full-applicator-info">
-            <label class="applicator-info" for="application-id"> Αριθμός Αίτησης </label>
-            <label class="applicator-info" for="title"> Τίτλος Θέσης </label>
-            <label class="applicator-info" for="submit-date"> Ημερομηνία Υποβολής </label>
-            <label class="applicator-info" for="payment"> Αμοιβή </label> <br>
+        </br>
+        <div class="container">            
+            <div class="row">
+                <div class="col-lg-12">
 
-            <label class="applicator-info" for="application-id"> &nbsp; </label>
-            <label class="applicator-info" for="title"> &nbsp; </label>
-            <label class="applicator-info" for="submit-date"> &nbsp; </label>
-            <label class="applicator-info" for="payment"> &nbsp; </label> <br> <br>
+                    <!-- Card-->
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-title">Είσαι Φοιτητής;</div>
+                            <div class="divider"></div>
+                            <ul class="list-unstyled li-space-lg">
+                                <li class="media">
+                                    <i class="fas fa-check"></i><div class="media-body">Δεν χρειάζεται εγγραφή</div>
+                                </li>
+                                <li class="media">
+                                    <i class="fas fa-check"></i><div class="media-body">Γρήγορα και εύκολα</div>
+                                </li>
+                            </ul>
+                            <div class="button-wrapper">
+                                <a class="btn-solid-reg page-scroll" href="sign-up.php">Είσοδος</a>
+                            </div>
+                        </div>
+                    </div> <!-- end of card -->
+                    <!-- end of card -->
 
-            <label class="applicator-info" for="full-part"> Τρόπος Απασχόλησης </label>
-            <label class="applicator-info" for="exec-date"> Ημερομηνία Εκτέλεσης </label>
-            <label class="applicator-info" for="duration"> Διάρκεια Πρακτικής </label>
-            <label class="applicator-info" for="place"> Τοποθεσία </label> <br>
+                    <!-- Card-->
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-title">Είσαι Γραφείο Υποδοχής;</div>
+                            <div class="divider"></div>
+                            <ul class="list-unstyled li-space-lg">
+                                <li class="media">
+                                    <i class="fas fa-check"></i><div class="media-body">Παρακολουθήστε όλες τις αιτήσεις πρακτικής άσκησης</div>
+                                </li>
+                                <li class="media">
+                                    <i class="fas fa-check"></i><div class="media-body">Αποδεχτείτε γρήγορα αιτήσεις</div>
+                                </li>
+                                <li class="media">
+                                    <i class="fas fa-check"></i><div class="media-body">Δημιουργήστε νέες αγγελίες εύκολα</div>
+                                </li>
+                            </ul>
+                            <div class="button-wrapper">
+                                <a class="btn-solid-reg page-scroll" href="fy-index-applications.php">Είσοδος</a>
+                            </div>
+                        </div>
+                    </div> <!-- end of card -->
+                    <!-- end of card -->
 
-            <label class="applicator-info" for="full-part"> &nbsp; </label>
-            <label class="applicator-info" for="exec-date"> &nbsp; </label>
-            <label class="applicator-info" for="duration"> &nbsp; </label>
-            <label class="applicator-info" for="place"> &nbsp; </label>
-        </div>
-        <div class="section-title">Απαραίτητα Έγγραφα</div> <br>
-        <div class="full-applicator-info">
-            <label class="applicator-files" for="photo"> Φωτογραφία </label> <button class="x" type="submit"> <b> x </b> </button> <br>
-            <label class="applicator-files" for="university-id"> Φοιτητική Ταυτότητα (Πάσο) </label> <button class="x" type="submit"> <b> x </b> </button> <br>
-            <label class="applicator-files" for="grades"> Αναλυτική βαθμολογία </label> <button class="x" type="submit"> <b> x </b> </button> <br>
-            <label class="applicator-files" for="uni-certificate"> Βεβαίωση Πανεπιστημίου </label> <button class="x" type="submit"> <b> x </b> </button> <br>
-            <label class="applicator-files" for="reasoning"> Αναφορά για τον λόγο πρακτικής </label> <button class="x" type="submit"> <b> x </b> </button> <br>
-        </div>
+                    <!-- Card-->
+                    <div class="card">
+                        <!--<div class="label">
+                            <p class="best-value">Best Value</p>
+                        </div> -->
+                        <div class="card-body">
+                            <div class="card-title">Είσαι Γραφείο Πρακτικής Άσκησης;</div>
+                            <div class="divider"></div>
+                            <ul class="list-unstyled li-space-lg">
+                                <li class="media">
+                                    <i class="fas fa-check"></i><div class="media-body">Δείτε αγγελίες</div>
+                                </li>
+                                <li class="media">
+                                    <i class="fas fa-check"></i><div class="media-body">Ορίστε Επόπτη για κάθε εγκεκριμένη αίτηση</div>
+                                </li>
+                            </ul>
+                            <div class="button-wrapper">
+                                <a class="btn-solid-reg page-scroll" href="sign-up.php">Είσοδος</a>
+                            </div>
+                        </div>
+                    </div> <!-- end of card -->
+                    <!-- end of card -->
 
-        <br><br>
-        <button class="accept" type="submit"> Αποδοχή </button>
-        <button class="decline" type="submit"> Απόρριψη </button>
-    </div>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of cards-2 -->
     <!-- end of pricing -->
 
     <!-- Footer -->
