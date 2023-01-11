@@ -142,11 +142,11 @@
         <div class="section-title">Στοιχεία Ενδιαφερόμενου</div> <br>
         <div class="full-applicator-info">
             <a class="profile-picture"><img src="images/chuu1.webp" alt="Profile Picture"></a>
-            <label class="info" for="fullName"> Ονοματεπώνυμο </label>
-            <label class="info" for="email"> Email </label>
-            <label class="info" for="phone"> Τηλέφωνο </label>
-            <label class="info" for="university"> Πανεπιστήμιο </label>
-            <label class="info" for="department">Τμήμα </label>
+            <label class="basic-info" for="fullName"> Ονοματεπώνυμο </label>
+            <label class="basic-info" for="email"> Email </label>
+            <label class="basic-info" for="phone"> Τηλέφωνο </label>
+            <label class="basic-info" for="university"> Πανεπιστήμιο </label>
+            <label class="basic-info" for="department">Τμήμα </label>
         </div>
 
         <div class="section-title">Λεπτομέρειες Αίτησης</div> <br>
@@ -162,16 +162,16 @@
         </div>
         <div class="section-title">Απαραίτητα Έγγραφα</div> <br>
         <div class="full-applicator-info">
-            <label class="info" for="photo"> Φωτογραφία </label>
-            <label class="info" for="university-id"> Φοιτητική Ταυτότητα (Πάσο) </label>
-            <label class="info" for="grades"> Αναλυτική βαθμολογία </label>
-            <label class="info" for="uni-certificate"> Βεβαίωση Πανεπιστημίου </label> <br>
-            <label class="info" for="reasoning"> Αναφορά για τον λόγο πρακτικής </label>
-        </div>
-            
-        
+            <label class="applicator-files" for="photo"> Φωτογραφία </label> <button class="x" type="submit"> <b> x </b> </button> <br>
+            <label class="applicator-files" for="university-id"> Φοιτητική Ταυτότητα (Πάσο) </label> <button class="x" type="submit"> <b> x </b> </button> <br>
+            <label class="applicator-files" for="grades"> Αναλυτική βαθμολογία </label> <button class="x" type="submit"> <b> x </b> </button> <br>
+            <label class="applicator-files" for="uni-certificate"> Βεβαίωση Πανεπιστημίου </label> <button class="x" type="submit"> <b> x </b> </button> <br>
+            <label class="applicator-files" for="reasoning"> Αναφορά για τον λόγο πρακτικής </label> <button class="x" type="submit"> <b> x </b> </button> <br>
         </div>
 
+        <br><br>
+        <button class="accept" type="submit"> Αποδοχή </button>
+        <button class="decline" type="submit"> Απόρριψη </button>
     </div>
     <!-- end of pricing -->
 

@@ -705,7 +705,7 @@ input[type='checkbox'] {
 }
 
 .application {
-	border:1px solid black !important;
+	border:1px solid black;
 	border-radius: 16px;
 	padding: 15px;
 	width: 20rem;
@@ -717,11 +717,29 @@ input[type='checkbox'] {
 	overflow-y: scroll;
 }
 
+.basic-info {
+	border: solid rgb(0, 0, 0);
+	font-size: 2ch;
+	padding: 10px;
+	width: 12rem;
+	height: 2rem;
+	padding: initial;
+}
+
 .info {
-	border: solid black !important;
+	border: solid black;
 	font-size: 2ch;
 	padding: 10px;
 	width: 14rem;
+	height: 2rem;
+	padding: initial;
+}
+
+.applicator-files {
+	border: solid black !important;
+	font-size: 2ch;
+	padding: 10px;
+	width: 19rem;
 	height: 2rem;
 	padding: initial;
 }
@@ -737,6 +755,34 @@ input[type='checkbox'] {
 .section-title {
 	background-color: #5d4dd8;
 	color: white;
+}
+
+.accept {
+	background-color: #4CAF50;
+	border: none;
+	color: white;
+	padding: 11px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+}
+
+.x {
+	background-color: #f44336;
+	border-radius: 50%;
+	padding: 1px 10px;
+}
+
+.decline {
+	background-color: #f44336;
+	border: none;
+	color: white;
+	padding: 11px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
 }
 
 .navbar-custom .navbar-brand.logo-text {
