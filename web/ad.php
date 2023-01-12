@@ -141,95 +141,74 @@
         </br>
 
         <div class="section-title"> Στοιχεία Αγγελίας </div> <br>
-        <div class="form-group">
-            <input type="text" class="form-input" name="lastname"  required>
-            <label class="label-control" for="email"> Τμήμα </label>
-            <div class="help-block with-errors"></div>
-        </div>
+        <!-- --------------------------------------------------------------------- -->
+        <!-- --------------------------------------------------------------------- -->
+        <!-- --------------------------------------------------------------------- -->
+        <div class="card-3">
 
-        <div class="form-group">
-            <input type="text" class="form-input" name="lastname"  required>
-            <label class="label-control" for="email"> Γνωστικό Αντικείμενο </label>
-            <div class="help-block with-errors"></div>
-        </div>
+            <!-- ΤΜΗΜΑ, ΓΝΩΣΤΙΚΟ ΑΝΤΙΚΕΙΜΕΝΟ, ΤΙΤΛΟΣ ΣΠΟΥΔΩΝ -->
+            <label for="univeristy-departments"> Τμήμα </label>
+            <select id="university-departments" name="univeristy-departments" style="width: 36rem;margin:0.5rem;">
+                <option value="ekpa"> Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών </option>
+                <option value="opa"> Οικονομικό Πανεπιστήμιο Αθηνών </option>
+                <option value="panteio"> Πάντειο </option>
+            </select>
+            <br>
+            <label for="knowledge"> Γνωστικό Αντικείμενο </label>
+            <select id="knowledge" name="knowledge" style="width: 29rem;margin:0.5rem;">
+                <option value="ekpa"> Συστήματα </option>
+                <option value="opa"> Software Design </option>
+                <option value="panteio"> Οικονομικά </option>
+            </select> 
 
-        <div class="form-group">
-            <input type="text" class="form-input" name="lastname"  required>
-            <label class="label-control" for="email"> Τίτλος Θέσης </label>
-            <div class="help-block with-errors"></div>
-        </div>
+            <div class="form-group">
+                <input type="text" class="form-input" name="lastname"  required>
+                <label class="label-control" for="email"> Τίτλος Θέσης </label>
+                <div class="help-block with-errors"></div>
+            </div>
 
-        <div class="form-group">
-            <input type="text" class="form-input" name="lastname"  required>
-            <label class="label-control" for="email"> Αμοιβή </label>
-            <div class="help-block with-errors"></div>
-        </div>
+            <!-- ΑΜΟΙΒΗ, ΔΙΑΡΚΕΙΑ, ΤΡΟΠΟΣ ΑΠΑΣΧΟΛΗΣΗΣ -->
+            <div class="form-group">
+                <input type="text" class="form-input" name="lastname"  required>
+                <label class="label-control" for="email"> Αμοιβή </label>
+                <div class="help-block with-errors"></div>
+            </div>
+            
+            <div class="form-group">
+                <input type="text" class="form-input" name="lastname"  required>
+                <label class="label-control" for="email"> Διάρκεια </label>
+                <div class="help-block with-errors"></div>
+            </div>
 
-        <div class="form-group">
-            <input type="text" class="form-input" name="lastname"  required>
-            <label class="label-control" for="email"> Διάρκεια </label>
-            <div class="help-block with-errors"></div>
-        </div>
+            <div class="form-group">
+                <input type="text" class="form-input" name="lastname"  required>
+                <label class="label-control" for="email"> Τρόπος Απασχόλησης </label>
+                <div class="help-block with-errors"></div>
+            </div>
 
-        <div class="form-group">
-            <input type="text" class="form-input" name="lastname"  required>
-            <label class="label-control" for="email"> Τρόπος Απασχόλησης </label>
-            <div class="help-block with-errors"></div>
-        </div>
+            <!-- ΤΟΟΘΕΣΙΑ, ΗΜΕΡΟΜΗΝΙΑ ΕΚΤΕΛΕΣΗΣ, ΘΕΣΕΙΣ -->
+            <div class="form-group">
+                <input type="text" class="form-input" name="lastname"  required>
+                <label class="label-control" for="email"> Τοποθεσία </label>
+                <div class="help-block with-errors"></div>
+            </div>
 
-        <div class="form-group">
-            <input type="text" class="form-input" name="lastname"  required>
-            <label class="label-control" for="email"> Τμήμα </label>
-            <div class="help-block with-errors"></div>
+            <div class="form-group">
+                <input type="text" class="form-input" name="lastname"  required>
+                <label class="label-control" for="email"> Ημερομηνία εκτέλεσης </label>
+                <div class="help-block with-errors"></div>
+            </div>
+            
+            <div class="form-group">
+                <input type="text" class="form-input" name="lastname"  required>
+                <label class="label-control" for="email"> Θέσεις </label>
+                <div class="help-block with-errors"></div>
+            </div>
         </div>
+        <!-- --------------------------------------------------------------------- -->
+        <!-- --------------------------------------------------------------------- -->
+        <!-- --------------------------------------------------------------------- -->
 
-        <div class="form-group">
-            <input type="text" class="form-input" name="lastname"  required>
-            <label class="label-control" for="email"> Γνωστικό Αντικείμενο </label>
-            <div class="help-block with-errors"></div>
-        </div>
-
-        <div class="form-group">
-            <input type="text" class="form-input" name="lastname"  required>
-            <label class="label-control" for="email"> Τίτλος Θέσης </label>
-            <div class="help-block with-errors"></div>
-        </div>
-
-        <div class="form-group">
-            <input type="text" class="form-input" name="lastname"  required>
-            <label class="label-control" for="email"> Αμοιβή </label>
-            <div class="help-block with-errors"></div>
-        </div>
-        
-        <div class="form-group">
-            <input type="text" class="form-input" name="lastname"  required>
-            <label class="label-control" for="email"> Διάρκεια </label>
-            <div class="help-block with-errors"></div>
-        </div>
-
-        <div class="form-group">
-            <input type="text" class="form-input" name="lastname"  required>
-            <label class="label-control" for="email"> Τρόπος Απασχόλησης </label>
-            <div class="help-block with-errors"></div>
-        </div>
-
-        <div class="form-group">
-            <input type="text" class="form-input" name="lastname"  required>
-            <label class="label-control" for="email"> Τοποθεσία </label>
-            <div class="help-block with-errors"></div>
-        </div>
-
-        <div class="form-group">
-            <input type="text" class="form-input" name="lastname"  required>
-            <label class="label-control" for="email"> Ημερομηνία εκτέλεσης </label>
-            <div class="help-block with-errors"></div>
-        </div>
-
-        <div class="form-group">
-            <input type="text" class="form-input" name="lastname"  required>
-            <label class="label-control" for="email"> Θέσεις </label>
-            <div class="help-block with-errors"></div>
-        </div>
 
         <div class="section-title"> Έγγραφα Αγγελίας </div> <br>
        
