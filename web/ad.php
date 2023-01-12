@@ -147,14 +147,16 @@
         <div class="card-3">
 
             <!-- ΤΜΗΜΑ, ΓΝΩΣΤΙΚΟ ΑΝΤΙΚΕΙΜΕΝΟ, ΤΙΤΛΟΣ ΣΠΟΥΔΩΝ -->
-            <label for="univeristy-departments"> Τμήμα </label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label for="univeristy-departments"> Τμήμα </label>
             <select id="university-departments" name="univeristy-departments" style="width: 36rem;margin:0.5rem;">
                 <option value="ekpa"> Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών </option>
                 <option value="opa"> Οικονομικό Πανεπιστήμιο Αθηνών </option>
                 <option value="panteio"> Πάντειο </option>
             </select>
+            
             <br>
-            <label for="knowledge"> Γνωστικό Αντικείμενο </label>
+            
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label for="knowledge"> Γνωστικό Αντικείμενο </label>
             <select id="knowledge" name="knowledge" style="width: 29rem;margin:0.5rem;">
                 <option value="ekpa"> Συστήματα </option>
                 <option value="opa"> Software Design </option>
@@ -174,16 +176,16 @@
                 <div class="help-block with-errors"></div>
             </div>
             
-            <div class="form-group">
-                <input type="text" class="form-input" name="lastname"  required>
-                <label class="label-control" for="email"> Διάρκεια </label>
-                <div class="help-block with-errors"></div>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Διάρκεια:</p>
+            <div class="form-group radio button">
+                &nbsp;<input type="radio" id="Common" name="type_of_user" value="Common" checked> 3 μήνες
+                &nbsp;<input type="radio" id="Manager" name="type_of_user" value="Manager"> 6 μήνες
             </div>
 
-            <div class="form-group">
-                <input type="text" class="form-input" name="lastname"  required>
-                <label class="label-control" for="email"> Τρόπος Απασχόλησης </label>
-                <div class="help-block with-errors"></div>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Απασχόληση:</p>
+            <div class="form-group radio button">
+                &nbsp;<input type="radio" id="Common" name="type_of_user" value="Common" checked> Πλήρης
+                &nbsp;<input type="radio" id="Manager" name="type_of_user" value="Manager"> Μερική
             </div>
 
             <!-- ΤΟΟΘΕΣΙΑ, ΗΜΕΡΟΜΗΝΙΑ ΕΚΤΕΛΕΣΗΣ, ΘΕΣΕΙΣ -->
@@ -210,8 +212,12 @@
         <!-- --------------------------------------------------------------------- -->
 
 
-        <div class="section-title"> Έγγραφα Αγγελίας </div> <br>
-       
+        <div class="section-title"> Έγγραφα Αγγελίας </div> 
+        
+        <br>
+        
+        <b> Απαιτείται η επικόλληση των εξής αρχείων: </b>
+        <div class="neccessary-files">
     </div> <!-- end of cards-2 -->
     <!-- end of pricing -->
 
