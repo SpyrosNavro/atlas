@@ -15,7 +15,7 @@
     <meta name="author" content="Inovatik">
 
     <!-- Website Title -->
-    <title>Δημιουργία Αίτησης</title>
+    <title>ΑΤΛΑΣ</title>
     
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext" rel="stylesheet">
@@ -60,7 +60,7 @@
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link page-scroll active" href="index.php">ΑΡΧΙΚΗ ΣΕΛΙΔΑ</a>
+                        <a class="nav-link page-scroll active" href="fy-index-applications.php">ΑΡΧΙΚΗ ΣΕΛΙΔΑ</a>
                     </li>
 
                     <?php 
@@ -136,89 +136,60 @@
     <div id="pricing" class="cards-2">
 
         <ul class="breadcrumb">
-            <li>Αρχική Σελίδα/Αγγελίες/Δημιουργία Αγγελίας</li>
-        </ul>
-        </br>
+            <a href="fy-index-applications.php"> Αρχική Σελίδα > Αιτήσεις >&nbsp; </a>
+            <li> Μαρία Παπαδοπούλου </li>
+        </ul> </br>
 
-        <div class="section-title"> Στοιχεία Αγγελίας </div> <br>
-        <!-- --------------------------------------------------------------------- -->
-        <!-- --------------------------------------------------------------------- -->
-        <!-- --------------------------------------------------------------------- -->
-        <div class="card-3">
-
-            <!-- ΤΜΗΜΑ, ΓΝΩΣΤΙΚΟ ΑΝΤΙΚΕΙΜΕΝΟ, ΤΙΤΛΟΣ ΣΠΟΥΔΩΝ -->
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label for="univeristy-departments"> Τμήμα </label>
-            <select id="university-departments" name="univeristy-departments" style="width: 36rem;margin:0.5rem;">
-                <option value="ekpa"> Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών </option>
-                <option value="opa"> Οικονομικό Πανεπιστήμιο Αθηνών </option>
-                <option value="panteio"> Πάντειο </option>
-            </select>
-            
+        <div class="section-title">Στοιχεία Ενδιαφερόμενου</div> <br>
+        <div class="full-applicator-info">
+            <label class="basic-info" for="fullName"> Ονοματεπώνυμο </label>
+            <label class="basic-info" for="email"> Email </label>
+            <label class="basic-info" for="phone"> Τηλέφωνο </label>
+            <label class="basic-info" for="university"> Πανεπιστήμιο </label>
+            <label class="basic-info" for="department">Τμήμα </label>
             <br>
-            
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label for="knowledge"> Γνωστικό Αντικείμενο </label>
-            <select id="knowledge" name="knowledge" style="width: 29rem;margin:0.5rem;">
-                <option value="ekpa"> Συστήματα </option>
-                <option value="opa"> Software Design </option>
-                <option value="panteio"> Οικονομικά </option>
-            </select> 
-
-            <div class="form-group">
-                <input type="text" class="form-input" name="lastname"  required>
-                <label class="label-control" for="email"> Τίτλος Θέσης </label>
-                <div class="help-block with-errors"></div>
-            </div>
-
-            <!-- ΑΜΟΙΒΗ, ΔΙΑΡΚΕΙΑ, ΤΡΟΠΟΣ ΑΠΑΣΧΟΛΗΣΗΣ -->
-            <div class="form-group">
-                <input type="text" class="form-input" name="lastname"  required>
-                <label class="label-control" for="email"> Αμοιβή </label>
-                <div class="help-block with-errors"></div>
-            </div>
-            
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Διάρκεια:</p>
-            <div class="form-group radio button">
-                &nbsp;<input type="radio" id="Common" name="type_of_user" value="Common" checked> 3 μήνες
-                &nbsp;<input type="radio" id="Manager" name="type_of_user" value="Manager"> 6 μήνες
-            </div>
-
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Απασχόληση:</p>
-            <div class="form-group radio button">
-                &nbsp;<input type="radio" id="Common" name="type_of_user" value="Common" checked> Πλήρης
-                &nbsp;<input type="radio" id="Manager" name="type_of_user" value="Manager"> Μερική
-            </div>
-
-            <!-- ΤΟΟΘΕΣΙΑ, ΗΜΕΡΟΜΗΝΙΑ ΕΚΤΕΛΕΣΗΣ, ΘΕΣΕΙΣ -->
-            <div class="form-group">
-                <input type="text" class="form-input" name="lastname"  required>
-                <label class="label-control" for="email"> Τοποθεσία </label>
-                <div class="help-block with-errors"></div>
-            </div>
-
-            <div class="form-group">
-                <input type="text" class="form-input" name="lastname"  required>
-                <label class="label-control" for="email"> Ημερομηνία εκτέλεσης </label>
-                <div class="help-block with-errors"></div>
-            </div>
-            
-            <div class="form-group">
-                <input type="text" class="form-input" name="lastname"  required>
-                <label class="label-control" for="email"> Θέσεις </label>
-                <div class="help-block with-errors"></div>
-            </div>
+            <label class="basic-info" for="fullName"> &nbsp; </label>
+            <label class="basic-info" for="email"> &nbsp; </label>
+            <label class="basic-info" for="phone"> &nbsp; </label>
+            <label class="basic-info" for="university"> &nbsp; </label>
+            <label class="basic-info" for="department">&nbsp; </label>
         </div>
-        <!-- --------------------------------------------------------------------- -->
-        <!-- --------------------------------------------------------------------- -->
-        <!-- --------------------------------------------------------------------- -->
-
-
-        <div class="section-title"> Έγγραφα Αγγελίας </div> 
-        
         <br>
-        
-        <b> Απαιτείται η επικόλληση των εξής αρχείων: </b>
-        <div class="neccessary-files">
-    </div> <!-- end of cards-2 -->
+        <div class="section-title">Λεπτομέρειες Αίτησης</div> <br>
+        <div class="full-applicator-info">
+            <label class="applicator-info" for="application-id"> Αριθμός Αίτησης </label>
+            <label class="applicator-info" for="title"> Τίτλος Θέσης </label>
+            <label class="applicator-info" for="submit-date"> Ημερομηνία Υποβολής </label>
+            <label class="applicator-info" for="payment"> Αμοιβή </label> <br>
+
+            <label class="applicator-info" for="application-id"> &nbsp; </label>
+            <label class="applicator-info" for="title"> &nbsp; </label>
+            <label class="applicator-info" for="submit-date"> &nbsp; </label>
+            <label class="applicator-info" for="payment"> &nbsp; </label> <br> <br>
+
+            <label class="applicator-info" for="full-part"> Τρόπος Απασχόλησης </label>
+            <label class="applicator-info" for="exec-date"> Ημερομηνία Εκτέλεσης </label>
+            <label class="applicator-info" for="duration"> Διάρκεια Πρακτικής </label>
+            <label class="applicator-info" for="place"> Τοποθεσία </label> <br>
+
+            <label class="applicator-info" for="full-part"> &nbsp; </label>
+            <label class="applicator-info" for="exec-date"> &nbsp; </label>
+            <label class="applicator-info" for="duration"> &nbsp; </label>
+            <label class="applicator-info" for="place"> &nbsp; </label>
+        </div>
+        <div class="section-title">Απαραίτητα Έγγραφα</div> <br>
+        <div class="full-applicator-info">
+            <label class="applicator-files" for="photo"> Φωτογραφία </label> <button class="x" type="submit"> <b> x </b> </button> <br>
+            <label class="applicator-files" for="university-id"> Φοιτητική Ταυτότητα (Πάσο) </label> <button class="x" type="submit"> <b> x </b> </button> <br>
+            <label class="applicator-files" for="grades"> Αναλυτική βαθμολογία </label> <button class="x" type="submit"> <b> x </b> </button> <br>
+            <label class="applicator-files" for="uni-certificate"> Βεβαίωση Πανεπιστημίου </label> <button class="x" type="submit"> <b> x </b> </button> <br>
+            <label class="applicator-files" for="reasoning"> Αναφορά για τον λόγο πρακτικής </label> <button class="x" type="submit"> <b> x </b> </button> <br>
+        </div>
+
+        <br><br>
+        <button class="accept" type="submit"> Αποδοχή </button>
+        <button class="decline" type="submit"> Απόρριψη </button>
+    </div>
     <!-- end of pricing -->
 
     <!-- Footer -->

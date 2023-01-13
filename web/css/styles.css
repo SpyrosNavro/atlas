@@ -297,6 +297,11 @@ a:hover {
 	margin-left: 25px;
 }
 
+.neccessary-files {
+	text-align: initial;
+	margin-left: 25px;
+}
+
 .form-group.has-error.has-danger {
 	margin-bottom: 0.625rem;
 }

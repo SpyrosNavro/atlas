@@ -15,7 +15,7 @@
     <meta name="author" content="Inovatik">
 
     <!-- Website Title -->
-    <title>ΑΤΛΑΣ</title>
+    <title>Δημιουργία Αίτησης</title>
     
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext" rel="stylesheet">
@@ -60,7 +60,7 @@
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link page-scroll active" href="fy-index-applications.php">ΑΡΧΙΚΗ ΣΕΛΙΔΑ</a>
+                        <a class="nav-link page-scroll active" href="index.php">ΑΡΧΙΚΗ ΣΕΛΙΔΑ</a>
                     </li>
 
                     <?php 
@@ -133,50 +133,106 @@
     </br></br>
 
     <!-- Pricing -->
-    <div id="pricing" class="card-3">
+    <div id="pricing" class="cards-2">
 
         <ul class="breadcrumb">
-            <li>Αρχική Σελίδα > Αιτήσεις</li>
+            <a href="fy-index-ads.php"> Αρχική Σελίδα > Αγγελίες >&nbsp;</a>
+            <li>Δημιουργία Αγγελίας</li>
         </ul>
-
         </br>
-        <form action="fy-index-ads.php">
-            <label for="choose">Επιλέξτε:</label>
 
-            <select name="options" id="options">
-                <option value="application">Αιτήσεις</option>
-                <option value="ad">Αγγελίες</option>
+        <div class="section-title"> Στοιχεία Αγγελίας </div> <br>
+        <!-- --------------------------------------------------------------------- -->
+        <!-- --------------------------------------------------------------------- -->
+        <!-- --------------------------------------------------------------------- -->
+        <div class="card-3">
+
+            <!-- ΤΜΗΜΑ, ΓΝΩΣΤΙΚΟ ΑΝΤΙΚΕΙΜΕΝΟ, ΤΙΤΛΟΣ ΣΠΟΥΔΩΝ -->
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label for="univeristy-departments"> Τμήμα </label>
+            <select id="university-departments" name="univeristy-departments" style="width: 36rem;margin:0.5rem;">
+                <option value="ekpa"> Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών </option>
+                <option value="opa"> Οικονομικό Πανεπιστήμιο Αθηνών </option>
+                <option value="panteio"> Πάντειο </option>
             </select>
+            
+            <br>
+            
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label for="knowledge"> Γνωστικό Αντικείμενο </label>
+            <select id="knowledge" name="knowledge" style="width: 29rem;margin:0.5rem;">
+                <option value="ekpa"> Συστήματα </option>
+                <option value="opa"> Software Design </option>
+                <option value="panteio"> Οικονομικά </option>
+            </select> 
 
-            <select name="suboptions" id="suboptions">
-                <option value="new">Καινούργιες</option>
-                <option value="edited">Υπό επεξεργασία</option>
-                <option value="finished">Ολοκληρωμένες</option>
-            </select>
-
-            <input type="submit" value="OK">
-        </form>
-        <br>
-        <ul class="total-applications">
-            <div class="application">
-                <a class="profile-picture" href="application.php"><img src="images/chuu1.webp" alt="Profile Picture"></a>
-                <a class="applicator-name" href="application.php">
-                    Μαρία Παπαδοπούλου <br>
-                    Ειδίκευση: Δήμαρχος <br>
-                    Ημερομηνία Υποβολής: 15/1/2023
-                </a>
+            <div class="form-group">
+                <input type="text" class="form-input" name="lastname"  required>
+                <label class="label-control" for="email"> Τίτλος Θέσης </label>
+                <div class="help-block with-errors"></div>
             </div>
-            <div class="application">
-                <a class="profile-picture" href="index.php"><img src="images/yves.webp" alt="Profile Picture"></a>
-                <a class="applicator-name" href="application.php">
-                    Αντωνία Βασιλειάδου <br>
-                    Ειδίκευση: Σλατινα <br>
-                    Ημερομηνία Υποβολής: 15/1/2023
-                </a>
+
+            <!-- ΑΜΟΙΒΗ, ΔΙΑΡΚΕΙΑ, ΤΡΟΠΟΣ ΑΠΑΣΧΟΛΗΣΗΣ -->
+            <div class="form-group">
+                <input type="text" class="form-input" name="lastname"  required>
+                <label class="label-control" for="email"> Αμοιβή </label>
+                <div class="help-block with-errors"></div>
             </div>
             
-        </ul>
-    </div>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Διάρκεια:</p>
+            <div class="form-group radio button">
+                &nbsp;<input type="radio" id="Common" name="type_of_user" value="Common" checked> 3 μήνες
+                &nbsp;<input type="radio" id="Manager" name="type_of_user" value="Manager"> 6 μήνες
+            </div>
+
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Απασχόληση:</p>
+            <div class="form-group radio button">
+                &nbsp;<input type="radio" id="Common" name="type_of_user" value="Common" checked> Πλήρης
+                &nbsp;<input type="radio" id="Manager" name="type_of_user" value="Manager"> Μερική
+            </div>
+
+            <!-- ΤΟΟΘΕΣΙΑ, ΗΜΕΡΟΜΗΝΙΑ ΕΚΤΕΛΕΣΗΣ, ΘΕΣΕΙΣ -->
+            <div class="form-group">
+                <input type="text" class="form-input" name="lastname"  required>
+                <label class="label-control" for="email"> Τοποθεσία </label>
+                <div class="help-block with-errors"></div>
+            </div>
+
+            <div class="form-group">
+                <input type="text" class="form-input" name="lastname"  required>
+                <label class="label-control" for="email"> Ημερομηνία εκτέλεσης </label>
+                <div class="help-block with-errors"></div>
+            </div>
+            
+            <p style="margin:0rem; color:#555;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Θέσεις</p>
+            <form>
+                <input type="number" id="number" value="0" style="margin-left:25px;" />
+            </form>
+            <br>
+
+        </div>
+        <!-- --------------------------------------------------------------------- -->
+        <!-- --------------------------------------------------------------------- -->
+        <!-- --------------------------------------------------------------------- -->
+
+
+        <div class="section-title"> Έγγραφα Αγγελίας </div> 
+        
+        <br>
+        
+        <div class="neccessary-files">
+            <b>Απαιτείται η επικόλληση των εξής αρχείων:</b><br>
+            • Φωτογραφία <br>
+            • Φοιτητική ταυτότητα (πάσο)<br>
+            • Αναλυτική βαθμολογία<br>
+            • Βεβαίωση πανεπιστημίου<br>
+            • Αναφορά για τον λόγο πρακτικής <br>
+        </div>
+
+        <br>
+        <input type="submit" value="Οριστική Υποβολή" style="margin: 15px;background-color: #4c51af;color: white;margin: 15px;background-color: #4c51af;color: white;border-radius: 10px;" /> <br>
+        <input type="submit" value="Προσωρινή Αποθήκευση" style="border-radius: 10px;"/>
+    </div> <!-- end of cards-2 -->
+    <!-- end of pricing -->
+
     <!-- Footer -->
     <svg class="footer-frame" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1920 79"><defs><style>.cls-2{fill:#5f4def;}</style></defs><title>footer-frame</title><path class="cls-2" d="M0,72.427C143,12.138,255.5,4.577,328.644,7.943c147.721,6.8,183.881,60.242,320.83,53.737,143-6.793,167.826-68.128,293-60.9,109.095,6.3,115.68,54.364,225.251,57.319,113.58,3.064,138.8-47.711,251.189-41.8,104.012,5.474,109.713,50.4,197.369,46.572,89.549-3.91,124.375-52.563,227.622-50.155A338.646,338.646,0,0,1,1920,23.467V79.75H0V72.427Z" transform="translate(0 -0.188)"/></svg>
     <div class="footer">

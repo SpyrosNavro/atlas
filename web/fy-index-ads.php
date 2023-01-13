@@ -136,7 +136,7 @@
     <div id="pricing" class="card-3">
 
         <ul class="breadcrumb">
-            <li>Αρχική Σελίδα/Αγγελίες</li>
+            <li>Αρχική Σελίδα > Αγγελίες</li>
         </ul>
 
         </br>
@@ -157,7 +157,7 @@
         </form>
         <br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a class="create-ad" method="POST" href="ad.php"> Δημιουργία Αίτησης </a> <br>
+        <a class="create-ad" method="POST" href="create-ad.php"> Δημιουργία Αίτησης </a> <br>
 
         <br>
         <ul class="total-ads">

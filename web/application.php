@@ -136,7 +136,8 @@
     <div id="pricing" class="cards-2">
 
         <ul class="breadcrumb">
-            <li>Αρχική Σελίδα</li>
+            <a href="fy-index-applications.php"> Αρχική Σελίδα > Αιτήσεις >&nbsp; </a>
+            <li> Μαρία Παπαδοπούλου </li>
         </ul> </br>
 
         <div class="section-title">Στοιχεία Ενδιαφερόμενου</div> <br>
