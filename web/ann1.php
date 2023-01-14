@@ -132,7 +132,16 @@
     </br></br></br>
 
     <!-- Announcements -->
-    <header id="header" class="ex-header">
+
+        <ul class="breadcrumb">
+                <li><a href="index.php">Αρχική </a></li>
+                <li><div class="breadcrumb-item">/</div>
+
+                <li><a href="announcements.php"> Ανακοινώσεις</a></li>
+                <li><div class="breadcrumb-item">/</div>
+                <li><div class="breadcrumb-item">Νέος κύκλος χρηματοδότησης Πρακτικής Άσκησης μέσω ΕΣΠΑ- Πρόσκληση αιτήσεων 2023</div>
+            </ul>
+        <header id="header" class="ex-header">
 
     
     
@@ -147,14 +156,7 @@
             </div>
         </div>
         
-        <ul class="breadcrumb">
-            <li><a href="index.php">Αρχική </a></li>
-            <li><div class="breadcrumb-item">/</div>
 
-            <li><a href="announcements.php"> Ανακοινώσεις</a></li>
-            <li><div class="breadcrumb-item">/</div>
-            <li><div class="breadcrumb-item">Νέος κύκλος χρηματοδότησης Πρακτικής Άσκησης μέσω ΕΣΠΑ- Πρόσκληση αιτήσεων 2023</div>
-        </ul>
 
  
         <div class="row1">

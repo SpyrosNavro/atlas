@@ -249,6 +249,9 @@ a:hover {
 	margin-top: 0.375rem;
 }
 
+/* button-box */
+
+
 .label-control {
 	position: absolute;
 	top: 0.87rem;
@@ -292,6 +295,13 @@ a:hover {
 	transition: all 0.2s;
 	-webkit-appearance: compatibility; /* removes inner shadow on form inputs on ios safari */
 }
+
+.pleft {
+	padding-left: 25rem;
+	padding-bottom: 1rem;
+
+}
+
 
 .form-control-input:sname {
 	float: left;
@@ -723,12 +733,129 @@ input[type='checkbox'] {
 	opacity: 1;
 }
 
-/* Dropdown Menu */
+/* Dropdown Menu */ 
+
+
 .navbar-custom .dropdown:hover > .dropdown-menu {
 	display: block; /* this makes the dropdown menu stay open while hovering it */
 	min-width: auto;
 	animation: fadeDropdown 0.2s; /* required for the fade animation */
 }
+
+/* Dropdown menu of the student */
+.navbar2 {
+	overflow: hidden;
+	/*background-color: ; */
+  }
+  
+  .navbar2 a {
+	float: left;
+	font-size: 16px;
+	color: rgb(0, 0, 0);
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+  }
+  
+  .subnav2 {
+	float: left;
+	overflow: hidden;
+  }
+  
+  .subnav2 .subnavbtn {
+	font-size: 16px;  
+	border: none;
+	outline: none;
+	color: rgb(0, 0, 0);
+	padding: 14px 16px;
+	background-color: inherit;
+	font-family: inherit;
+	margin: 0;
+  }
+  
+	.navbar2 a:hover, .navbar2 a.active ,.navbar2 a:active, .subnav2:hover .subnavbtn {
+	color: red;
+
+  }
+
+  .navbar2 a.active{
+	float: left;
+	font-size: 16px;
+	color: rgb(247, 29, 29);
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+  }
+
+  
+  .subnav2-content {
+	display: none;
+	position: absolute;
+	left: 10;
+	width: 100%;
+	z-index: 1;
+  }
+  
+  .subnav2-content a {
+	float: left;
+	color: rgb(0, 0, 0);
+	text-decoration: none;
+  }
+  
+  .subnav2-content a:hover {
+	color: red;
+  }
+
+  .subnav2-content a.active {
+	color: red;
+  }
+
+  
+  .subnav2:hover .subnav2-content {
+	display: block;
+  }
+
+/* Saved for Student */
+
+.subnav2-right {
+	font-size: 16px;  
+	border: none;
+	outline: none;
+	color: rgb(0, 0, 0);
+	padding: 14px 16px;
+	background-color: inherit;
+	font-family: inherit;
+	margin: 0;
+  }
+  
+  .subnav2-right-content {
+	display: none;
+	position: absolute;
+	left: 10;
+	width: 100%;
+	z-index: 1;
+  }
+
+  .right {
+	text-align: right;
+  }
+
+
+.subnav2-right:hover {
+	color: red;
+  }
+  .subnav2-right:hover .subnav2-right-content {
+	display: block;
+  }
+
+
+
+
+
+
+
+
+  /* end of the student navigator */
 
 @keyframes fadeDropdown {
     0% {
@@ -1629,12 +1756,15 @@ a:hover.back-to-top {
 	background-color: #f3f7fd;
 }
 
+/* Student Multi-Step Form */
+
+
 
 /****************************************/
 /*     18. Sign Up and Log In Pages     */
 /****************************************/
 .ex-2-header {
-	padding-top: 9rem;
+	padding-top: 5rem;
 	background-color: #ffffff;
 	text-align: center;
 	min-height: 100vh;
@@ -1720,6 +1850,8 @@ a.blue {
 	width: 100px;
 	margin:auto;
 	margin-bottom: 50px;
+
+
 }
 
 
@@ -1825,7 +1957,7 @@ a.blue {
 
 	/* Sign Up And Log In Pages */
 	.ex-2-header {
-		padding-top: 11rem;
+		padding-top: 5rem;
 	}
 
 	.ex-2-header .form-container {

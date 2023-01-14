@@ -3,6 +3,7 @@
     require_once './php/connect.php'; // connect to db
     unset($_SESSION['failure']);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,17 +14,8 @@
     <meta name="description" content="Tivo is a HTML landing page template built with Bootstrap to help you crate engaging presentations for SaaS apps and convert visitors into users.">
     <meta name="author" content="Inovatik">
 
-    <!-- OG Meta Tags to improve the way the post looks when you share the page on LinkedIn, Facebook, Google+ -->
-	<meta property="og:site_name" content="" /> <!-- website name -->
-	<meta property="og:site" content="" /> <!-- website link -->
-	<meta property="og:title" content=""/> <!-- title shown in the actual shared post -->
-	<meta property="og:description" content="" /> <!-- description shown in the actual shared post -->
-	<meta property="og:image" content="" /> <!-- image link, make sure it's jpg -->
-	<meta property="og:url" content="" /> <!-- where do you want your post to link to -->
-	<meta property="og:type" content="article" />
-
     <!-- Website Title -->
-    <title>Επικοινωνία</title>
+    <title>ΑΤΛΑΣ</title>
     
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext" rel="stylesheet">
@@ -48,7 +40,6 @@
     </div>
     <!-- end of preloader -->
     
-
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
         <div class="container">
@@ -68,7 +59,7 @@
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="index.php">ΑΡΧΙΚΗ ΣΕΛΙΔΑ</a>
+                        <a class="nav-link page-scroll" href="index.php">ΑΡΧΙΚΗ ΣΕΛΙΔΑ<span class="sr-only">(current)</span></a>
                     </li>
 
                     <?php 
@@ -76,7 +67,7 @@
                     { ?>
 
                         <li class="nav-item">
-                            <a class="nav-link page-scroll" href="announcements.php">ΑΝΑΚΟΙΝΩΣΕΙΣ</a>
+                            <a class="nav-link page-scroll" href="#header">ΑΝΑΚΟΙΝΩΣΕΙΣ</a>
                         </li>
 
                     <?php
@@ -84,7 +75,7 @@
                     ?>
                         
                         <li class="nav-item">
-                            <a class="nav-link page-scroll" href="announcements.php">ΑΝΑΚΟΙΝΩΣΕΙΣ</a>
+                            <a class="nav-link page-scroll" href="#header">ΑΝΑΚΟΙΝΩΣΕΙΣ</a>
                         </li>
 
                     <?php
@@ -96,7 +87,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#header">ΕΠΙΚΟΙΝΩΝΙΑ</a>
+                        <a class="nav-link page-scroll" href="communication.php">ΕΠΙΚΟΙΝΩΝΙΑ</a>
                     </li>
                 </ul>
                 <span class="nav-item" >
@@ -137,35 +128,153 @@
         </div> <!-- end of container -->
     </nav> <!-- end of navbar -->
     <!-- end of navigation -->
+    </br></br></br>
 
-    <br><br><br>
+
     <ul class="breadcrumb">
-        <li> Επικοινωνία</li>
+        <li><a href="index.php">Αρχική </a></li>
+        <li><div class="breadcrumb-item">/</div>
+    
+        <li> Αναζήτηση Θέσεων</li>
     </ul>
+
+
+    <div class="navbar2 active">
+        <a href="#home">Αναζήτηση θέσεων</a>
+        <div class="subnav2 active">
+            <button class="subnavbtn">Οι Αιτήσεις μου <i class="fa fa-caret-down"></i></button>
+            <div class="subnav2-content">
+            <a href="Sprocessing.php">Υπο Επεξεργασία</a>
+            <a href="Scommited.php">Υποβεβλημένες</a>
+            </div>
+        </div> 
+    </div>
+
+
+
+
+
+
     <!-- Header -->
     <header id="header" class="ex-2-header">
         
-            <div class="row">
-                <div class="col-lg-12">
-                    <h3>Επικοινωνία με Γραφείο Αρωγής Χρηστών</h3>
+            
+        <div class="form-container">
+                    <form  action="" method="post">
+
+                        <h6> Αναζητήση αγγελιών</h6>
+                        <hr class="hr-line">
+                    <div class="step-rowSearch">
+                        <div class="step-colSearch">
+                            <label for="country"> Επιλέξτε Χώρα:</label>
+                            <input id="country" placeholder="Αναζητήστε Χώρα" list="countries">
+                            <datalist id="countries">
+                                <option value="Ελλάδα">
+                                <option value="Βέλγιο">
+                                <option value="Σουηδία">
+                            </datalist>  
+                        </div>
+
+                        <div class="step-colSearch">
+                            
+                                <label for="country"> Επιλέξτε Χώρα:</label>
+
+                                <div onclick="myFunction()" class="">
+                                    <input id="country" placeholder="Αναζητήστε Χώρα" id="myInput3" onkeyup="filterFunction()">
+
+
+                                
+                                    <div id="" class="dropdown3-content">
+                                        <a href="#about">About</a>
+                                        <a href="#base">Base</a>
+                                        <a href="#blog">Blog</a>
+                                        <a href="#contact">Contact</a>
+                                        <a href="#custom">Custom</a>
+                                        <a href="#support">Support</a>
+                                        <a href="#tools">Tools</a>
+                                    </div>
+                                 </div>
+                        </div>
+
+                    </div>
+                        
+                    <div clas="step-rowSearch">
+                        <div class="step-colSearch">
+                            <div class="dropdown3">
+                                    <button onclick="myFunction()" class="dropbtn3">Dropdown</button>
+                                    <div id="myDropdown3" class="dropdown3-content">
+                                        <input type="text" placeholder="Search.." id="myInput3" onkeyup="filterFunction()">
+                                        <a href="#about">About</a>
+                                        <a href="#base">Base</a>
+                                        <a href="#blog">Blog</a>
+                                        <a href="#contact">Contact</a>
+                                        <a href="#custom">Custom</a>
+                                        <a href="#support">Support</a>
+                                        <a href="#tools">Tools</a>
+                                    </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
                     <br>
-                    <div class="info">Για οποιοδήποτε πρόβλημα αντιμετωπίζεται, μπορείτε να απευθυνθείτε στο Γραφείο Αρωγής Χρηστών.
-                    </br>Ημέρες και ώρες λειτουργίας: Δευτέρα - Παρασκευή 9:00-15:00
-                    </div></br>
-                    <div class="info"> E-mail: help@atlas.gr </div>
-                    <div class="info"> Τηλέφωνο: 2100000000, 2100000001 </div>
+                        <div class ="">
+                            <button class="btn width-30 btn-next ml-auto btn-next">Αναζήτηση</button>
+                        </div>
+
+                    </form>
+
+
                     
-                    
+                
 
-                    <br> <br>
 
-                    <br><br><br><br><br>
 
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        
+
+
+
+
+
+
+
+        </div> <!-- end of form container -->
+                    <!-- end of form -->
+
+    
+
+
     </header> <!-- end of ex-header -->
     <!-- end of header -->
+    
+    <script type="text/javascript">
+        /* When the user clicks on the button,
+        toggle between hiding and showing the dropdown content */
+        function myFunction() {
+        document.getElementById("myDropdown3").classList.toggle("show");
+        }
+
+        function filterFunction() {
+        var input, filter, ul, li, a, i;
+        input = document.getElementById("myInput3");
+        filter = input.value.toUpperCase();
+        div = document.getElementById("myDropdown3");
+        a = div.getElementsByTagName("a");
+        for (i = 0; i < a.length; i++) {
+            txtValue = a[i].textContent || a[i].innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            a[i].style.display = "";
+            } else {
+            a[i].style.display = "none";
+            }
+        }
+        }
+        document.write(input)
+        console.log("input")
+        
+    </script>
+
 
     <!-- Footer -->
     <svg class="footer-frame" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1920 79"><defs><style>.cls-2{fill:#5f4def;}</style></defs><title>footer-frame</title><path class="cls-2" d="M0,72.427C143,12.138,255.5,4.577,328.644,7.943c147.721,6.8,183.881,60.242,320.83,53.737,143-6.793,167.826-68.128,293-60.9,109.095,6.3,115.68,54.364,225.251,57.319,113.58,3.064,138.8-47.711,251.189-41.8,104.012,5.474,109.713,50.4,197.369,46.572,89.549-3.91,124.375-52.563,227.622-50.155A338.646,338.646,0,0,1,1920,23.467V79.75H0V72.427Z" transform="translate(0 -0.188)"/></svg>
@@ -210,6 +319,7 @@
         </div> <!-- end of container -->
     </div> <!-- end of footer -->  
     <!-- end of footer -->
+
 
 
     <!-- Scripts -->

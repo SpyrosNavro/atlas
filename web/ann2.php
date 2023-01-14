@@ -132,6 +132,15 @@
     </br></br></br>
 
     <!-- Announcements -->
+
+        <ul class="breadcrumb">
+            <li><a href="index.php">Αρχική </a></li>
+            <li><div class="breadcrumb-item">/</div>
+            <li><a href="announcements.php"> Ανακοινώσεις</a></li>
+            <li><div class="breadcrumb-item">/</div>
+            <li><div class="breadcrumb-item">Επανέναρξη Πρακτικών Ασκήσεων με φυσική παρουσία</div>
+        </ul>
+
     <header id="header" class="ex-header">
 
     
@@ -147,13 +156,6 @@
             </div>
         </div>
         
-        <ul class="breadcrumb">
-            <li><a href="index.php">Αρχική </a></li>
-            <li><div class="breadcrumb-item">/</div>
-            <li><a href="announcements.php"> Ανακοινώσεις</a></li>
-            <li><div class="breadcrumb-item">/</div>
-            <li><div class="breadcrumb-item">Επανέναρξη Πρακτικών Ασκήσεων με φυσική παρουσία</div>
-        </ul>
 
  
         <div class="row1">
