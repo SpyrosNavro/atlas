@@ -3,6 +3,7 @@
     require_once './php/connect.php'; // connect to db
     unset($_SESSION['failure']);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,17 +14,8 @@
     <meta name="description" content="Tivo is a HTML landing page template built with Bootstrap to help you crate engaging presentations for SaaS apps and convert visitors into users.">
     <meta name="author" content="Inovatik">
 
-    <!-- OG Meta Tags to improve the way the post looks when you share the page on LinkedIn, Facebook, Google+ -->
-	<meta property="og:site_name" content="" /> <!-- website name -->
-	<meta property="og:site" content="" /> <!-- website link -->
-	<meta property="og:title" content=""/> <!-- title shown in the actual shared post -->
-	<meta property="og:description" content="" /> <!-- description shown in the actual shared post -->
-	<meta property="og:image" content="" /> <!-- image link, make sure it's jpg -->
-	<meta property="og:url" content="" /> <!-- where do you want your post to link to -->
-	<meta property="og:type" content="article" />
-
     <!-- Website Title -->
-    <title>Επικοινωνία</title>
+    <title>ΑΤΛΑΣ</title>
     
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext" rel="stylesheet">
@@ -68,7 +60,7 @@
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="index.php">ΑΡΧΙΚΗ ΣΕΛΙΔΑ</a>
+                        <a class="nav-link page-scroll active" href="fy-index-applications.php">ΑΡΧΙΚΗ ΣΕΛΙΔΑ</a>
                     </li>
 
                     <?php 
@@ -96,9 +88,10 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link page-scroll active" href="#header">ΕΠΙΚΟΙΝΩΝΙΑ</a>
+                        <a class="nav-link page-scroll" href="communication.php">ΕΠΙΚΟΙΝΩΝΙΑ</a>
                     </li>
                 </ul>
+
                 <span class="nav-item" >
                     <a class="btn-outline-sm" id="login-btn" href="log-in.php">ΣΥΝΔΕΣΗ</a>
                 </span>
@@ -137,35 +130,67 @@
         </div> <!-- end of container -->
     </nav> <!-- end of navbar -->
     <!-- end of navigation -->
+    </br></br>
 
-    <br><br><br>
-    <ul class="breadcrumb">
-        <li> Επικοινωνία</li>
-    </ul>
-    <!-- Header -->
-    <header id="header">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h3>Επικοινωνία με Γραφείο Αρωγής Χρηστών</h3>
-                    <br>
-                    <div class="info">Για οποιοδήποτε πρόβλημα αντιμετωπίζεται, μπορείτε να απευθυνθείτε στο Γραφείο Αρωγής Χρηστών.
-                    </br>Ημέρες και ώρες λειτουργίας: Δευτέρα - Παρασκευή 9:00-15:00
-                    </div></br>
-                    <div class="info"> E-mail: help@atlas.gr </div>
-                    <div class="info"> Τηλέφωνο: 2100000000, 2100000001 </div>
-                    
-                    
+    <!-- Pricing -->
+    <div id="pricing" class="cards-2">
 
-                    <br> <br>
+        <ul class="breadcrumb">
+            <a href="fy-index-applications.php"> Αρχική Σελίδα > Αιτήσεις >&nbsp; </a>
+            <li> Μαρία Παπαδοπούλου </li>
+        </ul> </br>
 
-                    <br><br><br><br><br>
+        <div class="section-title">Στοιχεία Ενδιαφερόμενου</div> <br>
+        <div class="full-applicator-info">
+            <label class="basic-info" for="fullName"> Ονοματεπώνυμο </label>
+            <label class="basic-info" for="email"> Email </label>
+            <label class="basic-info" for="phone"> Τηλέφωνο </label>
+            <label class="basic-info" for="university"> Πανεπιστήμιο </label>
+            <label class="basic-info" for="department">Τμήμα </label>
+            <br>
+            <label class="basic-info" for="fullName"> &nbsp; </label>
+            <label class="basic-info" for="email"> &nbsp; </label>
+            <label class="basic-info" for="phone"> &nbsp; </label>
+            <label class="basic-info" for="university"> &nbsp; </label>
+            <label class="basic-info" for="department">&nbsp; </label>
+        </div>
+        <br>
+        <div class="section-title">Λεπτομέρειες Αίτησης</div> <br>
+        <div class="full-applicator-info">
+            <label class="applicator-info" for="application-id"> Αριθμός Αίτησης </label>
+            <label class="applicator-info" for="title"> Τίτλος Θέσης </label>
+            <label class="applicator-info" for="submit-date"> Ημερομηνία Υποβολής </label>
+            <label class="applicator-info" for="payment"> Αμοιβή </label> <br>
 
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        
-    </header> <!-- end of ex-header -->
-    <!-- end of header -->
+            <label class="applicator-info" for="application-id"> &nbsp; </label>
+            <label class="applicator-info" for="title"> &nbsp; </label>
+            <label class="applicator-info" for="submit-date"> &nbsp; </label>
+            <label class="applicator-info" for="payment"> &nbsp; </label> <br> <br>
+
+            <label class="applicator-info" for="full-part"> Τρόπος Απασχόλησης </label>
+            <label class="applicator-info" for="exec-date"> Ημερομηνία Εκτέλεσης </label>
+            <label class="applicator-info" for="duration"> Διάρκεια Πρακτικής </label>
+            <label class="applicator-info" for="place"> Τοποθεσία </label> <br>
+
+            <label class="applicator-info" for="full-part"> &nbsp; </label>
+            <label class="applicator-info" for="exec-date"> &nbsp; </label>
+            <label class="applicator-info" for="duration"> &nbsp; </label>
+            <label class="applicator-info" for="place"> &nbsp; </label>
+        </div>
+        <div class="section-title">Απαραίτητα Έγγραφα</div> <br>
+        <div class="full-applicator-info">
+            <label class="applicator-files" for="photo"> Φωτογραφία </label> <button class="x" type="submit"> <b> x </b> </button> <br>
+            <label class="applicator-files" for="university-id"> Φοιτητική Ταυτότητα (Πάσο) </label> <button class="x" type="submit"> <b> x </b> </button> <br>
+            <label class="applicator-files" for="grades"> Αναλυτική βαθμολογία </label> <button class="x" type="submit"> <b> x </b> </button> <br>
+            <label class="applicator-files" for="uni-certificate"> Βεβαίωση Πανεπιστημίου </label> <button class="x" type="submit"> <b> x </b> </button> <br>
+            <label class="applicator-files" for="reasoning"> Αναφορά για τον λόγο πρακτικής </label> <button class="x" type="submit"> <b> x </b> </button> <br>
+        </div>
+
+        <br><br>
+        <button class="accept" type="submit"> Αποδοχή </button>
+        <button class="decline" type="submit"> Απόρριψη </button>
+    </div>
+    <!-- end of pricing -->
 
     <!-- Footer -->
     <svg class="footer-frame" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1920 79"><defs><style>.cls-2{fill:#5f4def;}</style></defs><title>footer-frame</title><path class="cls-2" d="M0,72.427C143,12.138,255.5,4.577,328.644,7.943c147.721,6.8,183.881,60.242,320.83,53.737,143-6.793,167.826-68.128,293-60.9,109.095,6.3,115.68,54.364,225.251,57.319,113.58,3.064,138.8-47.711,251.189-41.8,104.012,5.474,109.713,50.4,197.369,46.572,89.549-3.91,124.375-52.563,227.622-50.155A338.646,338.646,0,0,1,1920,23.467V79.75H0V72.427Z" transform="translate(0 -0.188)"/></svg>
@@ -211,7 +236,18 @@
     </div> <!-- end of footer -->  
     <!-- end of footer -->
 
-
+<!--
+    <div class="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="p-small">Copyright © 2020 <a href="https://inovatik.com">Template by Inovatik</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+-->
+    	
     <!-- Scripts -->
     <script src="js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
     <script src="js/popper.min.js"></script> <!-- Popper tooltip library for Bootstrap -->
