@@ -1,10 +1,15 @@
 <?php
     session_start();
     require_once './php/connect.php';
+    
+    if (isset($_GET['user'])) {
+        $user = $_GET['user'];
+    }
+
     if(isset($_POST['submit']))
     {
 
-        $_SESSION['failure'] ="";
+        $failure ="";
         $email = $_POST['email'];
         $password = $_POST['password'];
     
@@ -33,12 +38,12 @@
             }
             else
             {
-                $_SESSION['failure'] = 'Λάθος email ή κωδικός.';
+                $failure = 'Λάθος email ή κωδικός.';
             }
         }
         else
         {
-            $_SESSION['failure'] = 'Λάθος email ή κωδικός.';
+            $failure = 'Λάθος email ή κωδικός.';
         }
     }
 ?>
@@ -171,7 +176,7 @@
                         </script>
                     <?php
                     }
-                    ?>
+                ?>
             </div>
         </div> <!-- end of container -->
     </nav> <!-- end of navbar -->
@@ -198,12 +203,28 @@
                                 <label class="label-control" for="password">Κωδικός</label>
                                 <div class="help-block with-errors"></div>
                             </div>
-                            <div class="form-group">
-                                <button name="submit" type="submit" class="btn">ΣΥΝΔΕΣΗ</button>
-                            </div>
+
                             <?php 
-                            if (isset($_SESSION['failure']) && ($_SESSION['failure']!="")) {?>                               
-                                <div class="failure" style="margin-bottom: 10px;font-size: 18px;color: red;"><?php echo $_SESSION['failure']; ?></div>
+                            if( $user == 'student' )
+                            { ?>
+
+                            <div class="form-group">
+                                <a href="faq.php"><button name="submit" type="submit" class="btn">ΣΥΝΔΕΣΗ</button></a>
+                            </div>
+
+
+                            <?php
+                            } else if ($user == 'fy') {
+                            ?>
+                                <div class="form-group">
+                                    <a href="fy-index-applications.php"><button name="submit" type="submit" class="btn">ΣΥΝΔΕΣΗ</button></a>
+                                </div>
+                            <?php
+                            }
+
+
+                            if (isset($failure) && ($failure!="")) {?>                               
+                                <div class="failure" style="margin-bottom: 10px;font-size: 18px;color: red;"><?php echo $failure; ?></div>
                             <?php }?>
 
                         </form>

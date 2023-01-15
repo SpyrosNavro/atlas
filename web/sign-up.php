@@ -6,17 +6,14 @@
 
     if(isset($_POST['submit_signup']))
 	{
-		$firstname = $_POST["firstname"];
-		$lastname = $_POST["lastname"];
-		$country = $_POST["country"];
-		$address = $_POST["address"];
-		$city = $_POST["city"];
-		$region = $_POST["region"];
+        $username = $_POST["username"];
+		$fullname = $_POST["fullname"];
 		$email = $_POST["email"];
-		$tel = $_POST["tel"];
-		$postcode = $_POST["postcode"];
-		$type_of_user = $_POST["type_of_user"];
-		$password = $_POST["password"];
+        $password = $_POST["password"];
+		$phone = $_POST["phone"];
+        $id_passport = $_POST["id_passport"];
+        $id_passport_number = $_POST["id_passport_number"];
+
 		$confirmation = $_POST["confirmation"];
 
 		if ($password != $confirmation) 
@@ -25,22 +22,18 @@
             $_SESSION['failure'] = 'Μη έγκυρα δεδομένα';
 		}
         //$hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-		$query = "INSERT INTO user (firstname, lastname, country, addr, city, region, email, tel, postcode, psw, user_type) VALUES ('$firstname', '$lastname', '$country', '$address', '$city', '$region', '$email', '$tel', '$postcode', '$password', '$type_of_user');";
+		$query = "INSERT INTO user (username, email, psw, fullname, phone, id_passport, id_passport_number) VALUES ('$username', '$email', '$password', '$fullname', '$phone', '$id_passport', '$id_passport_number');";
         $result = mysqli_query($conn,$query);
         if ($result && $_SESSION['failure']=='')
         {
 			$_SESSION['id']=mysqli_insert_id($conn);
-            $_SESSION['firstname']=$firstname;
-            $_SESSION['lastname']=$lastname;
-            $_SESSION['country']=$country;
-            $_SESSION['city']=$city;
-            $_SESSION['region']=$region;
+            $_SESSION['fullname']=$fullname;
             $_SESSION['email']=$email;
-            $_SESSION['tel']=$tel;
-            $_SESSION['postcode']=$postcode;
             $_SESSION['password']=$password;
-            $_SESSION['type_of_user']=$type_of_user;
-
+            $_SESSION['phone']=$phone;
+            $_SESSION['id_passport']=$id_passport;
+            $_SESSION['id_passport_number']=$id_passport_number;
+            
             header("Location: ./index.php");
         }
         else
@@ -185,7 +178,7 @@
     </nav> <!-- end of navbar -->
     <!-- end of navigation -->
 
-
+<br><br><br>
 
     <!-- Header -->
     <header id="header" class="ex-2-header">
@@ -203,13 +196,13 @@
                         <form  action="" method="post">
                             <h6> Βασικά Στοιχεία </h6>
                             <div class="form-group">
-                                <input type="text" class="form-control-input" name="firstname"  required>
+                                <input type="text" class="form-control-input" name="username"  required>
                                 <label class="label-control" for="username">Όνομα Χρήστη</label>
                                 <div class="help-block with-errors"></div>
                             </div>
 
                             <div class="form-group">
-                                <input type="text" class="form-control-input" name="lastname"  required>
+                                <input type="text" class="form-control-input" name="email"  required>
                                 <label class="label-control" for="email">Email</label>
                                 <div class="help-block with-errors"></div>
                             </div>
@@ -248,33 +241,26 @@
                             <h6> Προσωπικά Στοιχεία </h6>
 
                             <div class="form-group">
-                                <input type="text" class="form-control-input" name="country"  required>
-                                <label class="label-control" for="name-lastname">Όνοματεπώνυμο</label>
+                                <input type="text" class="form-control-input" name="fullname"  required>
+                                <label class="label-control" for="fullname">Όνοματεπώνυμο</label>
                                 <div class="help-block with-errors"></div>
                             </div>
 
                             <div class="form-group">
-                                <input type="text" class="form-control-input" name="address"  required>
+                                <input type="text" class="form-control-input" name="phone"  required>
                                 <label class="label-control" for="number">Τηλέφωνο</label>
                                 <div class="help-block with-errors"></div>
                             </div>
 
                             Τύπος Εγγράφου Πιστοποίησης:
                             <div class="form-group radio button">
-                                
-                                <input type="radio" id="Common" name="type_of_user" value="Common" checked> Αστυνομική Ταυτότητα <br>
-                                <input type="radio" id="Manager" name="type_of_user" value="Manager"> Διαβατήριο
+                                <input type="radio" id="id" name="id_passport" value="id" checked> Αστυνομική Ταυτότητα <br>
+                                <input type="radio" id="passport" name="id_passport" value="passport"> Διαβατήριο
                             </div>
 
                             <div class="form-group">
-                                <input type="text" class="form-control-input" name="city"  required>
+                                <input type="text" class="form-control-input" name="id_passport_number"  required>
                                 <label class="label-control" for="id-passport">Αριθμός Ταυτότητας/Διαβατηρίου</label>
-                                <div class="help-block with-errors"></div>
-                            </div>
-
-                            <div class="form-group">
-                                <input type="text" class="form-control-input" name="region"  required>
-                                <label class="label-control" for="time">Αρχή Έκδοσης Εγγράφου Πιστοποίησης</label>
                                 <div class="help-block with-errors"></div>
                             </div>
 

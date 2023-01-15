@@ -60,7 +60,7 @@
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link page-scroll active" href="fy-index-applications.php">ΑΡΧΙΚΗ ΣΕΛΙΔΑ</a>
+                        <a class="nav-link page-scroll active" href="fy-index-ads.php">ΑΡΧΙΚΗ ΣΕΛΙΔΑ</a>
                     </li>
 
                     <?php 
@@ -162,7 +162,7 @@
         <br>
         <ul class="total-ads">
             <div class="ad">
-                <a class="ad-position" href="application.php">
+                <a class="ad-position" href="ad.php">
                     Ηλεκτρολόγος Μηχανικός (Κηφισιά)
                 </a>
             </div> 
@@ -170,7 +170,7 @@
             <br>
             
             <div class="ad">
-                <a class="ad-poistion" href="application.php">
+                <a class="ad-poistion" href="ad.php">
                     Ταμείας (Μενίδι)
                 </a>
             </div>
@@ -178,7 +178,7 @@
             <br>
 
             <div class="ad">
-                <a class="ad-position" href="application.php">
+                <a class="ad-position" href="ad.php">
                     Ηλεκτρολόγος Μηχανικός (Κηφισιά)
                 </a>
             </div>
@@ -186,7 +186,7 @@
             <br>
             
             <div class="ad">
-                <a class="ad-poistion" href="application.php">
+                <a class="ad-poistion" href="ad.php">
                     Ταμείας (Μενίδι)
                 </a>
             </div>
@@ -194,7 +194,7 @@
             <br>
 
             <div class="ad">
-                <a class="ad-position" href="application.php">
+                <a class="ad-position" href="ad.php">
                     Ηλεκτρολόγος Μηχανικός (Κηφισιά)
                 </a>
             </div>
@@ -202,7 +202,7 @@
             <br>
             
             <div class="ad">
-                <a class="ad-poistion" href="application.php">
+                <a class="ad-poistion" href="ad.php">
                     Ταμείας (Μενίδι)
                 </a>
             </div>
@@ -210,7 +210,7 @@
             <br>
             
             <div class="ad">
-                <a class="ad-position" href="application.php">
+                <a class="ad-position" href="ad.php">
                     Ηλεκτρολόγος Μηχανικός (Κηφισιά)
                 </a>
             </div>
@@ -218,7 +218,7 @@
             <br>
             
             <div class="ad">
-                <a class="ad-poistion" href="application.php">
+                <a class="ad-poistion" href="ad.php">
                     Ταμείας (Μενίδι)
                 </a>
             </div>
@@ -226,7 +226,7 @@
             <br>
             
             <div class="ad">
-                <a class="ad-position" href="application.php">
+                <a class="ad-position" href="ad.php">
                     Ηλεκτρολόγος Μηχανικός (Κηφισιά)
                 </a>
             </div>
@@ -234,7 +234,7 @@
             <br>
             
             <div class="ad">
-                <a class="ad-poistion" href="application.php">
+                <a class="ad-poistion" href="ad.php">
                     Ταμείας (Μενίδι)
                 </a>
             </div>

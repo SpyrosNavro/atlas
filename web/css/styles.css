@@ -365,7 +365,6 @@ a:hover {
 	-webkit-appearance: compatibility; /* removes inner shadow on form inputs on ios safari */
 }
 
-<<<<<<< HEAD
 .pleft {
 	padding-left: 25rem;
 	padding-bottom: 1rem;
@@ -373,7 +372,6 @@ a:hover {
 }
 
 
-=======
 .form-input,
 .form-select {
 	display: block; /* needed for proper display of the label in Firefox, IE, Edge */
@@ -390,7 +388,6 @@ a:hover {
 	width: 40rem;
 }
 
->>>>>>> 55fc7f1e2b0ca44b5606e0155e3a69d7c78d6599
 .form-control-input:sname {
 	float: left;
 }
@@ -867,7 +864,7 @@ input[type='checkbox'] {
 	border: solid #b9b3b3;
 	font-size: 2ch;
 	padding: 10px;
-	width: 12rem;
+	width: 14rem;
 	height: 2rem;
 	padding: initial;
 }
