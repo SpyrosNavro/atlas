@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 15, 2023 at 07:30 PM
+-- Generation Time: Jan 15, 2023 at 08:27 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -59,7 +59,8 @@ CREATE TABLE `application` (
   `university_id` blob NOT NULL,
   `grading` blob NOT NULL,
   `university_certificate` blob NOT NULL,
-  `reasoning` blob NOT NULL
+  `reasoning` blob NOT NULL,
+  `accept_refuse` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -71,7 +72,7 @@ CREATE TABLE `application` (
 CREATE TABLE `student` (
   `id_of_student` int(11) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
+  `psw` varchar(50) NOT NULL,
   `fullname` varchar(50) NOT NULL,
   `phone` varchar(10) NOT NULL,
   `university_of_student` varchar(50) NOT NULL,
@@ -82,7 +83,7 @@ CREATE TABLE `student` (
 -- Dumping data for table `student`
 --
 
-INSERT INTO `student` (`id_of_student`, `email`, `password`, `fullname`, `phone`, `university_of_student`, `department_of_student`) VALUES
+INSERT INTO `student` (`id_of_student`, `email`, `psw`, `fullname`, `phone`, `university_of_student`, `department_of_student`) VALUES
 (1, 'sdi001@di.uoa.gr', '123456', 'Γιώργος Παπαδόπουλος', '6970000000', 'Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών', 'Πληροφορική'),
 (3, 'sdi002@di.uoa.gr', 'sdi002', 'Μαρία Μάρκου', '6970000001', 'Οικονομικό Πανεπιστήμιο Αθηνών', 'Οικονομικό');
 
@@ -96,7 +97,7 @@ CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `username` varchar(30) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `password` varchar(30) NOT NULL,
+  `psw` varchar(30) NOT NULL,
   `fullname` varchar(50) NOT NULL,
   `phone` varchar(10) NOT NULL,
   `id_passport` tinyint(1) NOT NULL,
@@ -157,7 +158,7 @@ ALTER TABLE `student`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
