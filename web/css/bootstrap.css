@@ -2054,6 +2054,119 @@ textarea.form-control {
   margin-right: 0.3125rem;
   margin-left: 0;
 }
+/* search and others */
+.form2-group {
+  margin-bottom: 1rem;
+}
+
+.form2-text {
+  display:flexbox;
+  margin-top: 0.25rem;
+}
+
+.form2-row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -5px;
+  margin-left: -5px;
+}
+
+.form2-row > .col,
+.form2-row > [class*="col-"] {
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+.form2-check {
+  position: relative;
+  display: block;
+  padding-left: 1.25rem;
+}
+
+.form2-check-input {
+  position: absolute;
+  margin-top: 0.3rem;
+  margin-left: -1.25rem;
+}
+
+.form2-check-input:disabled ~ .form-check-label {
+  color: #6c757d;
+}
+
+.form2-check-label {
+  margin-bottom: 0;
+}
+.form2.div{
+  display: inline;
+}
+.form2-check-inline {
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-left: 0;
+  margin-right: 0.75rem;
+}
+
+.form2-check-inline .form2-check-input {
+  position: static;
+  margin-top: 0;
+  margin-right: 0.3125rem;
+  margin-left: 0;
+}
+
+.dropbtn3 {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn3:hover, .dropbtn3:focus {
+  background-color: #3e8e41;
+}
+
+#myInput3 {
+  box-sizing: border-box;
+  background-image: url('searchicon.png');
+  background-position: 14px 12px;
+  background-repeat: no-repeat;
+  font-size: 16px;
+  padding: 14px 20px 12px 45px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+}
+
+#myInput3:focus {outline: 3px solid #ddd;}
+
+.dropdown3 {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown3-content {
+  display: none;
+  position: absolute;
+  background-color: #f6f6f6;
+  min-width: 230px;
+  overflow: auto;
+  border: 1px solid #ddd;
+  z-index: 1;
+}
+
+.dropdown3-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown3 a:hover {background-color: #ddd;}
+
 
 .valid-feedback {
   display: none;
@@ -2314,6 +2427,7 @@ textarea.form-control {
   width: 100%;
 }
 
+
 @media (min-width: 576px) {
   .form-inline label {
     display: -ms-flexbox;
@@ -2376,11 +2490,147 @@ textarea.form-control {
   }
 }
 
+
+
+
+
+/* student form */
+
+#Form2{
+	left:-450px;
+}
+
+.step-row{
+  width: 100%;
+  height: 100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 -1px 5px -1px #000;
+  position: relative;
+}
+
+.step-col{
+  width: 120px;
+  text-align: center;
+  color: #333;
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  text-decoration:none;
+
+}
+.step-col a{
+  text-decoration:none;
+
+}
+.step-col :hover {
+  color:#005cbf;
+  text-decoration:none;
+
+}
+
+
+/* search form */
+
+.step-rowSearch{
+  width: 100%;
+  height: 100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.step-colSearch{
+  width: 230px;
+  text-align: center;
+  color: #333;
+  position: relative;
+  margin: 3rem;
+  display: flex;
+  align-items: center;
+  text-decoration:none;
+
+}
+.step-colSearch a{
+  text-decoration:none;
+
+}
+.step-colSearch :hover {
+  color:#005cbf;
+  text-decoration:none;
+
+}
+
+
+.form-step {
+  display: none;
+}
+
+
+
+.form-step-active {
+  display: block;
+}
+
+#progress{
+  position: absolute;
+  height: 100%;
+  width: 180px;
+  background: linear-gradient(to right, #456080, #195b28);
+  transition:1s;
+	padding: 2.25rem 1.25rem 1.25rem 1.25rem;
+  
+
+}
+
+#progress::after{
+  content:"";
+  height:0;
+  width:0;
+  border-top: 50px solid transparent;
+  border-bottom: 50px solid transparent;
+  border-left: 720px solid transparent;
+
+
+  position: absolute;
+  right:-20px;
+  top:0;
+  border-left: 20px solid #195b28;
+	display: block;
+
+}
+
+.btns-box {
+  display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 10rem;
+}
+
+.width-30 {
+  width:30%;
+}
+
+.width-50 {
+  width: 50%;
+}
+
+.width-80 {
+  width: 80%;
+}
+.ml-auto {
+  margin-left: auto;
+}
+
+
+
 .btn {
   display: inline-block;
   font-weight: 400;
   color: white;
-  text-align: center;
+  text-align: ;
   vertical-align: middle;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -2392,8 +2642,33 @@ textarea.form-control {
   font-size: 1rem;
   line-height: 1.5;
   border-radius: 0.25rem;
+  right:200px;
+  
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
+
+.bfirst {
+  display: grid;
+  
+}
+
+.btn2 {
+  background-color: rgb(118, 118, 153);
+
+}
+
+.btn3 {
+  background-color: rgb(0, 177, 47);
+	font-size: 16px;
+
+  text-align: center;
+	padding: 14px 16px;
+  display: inline-block;
+  margin-left: 81%;
+
+  
+}
+
 
 @media (prefers-reduced-motion: reduce) {
   .btn {
@@ -2430,6 +2705,34 @@ fieldset:disabled a.btn {
   color: #fff;
   background-color: #0069d9;
   border-color: #0062cc;
+}
+
+
+.btn5 {
+	font-size: 16px;
+	color: rgb(200, 5, 5);
+  color:var(--danger);
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+  background-color: #efdfe0;
+
+  display: inline-block;
+  margin-left: 87%;
+  border: 1px solid rgb(218, 206, 206);
+  
+
+}
+
+.btn5 a{
+	color: rgb(200, 5, 5);
+  text-decoration:none;
+
+}
+
+.btn5 a:hover {
+  text-decoration:none;
+  color:#000;
 }
 
 .btn-primary:focus, .btn-primary.focus {
@@ -2992,7 +3295,7 @@ fieldset:disabled a.btn {
   margin-top: 0.5rem;
 }
 
-input[type="submit"].btn-block,
+input[type="2mit"].btn-block,
 input[type="reset"].btn-block,
 input[type="button"].btn-block {
   width: 100%;
