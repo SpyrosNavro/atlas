@@ -179,8 +179,8 @@
             
             <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Διάρκεια:</p>
             <div class="form-group radio button">
-                &nbsp;<input type="radio" id="Common" name="type_of_user" value="Common" checked> 3 μήνες
-                &nbsp;<input type="radio" id="Manager" name="type_of_user" value="Manager"> 6 μήνες
+                &nbsp;<input type="radio" id="three-months" name="type_of_user" value="Common" checked> 3 μήνες
+                &nbsp;<input type="radio" id="six-months" name="type_of_user" value="Manager"> 6 μήνες
             </div>
 
             <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Απασχόληση:</p>

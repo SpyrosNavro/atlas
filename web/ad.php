@@ -136,46 +136,48 @@
     <div id="pricing" class="cards-2">
 
         <ul class="breadcrumb">
-            <a href="fy-index-applications.php"> Αρχική Σελίδα > Αιτήσεις >&nbsp; </a>
+            <a href="fy-index-ads.php"> Αρχική Σελίδα > Αγγελίες >&nbsp; </a>
             <li> Μαρία Παπαδοπούλου </li>
         </ul> </br>
 
-        <div class="section-title">Στοιχεία Ενδιαφερόμενου</div> <br>
+        <div class="section-title"> Στοιχεία Αγγελίας </div> <br>
         <div class="full-applicator-info">
-            <label class="basic-info" for="fullName"> Ονοματεπώνυμο </label>
-            <label class="basic-info" for="email"> Email </label>
-            <label class="basic-info" for="phone"> Τηλέφωνο </label>
-            <label class="basic-info" for="university"> Πανεπιστήμιο </label>
-            <label class="basic-info" for="department">Τμήμα </label>
+            <label class="basic-info" for="univeristy-departments"> Τμήμα </label>
+            <label class="basic-info" for="knowledge"> Γνωστικό Αντικείμενο </label>
+            <label class="basic-info" for="position"> Τίτλος Θέσης </label>
+            <label class="basic-info" for="payment"> Αμοιβή </label>
+            <label class="basic-info" for="duration">Διάρκεια </label>
             <br>
-            <label class="basic-info" for="fullName"> &nbsp; </label>
-            <label class="basic-info" for="email"> &nbsp; </label>
-            <label class="basic-info" for="phone"> &nbsp; </label>
-            <label class="basic-info" for="university"> &nbsp; </label>
-            <label class="basic-info" for="department">&nbsp; </label>
+            <label class="basic-info" for="university-department"> &nbsp; </label>
+            <label class="basic-info" for="knowledge"> &nbsp; </label>
+            <label class="basic-info" for="position"> &nbsp; </label>
+            <label class="basic-info" for="payment"> &nbsp; </label>
+            <label class="basic-info" for="duration">&nbsp; </label>
+            
+            <br><br>
+
+            <label class="basic-info" for="occupation"> Απασχόληση </label>
+            <label class="basic-info" for="place"> Τοποθεσία </label>
+            <label class="basic-info" for="exec-date"> Ημερομηνία εκτέλεσης </label>
+            <label class="basic-info" for="positions"> Θέσεις </label>
+            <br>
+            <label class="basic-info" for="occupation"> &nbsp; </label>
+            <label class="basic-info" for="place"> &nbsp; </label>
+            <label class="basic-info" for="exec-date"> &nbsp; </label>
+            <label class="basic-info" for="positions"> &nbsp; </label>
         </div>
         <br>
-        <div class="section-title">Λεπτομέρειες Αίτησης</div> <br>
+        <div class="section-title"> Έγγραφα Αγγελίας </div> <br>
         <div class="full-applicator-info">
-            <label class="applicator-info" for="application-id"> Αριθμός Αίτησης </label>
-            <label class="applicator-info" for="title"> Τίτλος Θέσης </label>
-            <label class="applicator-info" for="submit-date"> Ημερομηνία Υποβολής </label>
-            <label class="applicator-info" for="payment"> Αμοιβή </label> <br>
+            <label class="applicator-info" for="application-id"> Απασχόληση </label>
+            <label class="applicator-info" for="title"> Τοποθεσία </label>
+            <label class="applicator-info" for="submit-date"> Ημερομηνία εκτέλεσης </label>
+            <label class="applicator-info" for="payment"> Θέσεις </label> <br>
 
             <label class="applicator-info" for="application-id"> &nbsp; </label>
             <label class="applicator-info" for="title"> &nbsp; </label>
             <label class="applicator-info" for="submit-date"> &nbsp; </label>
             <label class="applicator-info" for="payment"> &nbsp; </label> <br> <br>
-
-            <label class="applicator-info" for="full-part"> Τρόπος Απασχόλησης </label>
-            <label class="applicator-info" for="exec-date"> Ημερομηνία Εκτέλεσης </label>
-            <label class="applicator-info" for="duration"> Διάρκεια Πρακτικής </label>
-            <label class="applicator-info" for="place"> Τοποθεσία </label> <br>
-
-            <label class="applicator-info" for="full-part"> &nbsp; </label>
-            <label class="applicator-info" for="exec-date"> &nbsp; </label>
-            <label class="applicator-info" for="duration"> &nbsp; </label>
-            <label class="applicator-info" for="place"> &nbsp; </label>
         </div>
         <div class="section-title">Απαραίτητα Έγγραφα</div> <br>
         <div class="full-applicator-info">

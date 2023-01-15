@@ -248,32 +248,31 @@
                             <h6> Προσωπικά Στοιχεία </h6>
 
                             <div class="form-group">
-                                <input type="text" class="form-control-input" name="country"  required>
+                                <input type="text" class="form-control-input" name="name-lastname"  required>
                                 <label class="label-control" for="name-lastname">Όνοματεπώνυμο</label>
                                 <div class="help-block with-errors"></div>
                             </div>
 
                             <div class="form-group">
-                                <input type="text" class="form-control-input" name="address"  required>
+                                <input type="text" class="form-control-input" name="number"  required>
                                 <label class="label-control" for="number">Τηλέφωνο</label>
                                 <div class="help-block with-errors"></div>
                             </div>
 
                             Τύπος Εγγράφου Πιστοποίησης:
                             <div class="form-group radio button">
-                                
-                                <input type="radio" id="Common" name="type_of_user" value="Common" checked> Αστυνομική Ταυτότητα <br>
-                                <input type="radio" id="Manager" name="type_of_user" value="Manager"> Διαβατήριο
+                                <input type="radio" id="id" name="type-of-verification" value="id" checked> Αστυνομική Ταυτότητα <br>
+                                <input type="radio" id="passport" name="type-of-verification" value="passport"> Διαβατήριο
                             </div>
 
                             <div class="form-group">
-                                <input type="text" class="form-control-input" name="city"  required>
+                                <input type="text" class="form-control-input" name="id-passport"  required>
                                 <label class="label-control" for="id-passport">Αριθμός Ταυτότητας/Διαβατηρίου</label>
                                 <div class="help-block with-errors"></div>
                             </div>
 
                             <div class="form-group">
-                                <input type="text" class="form-control-input" name="region"  required>
+                                <input type="text" class="form-control-input" name="time"  required>
                                 <label class="label-control" for="time">Αρχή Έκδοσης Εγγράφου Πιστοποίησης</label>
                                 <div class="help-block with-errors"></div>
                             </div>
