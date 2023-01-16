@@ -24,6 +24,7 @@
         //$hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 		$query = "INSERT INTO user (username, email, psw, fullname, phone, id_passport, id_passport_number) VALUES ('$username', '$email', '$password', '$fullname', '$phone', '$id_passport', '$id_passport_number');";
         $result = mysqli_query($conn,$query);
+        
         if ($result && $_SESSION['failure']=='')
         {
 			$_SESSION['id']=mysqli_insert_id($conn);
@@ -268,8 +269,7 @@
                                 <input type="checkbox" id="sterms" value="Agreed-to-Terms" required>Συμφωνώ με τους <a href="privacy-policy.html" style="color:blue !important">Όρους</a> του ΑΤΛΑΣ
                                 <div class="help-block with-errors"></div>
                             </div>
-                        </div>
-
+                      
                             <br>
                             <div class="form-group">
                                 <button type="submit" name="submit_signup" class="btn">ΕΓΓΡΑΦΗ</button>

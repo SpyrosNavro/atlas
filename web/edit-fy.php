@@ -1,34 +1,7 @@
 <?php
     session_start();
     require_once './php/connect.php'; // connect to db
-    $error = "";
-    $_SESSION['failure']='';
-
-    if(isset($_POST['submit_ad']))
-	{
-        $department = $_POST["department"];
-		$ad_position = $_POST["ad_position"];
-		$payment = $_POST["payment"];
-        $duration = $_POST["duration"];
-		$full_part = $_POST["full_part"];
-        $location = $_POST["location"];
-
-		$query = "INSERT INTO advert (department, ad_position, payment, duration, full_part, loc) VALUES ('$department', '$ad_position', '$payment', '$duration', '$full_part', '$location');";
-        $result = mysqli_query($conn,$query);
-
-        if ($result && $_SESSION['failure']=='')
-        {
-            $_SESSION['id']=mysqli_insert_id($conn);
-            $_SESSION['department']=$department;
-            $_SESSION['ad_position']=$ad_position;
-            $_SESSION['payment']=$payment;
-            $_SESSION['duration']=$duration;
-            $_SESSION['full_part']=$full_part;
-            $_SESSION['location']=$location;
-
-            header("Location: ./fy-index-ads.php");
-        }
-    }
+    unset($_SESSION['failure']);
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +15,7 @@
     <meta name="author" content="Inovatik">
 
     <!-- Website Title -->
-    <title>Δημιουργία Αγγελίας</title>
+    <title>ΑΤΛΑΣ</title>
     
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext" rel="stylesheet">
@@ -163,80 +136,83 @@
     <div id="pricing" class="cards-2">
 
         <ul class="breadcrumb">
-            <a href="fy-index-ads.php"> Αρχική Σελίδα > Αγγελίες >&nbsp;</a>
-            <li>Δημιουργία Αγγελίας</li>
+            <li>Αρχική Σελίδα</li>
         </ul>
+
         </br>
+        <div class="container">            
+            <div class="row">
+                <div class="col-lg-12">
 
-        <div class="section-title"> Στοιχεία Αγγελίας </div> <br>
-        <!-- --------------------------------------------------------------------- -->
-        <!-- --------------------------------------------------------------------- -->
-        <!-- --------------------------------------------------------------------- -->
-        <form  action="" method="post">
-            <div class="card-3">
-                <!-- ΤΜΗΜΑ, ΓΝΩΣΤΙΚΟ ΑΝΤΙΚΕΙΜΕΝΟ, ΤΙΤΛΟΣ ΣΠΟΥΔΩΝ -->
-                <div class="form-group">
-                    <input type="text" class="form-input" name="department"  required>
-                    <label class="label-control" for="department"> Τμήμα </label>
-                    <div class="help-block with-errors"></div>
-                </div>
+                    <!-- Card-->
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-title">Είσαι Φοιτητής;</div>
+                            <div class="divider"></div>
+                            <ul class="list-unstyled li-space-lg">
+                                <li class="media">
+                                    <i class="fas fa-check"></i><div class="media-body">Δεν χρειάζεται εγγραφή</div>
+                                </li>
+                                <li class="media">
+                                    <i class="fas fa-check"></i><div class="media-body">Γρήγορα και εύκολα</div>
+                                </li>
+                            </ul>
+                            <div class="button-wrapper">
+                                <a class="btn-solid-reg page-scroll" href="log-in.php?user=student">Είσοδος</a>
+                            </div>
+                        </div>
+                    </div> <!-- end of card -->
+                    <!-- end of card -->
 
-                <div class="form-group">
-                    <input type="text" class="form-input" name="ad_position"  required>
-                    <label class="label-control" for="ad_position"> Τίτλος Θέσης </label>
-                    <div class="help-block with-errors"></div>
-                </div>
+                    <!-- Card-->
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-title">Είσαι Γραφείο Υποδοχής;</div>
+                            <div class="divider"></div>
+                            <ul class="list-unstyled li-space-lg">
+                                <li class="media">
+                                    <i class="fas fa-check"></i><div class="media-body">Παρακολουθήστε όλες τις αιτήσεις πρακτικής άσκησης</div>
+                                </li>
+                                <li class="media">
+                                    <i class="fas fa-check"></i><div class="media-body">Αποδεχτείτε γρήγορα αιτήσεις</div>
+                                </li>
+                                <li class="media">
+                                    <i class="fas fa-check"></i><div class="media-body">Δημιουργήστε νέες αγγελίες εύκολα</div>
+                                </li>
+                            </ul>
+                            <div class="button-wrapper">
+                                <a class="btn-solid-reg page-scroll" href="log-in.php?user=fy">Είσοδος</a>
+                            </div>
+                        </div>
+                    </div> <!-- end of card -->
+                    <!-- end of card -->
 
-                <!-- ΑΜΟΙΒΗ, ΔΙΑΡΚΕΙΑ, ΤΡΟΠΟΣ ΑΠΑΣΧΟΛΗΣΗΣ -->
-                <div class="form-group">
-                    <input type="text" class="form-input" name="payment"  required>
-                    <label class="label-control" for="payment"> Αμοιβή </label>
-                    <div class="help-block with-errors"></div>
-                </div>
-                
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Διάρκεια:</p>
-                <div class="form-group radio button">
-                    &nbsp;<input type="radio" id="three_months" name="duration" value="three_months" checked> 3 μήνες
-                    &nbsp;<input type="radio" id="six_months" name="duration" value="six_months"> 6 μήνες
-                </div>
+                    <!-- Card-->
+                    <div class="card">
+                        <!--<div class="label">
+                            <p class="best-value">Best Value</p>
+                        </div> -->
+                        <div class="card-body">
+                            <div class="card-title">Είσαι Γραφείο Πρακτικής Άσκησης;</div>
+                            <div class="divider"></div>
+                            <ul class="list-unstyled li-space-lg">
+                                <li class="media">
+                                    <i class="fas fa-check"></i><div class="media-body">Δείτε αγγελίες</div>
+                                </li>
+                                <li class="media">
+                                    <i class="fas fa-check"></i><div class="media-body">Ορίστε Επόπτη για κάθε εγκεκριμένη αίτηση</div>
+                                </li>
+                            </ul>
+                            <div class="button-wrapper">
+                                <a class="btn-solid-reg page-scroll" href="sign-up.php">Είσοδος</a>
+                            </div>
+                        </div>
+                    </div> <!-- end of card -->
+                    <!-- end of card -->
 
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Απασχόληση:</p>
-                <div class="form-group radio button">
-                    &nbsp;<input type="radio" id="full" name="full_part" value="full" checked> Πλήρης
-                    &nbsp;<input type="radio" id="part" name="full_part" value="part"> Μερική
-                </div>
-
-                <!-- ΤΟΟΘΕΣΙΑ, ΗΜΕΡΟΜΗΝΙΑ ΕΚΤΕΛΕΣΗΣ, ΘΕΣΕΙΣ -->
-                <div class="form-group">
-                    <input type="text" class="form-input" name="location"  required>
-                    <label class="label-control" for="location"> Τοποθεσία </label>
-                    <div class="help-block with-errors"></div>
-                </div>
-                <br>
-            </div>
-
-            <!-- --------------------------------------------------------------------- -->
-            <!-- --------------------------------------------------------------------- -->
-            <!-- --------------------------------------------------------------------- -->
-
-            <div class="section-title"> Έγγραφα Αγγελίας </div> 
-            
-            <br>
-            
-            <div class="neccessary-files">
-                <b>Απαιτείται η επικόλληση των εξής αρχείων:</b><br>
-                • Φωτογραφία <br>
-                • Φοιτητική ταυτότητα (πάσο)<br>
-                • Αναλυτική βαθμολογία<br>
-                • Βεβαίωση πανεπιστημίου<br>
-                • Αναφορά για τον λόγο πρακτικής <br>
-            </div>
-
-            <br>
-
-            <button type="submit" name="submit_ad" style="margin: 15px;background-color: #4c51af;color: white;margin: 15px;background-color: #4c51af;color: white;border-radius: 10px;"> Οριστική Υποβολή </button> <br>
-            <button type="submit" value="Προσωρινή Αποθήκευση" style="border-radius: 10px;"> Προσωρινή Αποθήκευση </button>
-        </form>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
     </div> <!-- end of cards-2 -->
     <!-- end of pricing -->
 
