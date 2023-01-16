@@ -93,7 +93,7 @@
                 </ul>
 
                 <span class="nav-item" >
-                    <a class="btn-outline-sm" id="login-btn" href="log-in.php">ΣΥΝΔΕΣΗ</a>
+                    <a class="btn-outline-sm" id="login-btn" href="log-in-seperation.php">ΣΥΝΔΕΣΗ</a>
                 </span>
 
                 <span class="nav-item" >

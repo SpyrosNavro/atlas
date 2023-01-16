@@ -15,7 +15,7 @@
     <meta name="author" content="Inovatik">
 
     <!-- Website Title -->
-    <title>ΑΤΛΑΣ</title>
+    <title>Επεξεργασία Προφίλ Φορέα Υποδοχής</title>
     
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext" rel="stylesheet">
@@ -132,87 +132,23 @@
     <!-- end of navigation -->
     </br></br>
 
+    
     <!-- Pricing -->
     <div id="pricing" class="cards-2">
 
         <ul class="breadcrumb">
-            <li>Αρχική Σελίδα</li>
+            <li> Επεξεργασία Προφίλ Φορέα Υποδοχής </li>
         </ul>
-
         </br>
-        <div class="container">            
-            <div class="row">
-                <div class="col-lg-12">
 
-                    <!-- Card-->
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="card-title">Είσαι Φοιτητής;</div>
-                            <div class="divider"></div>
-                            <ul class="list-unstyled li-space-lg">
-                                <li class="media">
-                                    <i class="fas fa-check"></i><div class="media-body">Δεν χρειάζεται εγγραφή</div>
-                                </li>
-                                <li class="media">
-                                    <i class="fas fa-check"></i><div class="media-body">Γρήγορα και εύκολα</div>
-                                </li>
-                            </ul>
-                            <div class="button-wrapper">
-                                <a class="btn-solid-reg page-scroll" href="log-in.php?user=student">Είσοδος</a>
-                            </div>
-                        </div>
-                    </div> <!-- end of card -->
-                    <!-- end of card -->
+        <div class="section-title">  </div> <br>
+        <!-- --------------------------------------------------------------------- -->
+        <!-- --------------------------------------------------------------------- -->
+        <!-- --------------------------------------------------------------------- -->
+        <form  action="" method="post">
 
-                    <!-- Card-->
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="card-title">Είσαι Γραφείο Υποδοχής;</div>
-                            <div class="divider"></div>
-                            <ul class="list-unstyled li-space-lg">
-                                <li class="media">
-                                    <i class="fas fa-check"></i><div class="media-body">Παρακολουθήστε όλες τις αιτήσεις πρακτικής άσκησης</div>
-                                </li>
-                                <li class="media">
-                                    <i class="fas fa-check"></i><div class="media-body">Αποδεχτείτε γρήγορα αιτήσεις</div>
-                                </li>
-                                <li class="media">
-                                    <i class="fas fa-check"></i><div class="media-body">Δημιουργήστε νέες αγγελίες εύκολα</div>
-                                </li>
-                            </ul>
-                            <div class="button-wrapper">
-                                <a class="btn-solid-reg page-scroll" href="log-in.php?user=fy">Είσοδος</a>
-                            </div>
-                        </div>
-                    </div> <!-- end of card -->
-                    <!-- end of card -->
 
-                    <!-- Card-->
-                    <div class="card">
-                        <!--<div class="label">
-                            <p class="best-value">Best Value</p>
-                        </div> -->
-                        <div class="card-body">
-                            <div class="card-title">Είσαι Γραφείο Πρακτικής Άσκησης;</div>
-                            <div class="divider"></div>
-                            <ul class="list-unstyled li-space-lg">
-                                <li class="media">
-                                    <i class="fas fa-check"></i><div class="media-body">Δείτε αγγελίες</div>
-                                </li>
-                                <li class="media">
-                                    <i class="fas fa-check"></i><div class="media-body">Ορίστε Επόπτη για κάθε εγκεκριμένη αίτηση</div>
-                                </li>
-                            </ul>
-                            <div class="button-wrapper">
-                                <a class="btn-solid-reg page-scroll" href="sign-up.php">Είσοδος</a>
-                            </div>
-                        </div>
-                    </div> <!-- end of card -->
-                    <!-- end of card -->
-
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
+        </form>
     </div> <!-- end of cards-2 -->
     <!-- end of pricing -->
 
