@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 15, 2023 at 08:27 PM
+-- Generation Time: Jan 16, 2023 at 10:36 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -34,7 +34,7 @@ CREATE TABLE `advert` (
   `payment` varchar(10) NOT NULL,
   `duration` tinyint(1) NOT NULL,
   `full_part` tinyint(1) NOT NULL,
-  `location` varchar(50) NOT NULL
+  `loc` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------

@@ -1,7 +1,45 @@
 <?php
     session_start();
     require_once './php/connect.php'; // connect to db
-    unset($_SESSION['failure']);
+    $error = "";
+    $_SESSION['failure']='';
+
+    if(isset($_POST['submit_signup']))
+	{
+        $department = $_POST["department"];
+		$ad_position = $_POST["ad_position"];
+		$payment = $_POST["payment"];
+        $duration = $_POST["duration"];
+		$full_part = $_POST["full_part"];
+        $location = $_POST["location"];
+
+		$confirmation = $_POST["confirmation"];
+
+		if ($password != $confirmation) 
+		{
+			echo "The two passwords do not match\n";
+            $_SESSION['failure'] = 'Μη έγκυρα δεδομένα';
+		}
+        //$hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+		$query = "INSERT INTO advert (department, ad_position, payment, duration, full_part, location, id_passport_number) VALUES ('$department', '$ad_position', '$payment', '$duration', '$full_part', '$id_passport', '$id_passport_number');";
+        $result = mysqli_query($conn,$query);
+        if ($result && $_SESSION['failure']=='')
+        {
+			$_SESSION['id']=mysqli_insert_id($conn);
+            $_SESSION['ad_position']=$ad_position;
+            $_SESSION['email']=$email;
+            $_SESSION['password']=$password;
+            $_SESSION['phone']=$phone;
+            $_SESSION['id_passport']=$id_passport;
+            $_SESSION['id_passport_number']=$id_passport_number;
+            
+            header("Location: ./index.php");
+        }
+        else
+        {
+            $_SESSION['failure'] = 'Μη έγκυρα δεδομένα';
+        }
+    }
 ?>
 
 <!DOCTYPE html>
