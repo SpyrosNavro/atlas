@@ -5,53 +5,59 @@
 
     if(isset($_POST['save_changes']))
 	{
-        $id = $_SESSION['id']
+        $id = $_SESSION['id'];
+        $username = $_SESSION['username'];
+        $fullname = $_SESSION['fullname'];
+        $email = $_SESSION['email'];
+        $password = $_SESSION['psw'];
+        $phone = $_SESSION['phone'];
+        $id_passport = $_SESSION['id_passport'];
+        $id_passport_number = $_SESSION['id_passport_number'];
 
-        $result = mysqi_query($conn, "SELECT * FROM user WHERE id=$id");
-        if ($result) 
-        {
+        $result = mysqli_query($conn, "SELECT * FROM user WHERE id=$id");
+        if ($result) {
             $arr = $result->fetch_array();
         }
 
-        if( ($_POST['username'] != $arr[1]))
-        {
+
+        // ------------
+        if( ($_POST['username'] != $arr[1]) && ($_POST['username'] != '') ) {
             $username = $_POST['username'];
         }
 
-        if( ($_POST['email'] != '') && ($_POST['email'] != $_SESSION['email']) )
-        {
+        // -------------
+        if( ($_POST['email'] != $arr[2]) && ($_POST['email'] != '') ) {
             $email = $_POST['email'];
         }
 
-        if( ($_POST['password'] != '') && ($_POST['password'] != $_SESSION['psw']) )
-        {
+        // ------------
+        if( ($_POST['password'] != $arr[3]) && ($_POST['password'] != '') ) {
             $password = $_POST['password'];
 
             $confirmation = $_POST['confirmation'];
-            if ($password != $confirmation) 
-            {
+            if ($password != $confirmation) {
                 echo "The two passwords do not match\n";
                 $_SESSION['failure'] = 'Μη έγκυρα δεδομένα';
             }
         }
 
-        if( ($_POST['fullname'] != '') && ($_POST['fullname'] != $_SESSION['fullname']) )
-        {
+        // ------------
+        if( ($_POST['fullname'] != $arr[4]) && ($_POST['fullname'] != '') ) {
             $fullname = $_POST['fullname'];
         }
 
-        if( ($_POST['phone'] != '') && ($_POST['phone'] != $_SESSION['phone']) )
-        {
+        // ------------
+        if( ($_POST['phone'] != $arr[5]) && ($_POST['phone'] != '') ) {
             $phone = $_POST['phone'];
         }
 
-        if( ($_POST['id_passport'] != '') && ($_POST['id_passport'] != $_SESSION['id_passport']) )
-        {
+        // -----------
+        if( ($_POST['id_passport'] != $arr[6]) && ($_POST['id_passport'] != '') ) {
             $id_passport = $_POST['id_passport'];
         }
 
-        if( ($_POST['id_passport_number'] != '') && ($_POST['id_passport_number'] != $_SESSION['id_passport_number']) )
-        {
+        // -----------
+        if( ($_POST['id_passport_number'] != $arr[7]) && ($_POST['id_passport_number'] != '') ) {
             $id_passport_number = $_POST['id_passport_number'];
         }
 
@@ -67,7 +73,7 @@
             $_SESSION['username'] = $username;
             $_SESSION['fullname']=$fullname;
             $_SESSION['email']=$email;
-            $_SESSION['password']=$password;
+            $_SESSION['psw']=$password;
             $_SESSION['phone']=$phone;
             $_SESSION['id_passport']=$id_passport;
             $_SESSION['id_passport_number']=$id_passport_number;
@@ -230,18 +236,18 @@
                 <h6> Βασικά Στοιχεία </h6>
                 <div class="form-group">
                     <input type="text" class="form-control-input" name="username"  >
-                    <label class="label-control" for="username"><?php echo $_SESSION['username'];?></label>
+                    <label class="label-control" for="username">Όνομα Χρήστη: <?php echo $_SESSION['username'];?></label>
                     <div class="help-block with-errors"></div>
                 </div>
 
                 <div class="form-group">
                     <input type="text" class="form-control-input" name="email"  >
-                    <label class="label-control" for="email"> <?php echo $_SESSION['email'];?> </label>
+                    <label class="label-control" for="email">Email: <?php echo $_SESSION['email'];?> </label>
                     <div class="help-block with-errors"></div>
                 </div>
 
                 <div class="form-group">
-                    <input type="password" id="password" name="password" placeholder="Κωδικός" >
+                    <input type="password" id="password" name="password" placeholder="Κωδικός">
                     <div class="help-block with-errors"></div>
                 </div>
 
@@ -275,13 +281,13 @@
 
                 <div class="form-group">
                     <input type="text" class="form-control-input" name="fullname">
-                    <label class="label-control" for="fullname"><?php echo $_SESSION['fullname'];?></label>
+                    <label class="label-control" for="fullname">Ονοματεπώνυμο: <?php echo $_SESSION['fullname'];?></label>
                     <div class="help-block with-errors"></div>
                 </div>
 
                 <div class="form-group">
                     <input type="text" class="form-control-input" name="phone"  >
-                    <label class="label-control" for="number"><?php echo $_SESSION['phone'];?></label>
+                    <label class="label-control" for="number">Τηλέφωνο: <?php echo $_SESSION['phone'];?></label>
                     <div class="help-block with-errors"></div>
                 </div>
 
