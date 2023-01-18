@@ -1,8 +1,48 @@
 <?php
     session_start();
-    require_once './php/connect.php'; // connect to db
-    unset($_SESSION['failure']);
+    require_once './php/connect.php';
+    
+    if (isset($_GET['user'])) {
+        $user = $_GET['user'];
+    }
+
+    if(isset($_POST['submit']))
+    {
+
+        $failure ="";
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+    
+        $result = mysqli_query($conn,"SELECT * FROM student WHERE email='$email' AND psw='$password'");
+    
+        if ($result)
+        {
+
+            $arr = $result->fetch_array();
+            if ($arr)
+            {
+                $_SESSION['id']=$arr[0];
+                $_SESSION['email']=$arr[1];
+                $_SESSION['psw']=$arr[2];
+                $_SESSION['fullname']=$arr[3];
+                $_SESSION['phone']=$arr[4];
+                $_SESSION['university_of_student']=$arr[5];
+                $_SESSION['department_of_student']=$arr[6];
+
+                header("Location: ./student-page.php");
+            }
+            else
+            {
+                $failure = 'Λάθος email ή κωδικός.';
+            }
+        }
+        else
+        {
+            $failure = 'Λάθος email ή κωδικός.';
+        }
+    }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +63,7 @@
 	<meta property="og:type" content="article" />
 
     <!-- Website Title -->
-    <title>Επικοινωνία</title>
+    <title>Σύνδεση ΑΤΛΑΣ</title>
     
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext" rel="stylesheet">
@@ -32,9 +72,9 @@
     <link href="css/swiper.css" rel="stylesheet">
 	<link href="css/magnific-popup.css" rel="stylesheet">
 	<link href="css/styles.css" rel="stylesheet">
-	
+    
 	<!-- Favicon  -->
-    <!-- <link rel="icon" href="images/favicon.png"> -->
+    <!-- <link rel="icon" href="images/doatap_logo.png"> -->
 </head>
 <body data-spy="scroll" data-target=".fixed-top">
     
@@ -47,7 +87,6 @@
         </div>
     </div>
     <!-- end of preloader -->
-    
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
@@ -96,19 +135,15 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link page-scroll active" href="#header">ΕΠΙΚΟΙΝΩΝΙΑ</a>
+                        <a class="nav-link page-scroll" href="communication.php">ΕΠΙΚΟΙΝΩΝΙΑ</a>
                     </li>
                 </ul>
                 <span class="nav-item" >
-                    <a class="btn-outline-sm" id="login-btn" href="log-in.php">ΣΥΝΔΕΣΗ</a>
+                    <a class="btn-outline-sm" id="login-btn" href="log-in-seperation.php">ΣΥΝΔΕΣΗ</a>
                 </span>
 
                 <span class="nav-item" >
                     <a class="btn-outline-sm" id="signup-btn" href="sign-up.php">ΕΓΓΡΑΦΗ</a>
-                </span>
-
-                <span class="nav-item" >
-                    <a class="btn-outline-sm" id="edit-profile-btn" href="php/edit-profileistudent.php">ΠΡΟΦΙΛ</a>
                 </span>
 
                 <span class="nav-item" >
@@ -122,7 +157,6 @@
                             console.log("success");
                              document.getElementById("login-btn").style.display = "none";
                              document.getElementById("signup-btn").style.display = "none";
-                             document.getElementById("edit-profile-btn").style.display = "block";
                              document.getElementById("disconnect-btn").style.display = "block";
                         </script>
 
@@ -133,48 +167,53 @@
                         <script>
                              document.getElementById("login-btn").style.display = "block";
                              document.getElementById("signup-btn").style.display = "block";
-                             document.getElementById("edit-profile-btn").style.display = "none";
                              document.getElementById("disconnect-btn").style.display = "none";
                         </script>
                     <?php
                     }
-                    ?>
+                ?>
             </div>
         </div> <!-- end of container -->
     </nav> <!-- end of navbar -->
     <!-- end of navigation -->
+    <br><br><br><br><br><br>
 
-    <br><br><br>
-    <ul class="breadcrumb">
-        <li> Επικοινωνία</li>
-    </ul>
     <!-- Header -->
-    <header id="header">
+    <header id="header" class="ex-2-header">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h3>Επικοινωνία με Γραφείο Αρωγής Χρηστών</h3>
-                    <br>
-                    <div class="info">Για οποιοδήποτε πρόβλημα αντιμετωπίζεται, μπορείτε να απευθυνθείτε στο Γραφείο Αρωγής Χρηστών.
-                    </br>Ημέρες και ώρες λειτουργίας: Δευτέρα - Παρασκευή 9:00-15:00
-                    </div></br>
-                    <div class="info"> E-mail: help@atlas.gr </div>
-                    <div class="info"> Τηλέφωνο: 2100000000, 2100000001 </div>
-                    
-                    
+                    <h1>Σύνδεση ως Φοιτητής</h1>
+                    <!-- Sign Up Form -->
+                    <div class="form-container">
+                        <form action="" method="post">
+                            <div class="form-group">
+                                <input type="email" class="form-control-input" name="email" required>
+                                <label class="label-control" for="email">Email</label>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control-input" name="password" required>
+                                <label class="label-control" for="password">Κωδικός</label>
+                                <div class="help-block with-errors"></div>
+                            </div>
 
-                    <br> <br>
+                            <div class="form-group">
+                                <a href="faq.php"><button name="submit" type="submit" class="btn">ΣΥΝΔΕΣΗ</button></a>
+                            </div>
 
-                    <br><br><br><br><br>
+                        </form>
+                    </div> <!-- end of form container -->
+                    <!-- end of sign up form -->
 
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
-        
+        </div> <!-- end of container -->
     </header> <!-- end of ex-header -->
     <!-- end of header -->
 
-    <!-- Footer -->
-    <svg class="footer-frame" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1920 79"><defs><style>.cls-2{fill:#5f4def;}</style></defs><title>footer-frame</title><path class="cls-2" d="M0,72.427C143,12.138,255.5,4.577,328.644,7.943c147.721,6.8,183.881,60.242,320.83,53.737,143-6.793,167.826-68.128,293-60.9,109.095,6.3,115.68,54.364,225.251,57.319,113.58,3.064,138.8-47.711,251.189-41.8,104.012,5.474,109.713,50.4,197.369,46.572,89.549-3.91,124.375-52.563,227.622-50.155A338.646,338.646,0,0,1,1920,23.467V79.75H0V72.427Z" transform="translate(0 -0.188)"/></svg>
+<!-- Footer -->
+<svg class="footer-frame" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1920 79"><defs><style>.cls-2{fill:#5f4def;}</style></defs><title>footer-frame</title><path class="cls-2" d="M0,72.427C143,12.138,255.5,4.577,328.644,7.943c147.721,6.8,183.881,60.242,320.83,53.737,143-6.793,167.826-68.128,293-60.9,109.095,6.3,115.68,54.364,225.251,57.319,113.58,3.064,138.8-47.711,251.189-41.8,104.012,5.474,109.713,50.4,197.369,46.572,89.549-3.91,124.375-52.563,227.622-50.155A338.646,338.646,0,0,1,1920,23.467V79.75H0V72.427Z" transform="translate(0 -0.188)"/></svg>
     <div class="footer">
         <div class="container">
             <div class="row">
@@ -218,6 +257,35 @@
     <!-- end of footer -->
 
 
+    <!-- Copyright 
+    <div class="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="p-small">Copyright © 2020 <a href="https://inovatik.com">Template by Inovatik</a></p>
+                </div> end of col -->
+            </div> <!-- enf of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of copyright --> 
+    <!-- end of copyright -->
+
+
+
+ <!-- Scripts -->
+ <script src="js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
+ <script src="js/popper.min.js"></script> <!-- Popper tooltip library for Bootstrap -->
+ <script src="js/bootstrap.min.js"></script> <!-- Bootstrap framework -->
+ <script src="js/jquery.easing.min.js"></script> <!-- jQuery Easing for smooth scrolling between anchors -->
+ <script src="js/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
+ <script src="js/jquery.magnific-popup.js"></script> <!-- Magnific Popup for lightboxes -->
+ <script src="js/validator.min.js"></script> <!-- Validator.js - Bootstrap plugin that validates forms -->
+ <script src="js/scripts.js"></script> <!-- Custom scripts -->
+</header>
+
+   
+
+</body>
+</html>
     <!-- Scripts -->
     <script src="js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
     <script src="js/popper.min.js"></script> <!-- Popper tooltip library for Bootstrap -->

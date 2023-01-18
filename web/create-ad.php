@@ -4,7 +4,7 @@
     $error = "";
     $_SESSION['failure']='';
 
-    if(isset($_POST['submit_signup']))
+    if(isset($_POST['submit_ad']))
 	{
         $department = $_POST["department"];
 		$ad_position = $_POST["ad_position"];
@@ -13,31 +13,20 @@
 		$full_part = $_POST["full_part"];
         $location = $_POST["location"];
 
-		$confirmation = $_POST["confirmation"];
-
-		if ($password != $confirmation) 
-		{
-			echo "The two passwords do not match\n";
-            $_SESSION['failure'] = 'Μη έγκυρα δεδομένα';
-		}
-        //$hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-		$query = "INSERT INTO advert (department, ad_position, payment, duration, full_part, location, id_passport_number) VALUES ('$department', '$ad_position', '$payment', '$duration', '$full_part', '$id_passport', '$id_passport_number');";
+		$query = "INSERT INTO advert (department, ad_position, payment, duration, full_part, loc) VALUES ('$department', '$ad_position', '$payment', '$duration', '$full_part', '$location');";
         $result = mysqli_query($conn,$query);
+
         if ($result && $_SESSION['failure']=='')
         {
-			$_SESSION['id']=mysqli_insert_id($conn);
+            $_SESSION['id']=mysqli_insert_id($conn);
+            $_SESSION['department']=$department;
             $_SESSION['ad_position']=$ad_position;
-            $_SESSION['email']=$email;
-            $_SESSION['password']=$password;
-            $_SESSION['phone']=$phone;
-            $_SESSION['id_passport']=$id_passport;
-            $_SESSION['id_passport_number']=$id_passport_number;
-            
-            header("Location: ./index.php");
-        }
-        else
-        {
-            $_SESSION['failure'] = 'Μη έγκυρα δεδομένα';
+            $_SESSION['payment']=$payment;
+            $_SESSION['duration']=$duration;
+            $_SESSION['full_part']=$full_part;
+            $_SESSION['location']=$location;
+
+            header("Location: ./fy-index-ads.php");
         }
     }
 ?>
@@ -53,7 +42,7 @@
     <meta name="author" content="Inovatik">
 
     <!-- Website Title -->
-    <title>Δημιουργία Αίτησης</title>
+    <title>Δημιουργία Αγγελίας</title>
     
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext" rel="stylesheet">
@@ -139,6 +128,10 @@
                 </span>
 
                 <span class="nav-item" >
+                    <a class="btn-outline-sm" id="edit-profile-btn" href="php/edit-profile-fy.php">ΠΡΟΦΙΛ</a>
+                </span>
+
+                <span class="nav-item" >
                     <a class="btn-outline-sm" id="disconnect-btn" href="php/disconnect.php">ΑΠΟΣΥΝΔΕΣΗ</a>
                 </span>
                 <?php 
@@ -149,6 +142,7 @@
                             console.log("success");
                              document.getElementById("login-btn").style.display = "none";
                              document.getElementById("signup-btn").style.display = "none";
+                             document.getElementById("edit-profile-btn").style.display = "block";
                              document.getElementById("disconnect-btn").style.display = "block";
                         </script>
 
@@ -159,6 +153,7 @@
                         <script>
                              document.getElementById("login-btn").style.display = "block";
                              document.getElementById("signup-btn").style.display = "block";
+                             document.getElementById("edit-profile-btn").style.display = "none";
                              document.getElementById("disconnect-btn").style.display = "none";
                         </script>
                     <?php
@@ -183,91 +178,71 @@
         <!-- --------------------------------------------------------------------- -->
         <!-- --------------------------------------------------------------------- -->
         <!-- --------------------------------------------------------------------- -->
-        <div class="card-3">
+        <form  action="" method="post">
+            <div class="card-3">
+                <!-- ΤΜΗΜΑ, ΓΝΩΣΤΙΚΟ ΑΝΤΙΚΕΙΜΕΝΟ, ΤΙΤΛΟΣ ΣΠΟΥΔΩΝ -->
+                <div class="form-group">
+                    <input type="text" class="form-input" name="department"  required>
+                    <label class="label-control" for="department"> Τμήμα </label>
+                    <div class="help-block with-errors"></div>
+                </div>
 
-            <!-- ΤΜΗΜΑ, ΓΝΩΣΤΙΚΟ ΑΝΤΙΚΕΙΜΕΝΟ, ΤΙΤΛΟΣ ΣΠΟΥΔΩΝ -->
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label for="univeristy-departments"> Τμήμα </label>
-            <select id="university-departments" name="univeristy-departments" style="width: 36rem;margin:0.5rem;">
-                <option value="ekpa"> Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών </option>
-                <option value="opa"> Οικονομικό Πανεπιστήμιο Αθηνών </option>
-                <option value="panteio"> Πάντειο </option>
-            </select>
+                <div class="form-group">
+                    <input type="text" class="form-input" name="ad_position"  required>
+                    <label class="label-control" for="ad_position"> Τίτλος Θέσης </label>
+                    <div class="help-block with-errors"></div>
+                </div>
+
+                <!-- ΑΜΟΙΒΗ, ΔΙΑΡΚΕΙΑ, ΤΡΟΠΟΣ ΑΠΑΣΧΟΛΗΣΗΣ -->
+                <div class="form-group">
+                    <input type="text" class="form-input" name="payment"  required>
+                    <label class="label-control" for="payment"> Αμοιβή </label>
+                    <div class="help-block with-errors"></div>
+                </div>
+                
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Διάρκεια:</p>
+                <div class="form-group radio button">
+                    &nbsp;<input type="radio" id="three_months" name="duration" value="three_months" checked> 3 μήνες
+                    &nbsp;<input type="radio" id="six_months" name="duration" value="six_months"> 6 μήνες
+                </div>
+
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Απασχόληση:</p>
+                <div class="form-group radio button">
+                    &nbsp;<input type="radio" id="full" name="full_part" value="full" checked> Πλήρης
+                    &nbsp;<input type="radio" id="part" name="full_part" value="part"> Μερική
+                </div>
+
+                <!-- ΤΟΟΘΕΣΙΑ, ΗΜΕΡΟΜΗΝΙΑ ΕΚΤΕΛΕΣΗΣ, ΘΕΣΕΙΣ -->
+                <div class="form-group">
+                    <input type="text" class="form-input" name="location"  required>
+                    <label class="label-control" for="location"> Τοποθεσία </label>
+                    <div class="help-block with-errors"></div>
+                </div>
+                <br>
+            </div>
+
+            <!-- --------------------------------------------------------------------- -->
+            <!-- --------------------------------------------------------------------- -->
+            <!-- --------------------------------------------------------------------- -->
+
+            <div class="section-title"> Έγγραφα Αγγελίας </div> 
             
             <br>
             
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label for="knowledge"> Γνωστικό Αντικείμενο </label>
-            <select id="knowledge" name="knowledge" style="width: 29rem;margin:0.5rem;">
-                <option value="ekpa"> Συστήματα </option>
-                <option value="opa"> Software Design </option>
-                <option value="panteio"> Οικονομικά </option>
-            </select> 
-
-            <div class="form-group">
-                <input type="text" class="form-input" name="lastname"  required>
-                <label class="label-control" for="email"> Τίτλος Θέσης </label>
-                <div class="help-block with-errors"></div>
+            <div class="neccessary-files">
+                <b>Απαιτείται η επικόλληση των εξής αρχείων:</b><br>
+                • Φωτογραφία <br>
+                • Φοιτητική ταυτότητα (πάσο)<br>
+                • Αναλυτική βαθμολογία<br>
+                • Βεβαίωση πανεπιστημίου<br>
+                • Αναφορά για τον λόγο πρακτικής <br>
             </div>
 
-            <!-- ΑΜΟΙΒΗ, ΔΙΑΡΚΕΙΑ, ΤΡΟΠΟΣ ΑΠΑΣΧΟΛΗΣΗΣ -->
-            <div class="form-group">
-                <input type="text" class="form-input" name="lastname"  required>
-                <label class="label-control" for="email"> Αμοιβή </label>
-                <div class="help-block with-errors"></div>
-            </div>
-            
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Διάρκεια:</p>
-            <div class="form-group radio button">
-                &nbsp;<input type="radio" id="three-months" name="type_of_user" value="Common" checked> 3 μήνες
-                &nbsp;<input type="radio" id="six-months" name="type_of_user" value="Manager"> 6 μήνες
-            </div>
-
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Απασχόληση:</p>
-            <div class="form-group radio button">
-                &nbsp;<input type="radio" id="Common" name="type_of_user" value="Common" checked> Πλήρης
-                &nbsp;<input type="radio" id="Manager" name="type_of_user" value="Manager"> Μερική
-            </div>
-
-            <!-- ΤΟΟΘΕΣΙΑ, ΗΜΕΡΟΜΗΝΙΑ ΕΚΤΕΛΕΣΗΣ, ΘΕΣΕΙΣ -->
-            <div class="form-group">
-                <input type="text" class="form-input" name="lastname"  required>
-                <label class="label-control" for="email"> Τοποθεσία </label>
-                <div class="help-block with-errors"></div>
-            </div>
-
-            <div class="form-group">
-                <input type="text" class="form-input" name="lastname"  required>
-                <label class="label-control" for="email"> Ημερομηνία εκτέλεσης </label>
-                <div class="help-block with-errors"></div>
-            </div>
-            
-            <p style="margin:0rem; color:#555;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Θέσεις</p>
-            <form>
-                <input type="number" id="number" value="0" style="margin-left:25px;" />
-            </form>
             <br>
 
-        </div>
-        <!-- --------------------------------------------------------------------- -->
-        <!-- --------------------------------------------------------------------- -->
-        <!-- --------------------------------------------------------------------- -->
-
-
-        <div class="section-title"> Έγγραφα Αγγελίας </div> 
-        
-        <br>
-        
-        <div class="neccessary-files">
-            <b>Απαιτείται η επικόλληση των εξής αρχείων:</b><br>
-            • Φωτογραφία <br>
-            • Φοιτητική ταυτότητα (πάσο)<br>
-            • Αναλυτική βαθμολογία<br>
-            • Βεβαίωση πανεπιστημίου<br>
-            • Αναφορά για τον λόγο πρακτικής <br>
-        </div>
-
-        <br>
-        <input type="submit" value="Οριστική Υποβολή" style="margin: 15px;background-color: #4c51af;color: white;margin: 15px;background-color: #4c51af;color: white;border-radius: 10px;" /> <br>
-        <input type="submit" value="Προσωρινή Αποθήκευση" style="border-radius: 10px;"/>
+            <button type="submit" name="submit_ad" style="margin: 15px;background-color: #4c51af;color: white;margin: 15px;background-color: #4c51af;color: white;border-radius: 10px;"> Οριστική Υποβολή </button> <br>
+            <button type="submit" value="Προσωρινή Αποθήκευση" style="border-radius: 10px;"> Προσωρινή Αποθήκευση </button>
+        </form>
     </div> <!-- end of cards-2 -->
     <!-- end of pricing -->
 

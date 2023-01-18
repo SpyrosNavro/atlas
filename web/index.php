@@ -93,11 +93,15 @@
                 </ul>
 
                 <span class="nav-item" >
-                    <a class="btn-outline-sm" id="login-btn" href="log-in.php">ΣΥΝΔΕΣΗ</a>
+                    <a class="btn-outline-sm" id="login-btn" href="log-in-seperation.php">ΣΥΝΔΕΣΗ</a>
                 </span>
 
                 <span class="nav-item" >
                     <a class="btn-outline-sm" id="signup-btn" href="sign-up.php">ΕΓΓΡΑΦΗ</a>
+                </span>
+
+                <span class="nav-item" >
+                    <a class="btn-outline-sm" id="edit-profile-btn" href="php/edit-profileistudent.php">ΠΡΟΦΙΛ</a>
                 </span>
 
                 <span class="nav-item" >
@@ -111,6 +115,7 @@
                             console.log("success");
                              document.getElementById("login-btn").style.display = "none";
                              document.getElementById("signup-btn").style.display = "none";
+                             document.getElementById("edit-profile-btn").style.display = "block";
                              document.getElementById("disconnect-btn").style.display = "block";
                         </script>
 
@@ -121,6 +126,7 @@
                         <script>
                              document.getElementById("login-btn").style.display = "block";
                              document.getElementById("signup-btn").style.display = "block";
+                             document.getElementById("edit-profile-btn").style.display = "none";
                              document.getElementById("disconnect-btn").style.display = "none";
                         </script>
                     <?php
@@ -158,7 +164,7 @@
                                 </li>
                             </ul>
                             <div class="button-wrapper">
-                                <a class="btn-solid-reg page-scroll" href="log-in.php?user=student">Είσοδος</a>
+                                <a class="btn-solid-reg page-scroll" href="log-in-student.php">Είσοδος</a>
                             </div>
                         </div>
                     </div> <!-- end of card -->
@@ -181,7 +187,7 @@
                                 </li>
                             </ul>
                             <div class="button-wrapper">
-                                <a class="btn-solid-reg page-scroll" href="log-in.php?user=fy">Είσοδος</a>
+                                <a class="btn-solid-reg page-scroll" href="log-in-fy.php">Είσοδος</a>
                             </div>
                         </div>
                     </div> <!-- end of card -->

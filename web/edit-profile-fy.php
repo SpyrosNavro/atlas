@@ -2,7 +2,85 @@
     session_start();
     require_once './php/connect.php'; // connect to db
     unset($_SESSION['failure']);
+
+    if(isset($_POST['save_changes']))
+	{
+        $id = $_SESSION['id']
+
+        $result = mysqi_query($conn, "SELECT * FROM user WHERE id=$id");
+        if ($result) 
+        {
+            $arr = $result->fetch_array();
+        }
+
+        if( ($_POST['username'] != $arr[1]))
+        {
+            $username = $_POST['username'];
+        }
+
+        if( ($_POST['email'] != '') && ($_POST['email'] != $_SESSION['email']) )
+        {
+            $email = $_POST['email'];
+        }
+
+        if( ($_POST['password'] != '') && ($_POST['password'] != $_SESSION['psw']) )
+        {
+            $password = $_POST['password'];
+
+            $confirmation = $_POST['confirmation'];
+            if ($password != $confirmation) 
+            {
+                echo "The two passwords do not match\n";
+                $_SESSION['failure'] = 'Μη έγκυρα δεδομένα';
+            }
+        }
+
+        if( ($_POST['fullname'] != '') && ($_POST['fullname'] != $_SESSION['fullname']) )
+        {
+            $fullname = $_POST['fullname'];
+        }
+
+        if( ($_POST['phone'] != '') && ($_POST['phone'] != $_SESSION['phone']) )
+        {
+            $phone = $_POST['phone'];
+        }
+
+        if( ($_POST['id_passport'] != '') && ($_POST['id_passport'] != $_SESSION['id_passport']) )
+        {
+            $id_passport = $_POST['id_passport'];
+        }
+
+        if( ($_POST['id_passport_number'] != '') && ($_POST['id_passport_number'] != $_SESSION['id_passport_number']) )
+        {
+            $id_passport_number = $_POST['id_passport_number'];
+        }
+
+
+        //$hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+
+        $id = $_SESSION['id'];
+        $query = "UPDATE user SET username = '$username', email = '$email', psw = '$password', fullname = '$fullname', phone = '$phone', id_passport = '$id_passport', id_passport_number = '$id_passport_number' WHERE id = $id";
+        $result = mysqli_query($conn,$query);
+        
+        if ($result)
+        {
+            $_SESSION['username'] = $username;
+            $_SESSION['fullname']=$fullname;
+            $_SESSION['email']=$email;
+            $_SESSION['password']=$password;
+            $_SESSION['phone']=$phone;
+            $_SESSION['id_passport']=$id_passport;
+            $_SESSION['id_passport_number']=$id_passport_number;
+            
+            header("Location: ./fy-index-applications.php");
+        }
+        else
+        {
+            $_SESSION['failure'] = 'Μη έγκυρα δεδομένα';
+        }
+    }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,17 +91,8 @@
     <meta name="description" content="Tivo is a HTML landing page template built with Bootstrap to help you crate engaging presentations for SaaS apps and convert visitors into users.">
     <meta name="author" content="Inovatik">
 
-    <!-- OG Meta Tags to improve the way the post looks when you share the page on LinkedIn, Facebook, Google+ -->
-	<meta property="og:site_name" content="" /> <!-- website name -->
-	<meta property="og:site" content="" /> <!-- website link -->
-	<meta property="og:title" content=""/> <!-- title shown in the actual shared post -->
-	<meta property="og:description" content="" /> <!-- description shown in the actual shared post -->
-	<meta property="og:image" content="" /> <!-- image link, make sure it's jpg -->
-	<meta property="og:url" content="" /> <!-- where do you want your post to link to -->
-	<meta property="og:type" content="article" />
-
     <!-- Website Title -->
-    <title>Επικοινωνία</title>
+    <title>Επεξεργασία Προφίλ Φορέα Υποδοχής</title>
     
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext" rel="stylesheet">
@@ -68,7 +137,7 @@
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="index.php">ΑΡΧΙΚΗ ΣΕΛΙΔΑ</a>
+                        <a class="nav-link page-scroll active" href="fy-index-applications.php">ΑΡΧΙΚΗ ΣΕΛΙΔΑ</a>
                     </li>
 
                     <?php 
@@ -96,9 +165,10 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link page-scroll active" href="#header">ΕΠΙΚΟΙΝΩΝΙΑ</a>
+                        <a class="nav-link page-scroll" href="communication.php">ΕΠΙΚΟΙΝΩΝΙΑ</a>
                     </li>
                 </ul>
+
                 <span class="nav-item" >
                     <a class="btn-outline-sm" id="login-btn" href="log-in.php">ΣΥΝΔΕΣΗ</a>
                 </span>
@@ -108,7 +178,7 @@
                 </span>
 
                 <span class="nav-item" >
-                    <a class="btn-outline-sm" id="edit-profile-btn" href="php/edit-profileistudent.php">ΠΡΟΦΙΛ</a>
+                    <a class="btn-outline-sm" id="edit-profile-btn" href="/edit-profile-fy.php"><?php echo $_SESSION['username'];?></a>
                 </span>
 
                 <span class="nav-item" >
@@ -143,35 +213,104 @@
         </div> <!-- end of container -->
     </nav> <!-- end of navbar -->
     <!-- end of navigation -->
+    </br></br>
 
-    <br><br><br>
-    <ul class="breadcrumb">
-        <li> Επικοινωνία</li>
-    </ul>
-    <!-- Header -->
-    <header id="header">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h3>Επικοινωνία με Γραφείο Αρωγής Χρηστών</h3>
-                    <br>
-                    <div class="info">Για οποιοδήποτε πρόβλημα αντιμετωπίζεται, μπορείτε να απευθυνθείτε στο Γραφείο Αρωγής Χρηστών.
-                    </br>Ημέρες και ώρες λειτουργίας: Δευτέρα - Παρασκευή 9:00-15:00
-                    </div></br>
-                    <div class="info"> E-mail: help@atlas.gr </div>
-                    <div class="info"> Τηλέφωνο: 2100000000, 2100000001 </div>
-                    
-                    
+    
+    <!-- Pricing -->
+    <div id="pricing" class="cards-2">
 
-                    <br> <br>
-
-                    <br><br><br><br><br>
-
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
+        <ul class="breadcrumb">
+            <li> Επεξεργασία Προφίλ Φορέα Υποδοχής </li>
+        </ul>
+        </br>
         
-    </header> <!-- end of ex-header -->
-    <!-- end of header -->
+        <!-- Sign Up Form -->
+        <div class="form-container">
+            <form  action="" method="post">
+                <h6> Βασικά Στοιχεία </h6>
+                <div class="form-group">
+                    <input type="text" class="form-control-input" name="username"  >
+                    <label class="label-control" for="username"><?php echo $_SESSION['username'];?></label>
+                    <div class="help-block with-errors"></div>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-control-input" name="email"  >
+                    <label class="label-control" for="email"> <?php echo $_SESSION['email'];?> </label>
+                    <div class="help-block with-errors"></div>
+                </div>
+
+                <div class="form-group">
+                    <input type="password" id="password" name="password" placeholder="Κωδικός" >
+                    <div class="help-block with-errors"></div>
+                </div>
+
+                <div class="form-group">
+                    <input type="password" id="confirmation" name="confirmation"  placeholder="Επιβεβαίωση" >
+                    <div class="help-block with-errors"></div>
+                </div>
+                
+                <input type="checkbox" onclick="myFunction()">Εμφάνιση κωδικού
+
+                <script>
+                function myFunction() {
+                    var x = document.getElementById("password");
+                    if (x.type === "password") {
+                        x.type = "text";
+                    } else {
+                        x.type = "password";
+                    }
+                    var y = document.getElementById("confirmation");
+                    if (y.type === "password") {
+                        y.type = "text";
+                    } else {
+                        y.type = "password";
+                    }
+                }
+                </script>
+
+                <hr class="hr-line">
+
+                <h6> Προσωπικά Στοιχεία </h6>
+
+                <div class="form-group">
+                    <input type="text" class="form-control-input" name="fullname">
+                    <label class="label-control" for="fullname"><?php echo $_SESSION['fullname'];?></label>
+                    <div class="help-block with-errors"></div>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-control-input" name="phone"  >
+                    <label class="label-control" for="number"><?php echo $_SESSION['phone'];?></label>
+                    <div class="help-block with-errors"></div>
+                </div>
+
+                Τύπος Εγγράφου Πιστοποίησης:
+                <div class="form-group radio button">
+                    <input type="radio" id="id" name="id_passport" value="id" checked> Αστυνομική Ταυτότητα <br>
+                    <input type="radio" id="passport" name="id_passport" value="passport"> Διαβατήριο
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-control-input" name="id_passport_number"  >
+                    <label class="label-control" for="id-passport"><?php echo $_SESSION['id_passport_number'];?></label>
+                    <div class="help-block with-errors"></div>
+                </div>
+
+                <br>
+                
+                <div class="form-group">
+                    <button type="submit" name="save_changes" class="btn">ΑΠΟΘΗΚΕΥΣΗ</button>
+                </div>
+                <?php 
+                if (isset($_SESSION['failure']) && ($_SESSION['failure']!="")) {?>                               
+                    <div class="failure" style="margin-bottom: 10px;font-size: 18px;color: red;"><?php echo $_SESSION['failure']; ?></div>
+                <?php }?>
+            </form>
+        </div> <!-- end of form container -->
+        <!-- end of sign up form -->
+    </div> <!-- end of cards-2 -->
+    <!-- end of pricing -->
 
     <!-- Footer -->
     <svg class="footer-frame" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1920 79"><defs><style>.cls-2{fill:#5f4def;}</style></defs><title>footer-frame</title><path class="cls-2" d="M0,72.427C143,12.138,255.5,4.577,328.644,7.943c147.721,6.8,183.881,60.242,320.83,53.737,143-6.793,167.826-68.128,293-60.9,109.095,6.3,115.68,54.364,225.251,57.319,113.58,3.064,138.8-47.711,251.189-41.8,104.012,5.474,109.713,50.4,197.369,46.572,89.549-3.91,124.375-52.563,227.622-50.155A338.646,338.646,0,0,1,1920,23.467V79.75H0V72.427Z" transform="translate(0 -0.188)"/></svg>
@@ -217,7 +356,18 @@
     </div> <!-- end of footer -->  
     <!-- end of footer -->
 
-
+<!--
+    <div class="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="p-small">Copyright © 2020 <a href="https://inovatik.com">Template by Inovatik</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+-->
+    	
     <!-- Scripts -->
     <script src="js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
     <script src="js/popper.min.js"></script> <!-- Popper tooltip library for Bootstrap -->
