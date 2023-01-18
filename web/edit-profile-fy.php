@@ -2,6 +2,83 @@
     session_start();
     require_once './php/connect.php'; // connect to db
     unset($_SESSION['failure']);
+
+    if(isset($_POST['save_changes']))
+	{
+        $id = $_SESSION['id']
+
+        $result = mysqi_query($conn, "SELECT * FROM user WHERE id=$id");
+        if ($result) 
+        {
+            $arr = $result->fetch_array();
+        }
+
+        if( ($_POST['username'] != $arr[1]))
+        {
+            $username = $_POST['username'];
+        }
+
+        if( ($_POST['email'] != '') && ($_POST['email'] != $_SESSION['email']) )
+        {
+            $email = $_POST['email'];
+        }
+
+        if( ($_POST['password'] != '') && ($_POST['password'] != $_SESSION['psw']) )
+        {
+            $password = $_POST['password'];
+
+            $confirmation = $_POST['confirmation'];
+            if ($password != $confirmation) 
+            {
+                echo "The two passwords do not match\n";
+                $_SESSION['failure'] = 'Μη έγκυρα δεδομένα';
+            }
+        }
+
+        if( ($_POST['fullname'] != '') && ($_POST['fullname'] != $_SESSION['fullname']) )
+        {
+            $fullname = $_POST['fullname'];
+        }
+
+        if( ($_POST['phone'] != '') && ($_POST['phone'] != $_SESSION['phone']) )
+        {
+            $phone = $_POST['phone'];
+        }
+
+        if( ($_POST['id_passport'] != '') && ($_POST['id_passport'] != $_SESSION['id_passport']) )
+        {
+            $id_passport = $_POST['id_passport'];
+        }
+
+        if( ($_POST['id_passport_number'] != '') && ($_POST['id_passport_number'] != $_SESSION['id_passport_number']) )
+        {
+            $id_passport_number = $_POST['id_passport_number'];
+        }
+
+
+        //$hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+
+        $id = $_SESSION['id'];
+        $query = "UPDATE user SET username = '$username', email = '$email', psw = '$password', fullname = '$fullname', phone = '$phone', id_passport = '$id_passport', id_passport_number = '$id_passport_number' WHERE id = $id";
+        $result = mysqli_query($conn,$query);
+        
+        if ($result)
+        {
+            $_SESSION['username'] = $username;
+            $_SESSION['fullname']=$fullname;
+            $_SESSION['email']=$email;
+            $_SESSION['password']=$password;
+            $_SESSION['phone']=$phone;
+            $_SESSION['id_passport']=$id_passport;
+            $_SESSION['id_passport_number']=$id_passport_number;
+            
+            header("Location: ./fy-index-applications.php");
+        }
+        else
+        {
+            $_SESSION['failure'] = 'Μη έγκυρα δεδομένα';
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -60,7 +137,7 @@
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link page-scroll active" href="index.php">ΑΡΧΙΚΗ ΣΕΛΙΔΑ</a>
+                        <a class="nav-link page-scroll active" href="fy-index-applications.php">ΑΡΧΙΚΗ ΣΕΛΙΔΑ</a>
                     </li>
 
                     <?php 
@@ -101,6 +178,10 @@
                 </span>
 
                 <span class="nav-item" >
+                    <a class="btn-outline-sm" id="edit-profile-btn" href="/edit-profile-fy.php"><?php echo $_SESSION['username'];?></a>
+                </span>
+
+                <span class="nav-item" >
                     <a class="btn-outline-sm" id="disconnect-btn" href="php/disconnect.php">ΑΠΟΣΥΝΔΕΣΗ</a>
                 </span>
                 <?php 
@@ -111,6 +192,7 @@
                             console.log("success");
                              document.getElementById("login-btn").style.display = "none";
                              document.getElementById("signup-btn").style.display = "none";
+                             document.getElementById("edit-profile-btn").style.display = "block";
                              document.getElementById("disconnect-btn").style.display = "block";
                         </script>
 
@@ -121,6 +203,7 @@
                         <script>
                              document.getElementById("login-btn").style.display = "block";
                              document.getElementById("signup-btn").style.display = "block";
+                             document.getElementById("edit-profile-btn").style.display = "none";
                              document.getElementById("disconnect-btn").style.display = "none";
                         </script>
                     <?php
@@ -140,15 +223,92 @@
             <li> Επεξεργασία Προφίλ Φορέα Υποδοχής </li>
         </ul>
         </br>
+        
+        <!-- Sign Up Form -->
+        <div class="form-container">
+            <form  action="" method="post">
+                <h6> Βασικά Στοιχεία </h6>
+                <div class="form-group">
+                    <input type="text" class="form-control-input" name="username"  >
+                    <label class="label-control" for="username"><?php echo $_SESSION['username'];?></label>
+                    <div class="help-block with-errors"></div>
+                </div>
 
-        <div class="section-title">  </div> <br>
-        <!-- --------------------------------------------------------------------- -->
-        <!-- --------------------------------------------------------------------- -->
-        <!-- --------------------------------------------------------------------- -->
-        <form  action="" method="post">
+                <div class="form-group">
+                    <input type="text" class="form-control-input" name="email"  >
+                    <label class="label-control" for="email"> <?php echo $_SESSION['email'];?> </label>
+                    <div class="help-block with-errors"></div>
+                </div>
 
+                <div class="form-group">
+                    <input type="password" id="password" name="password" placeholder="Κωδικός" >
+                    <div class="help-block with-errors"></div>
+                </div>
 
-        </form>
+                <div class="form-group">
+                    <input type="password" id="confirmation" name="confirmation"  placeholder="Επιβεβαίωση" >
+                    <div class="help-block with-errors"></div>
+                </div>
+                
+                <input type="checkbox" onclick="myFunction()">Εμφάνιση κωδικού
+
+                <script>
+                function myFunction() {
+                    var x = document.getElementById("password");
+                    if (x.type === "password") {
+                        x.type = "text";
+                    } else {
+                        x.type = "password";
+                    }
+                    var y = document.getElementById("confirmation");
+                    if (y.type === "password") {
+                        y.type = "text";
+                    } else {
+                        y.type = "password";
+                    }
+                }
+                </script>
+
+                <hr class="hr-line">
+
+                <h6> Προσωπικά Στοιχεία </h6>
+
+                <div class="form-group">
+                    <input type="text" class="form-control-input" name="fullname">
+                    <label class="label-control" for="fullname"><?php echo $_SESSION['fullname'];?></label>
+                    <div class="help-block with-errors"></div>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-control-input" name="phone"  >
+                    <label class="label-control" for="number"><?php echo $_SESSION['phone'];?></label>
+                    <div class="help-block with-errors"></div>
+                </div>
+
+                Τύπος Εγγράφου Πιστοποίησης:
+                <div class="form-group radio button">
+                    <input type="radio" id="id" name="id_passport" value="id" checked> Αστυνομική Ταυτότητα <br>
+                    <input type="radio" id="passport" name="id_passport" value="passport"> Διαβατήριο
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-control-input" name="id_passport_number"  >
+                    <label class="label-control" for="id-passport"><?php echo $_SESSION['id_passport_number'];?></label>
+                    <div class="help-block with-errors"></div>
+                </div>
+
+                <br>
+                
+                <div class="form-group">
+                    <button type="submit" name="save_changes" class="btn">ΑΠΟΘΗΚΕΥΣΗ</button>
+                </div>
+                <?php 
+                if (isset($_SESSION['failure']) && ($_SESSION['failure']!="")) {?>                               
+                    <div class="failure" style="margin-bottom: 10px;font-size: 18px;color: red;"><?php echo $_SESSION['failure']; ?></div>
+                <?php }?>
+            </form>
+        </div> <!-- end of form container -->
+        <!-- end of sign up form -->
     </div> <!-- end of cards-2 -->
     <!-- end of pricing -->
 

@@ -28,6 +28,7 @@
         if ($result && $_SESSION['failure']=='')
         {
 			$_SESSION['id']=mysqli_insert_id($conn);
+            $_SESSION['username'] = $username;
             $_SESSION['fullname']=$fullname;
             $_SESSION['email']=$email;
             $_SESSION['password']=$password;
@@ -35,7 +36,7 @@
             $_SESSION['id_passport']=$id_passport;
             $_SESSION['id_passport_number']=$id_passport_number;
             
-            header("Location: ./index.php");
+            header("Location: ./fy-index-applications.php");
         }
         else
         {
@@ -149,6 +150,10 @@
                 </span>
 
                 <span class="nav-item" >
+                    <a class="btn-outline-sm" id="edit-profile-btn" href="php/edit-profileistudent.php">ΠΡΟΦΙΛ</a>
+                </span>
+
+                <span class="nav-item" >
                     <a class="btn-outline-sm" id="disconnect-btn" href="php/disconnect.php">ΑΠΟΣΥΝΔΕΣΗ</a>
                 </span>
                 <?php 
@@ -159,6 +164,7 @@
                             console.log("success");
                              document.getElementById("login-btn").style.display = "none";
                              document.getElementById("signup-btn").style.display = "none";
+                             document.getElementById("edit-profile-btn").style.display = "block";
                              document.getElementById("disconnect-btn").style.display = "block";
                         </script>
 
@@ -169,6 +175,7 @@
                         <script>
                              document.getElementById("login-btn").style.display = "block";
                              document.getElementById("signup-btn").style.display = "block";
+                             document.getElementById("edit-profile-btn").style.display = "none";
                              document.getElementById("disconnect-btn").style.display = "none";
                         </script>
                     <?php
@@ -255,7 +262,7 @@
 
                             Τύπος Εγγράφου Πιστοποίησης:
                             <div class="form-group radio button">
-                                <input type="radio" id="id" name="id_passport" value="id" checked> Αστυνομική Ταυτότητα <br>
+                                <input type="radio" id="id" name="id_passport" value="id"> Αστυνομική Ταυτότητα <br>                                
                                 <input type="radio" id="passport" name="id_passport" value="passport"> Διαβατήριο
                             </div>
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 16, 2023 at 10:36 AM
+-- Generation Time: Jan 17, 2023 at 06:56 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -100,7 +100,7 @@ CREATE TABLE `user` (
   `psw` varchar(30) NOT NULL,
   `fullname` varchar(50) NOT NULL,
   `phone` varchar(10) NOT NULL,
-  `id_passport` tinyint(1) NOT NULL,
+  `id_passport` varchar(50) NOT NULL,
   `id_passport_number` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -140,7 +140,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `advert`
 --
 ALTER TABLE `advert`
-  MODIFY `id_of_ad` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_of_ad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `application`
@@ -158,7 +158,7 @@ ALTER TABLE `student`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

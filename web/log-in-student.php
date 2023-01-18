@@ -139,7 +139,7 @@
                     </li>
                 </ul>
                 <span class="nav-item" >
-                    <a class="btn-outline-sm" id="login-btn" href="log-in.php">ΣΥΝΔΕΣΗ</a>
+                    <a class="btn-outline-sm" id="login-btn" href="log-in-seperation.php">ΣΥΝΔΕΣΗ</a>
                 </span>
 
                 <span class="nav-item" >
@@ -176,7 +176,7 @@
         </div> <!-- end of container -->
     </nav> <!-- end of navbar -->
     <!-- end of navigation -->
-    </br></br>
+    <br><br><br><br><br><br>
 
     <!-- Header -->
     <header id="header" class="ex-2-header">
