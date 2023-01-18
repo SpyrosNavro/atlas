@@ -2,6 +2,48 @@
     session_start();
     require_once './php/connect.php'; // connect to db
     unset($_SESSION['failure']);
+
+
+    if(isset($_POST['submit_studentapp']))
+	{
+		$fullname = $_POST["fullname"];
+		$email = $_POST["email"];
+		$phone = $_POST["phone"];
+        $university = $_POST["university"];
+        $department = $_POST["department"];
+        $position = $_POST["position"];
+        $payment = $_POST["payment"];
+        $full_part = $_POST["full_part"];
+        $duration = $_POST["duration"];
+        $loc = $_POST["loc"];
+        $photo = $_POST["photo"];
+        $university_id = $_POST["university_id"];
+        $grading = $_POST["grading"];
+        $university_certificate = $_POST["university_certificate"];
+        $reasoning = $_POST["reasoning"];
+        $accept_refuse = $POST["accept-refuse"];
+    
+
+		$query = "INSERT INTO application (fullname, email, phone, university, department, position, payment, full_part,
+         duration, loc, photo, university_id, grading, university_certificate, reasoning, accept_refuse) VALUES ('$fullname', '$email', '$phone', '$university', '$department', '$position', '$payment', '$full_part', '$duration', '$loc', '$photo', '$university_id', '$grading', '$university_certificate', '$reasoning', '$accept_refuse');";
+        $result = mysqli_query($conn,$query);
+        if ($result && $_SESSION['failure']=='')
+        {
+			$_SESSION['id']=mysqli_insert_id($conn);
+            $_SESSION['fullname']=$fullname;
+            $_SESSION['email']=$email;
+            $_SESSION['password']=$password;
+            $_SESSION['phone']=$phone;
+            $_SESSION['id_passport']=$id_passport;
+            $_SESSION['id_passport_number']=$id_passport_number;
+            
+            header("Location: ./index.php");
+        }
+        else
+        {
+            $_SESSION['failure'] = 'Μη έγκυρα δεδομένα';
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -197,7 +239,7 @@
 
                         </div>
 
-                    <form action="#" class="form">
+                    <form action="#" class="form" method="post">
                         <div class="form-step form-step-active">
 
                             <hr class="hr-line">
@@ -205,31 +247,31 @@
                             <h6> Προσωπικά Στοιχεία Φοιτητή</h6>
 
                             <div class="form-group">
-                                <input type="text" class="form-control-input mandatory" name="country"  required>
+                                <input type="text" class="form-control-input mandatory" name="fullname"  required>
                                 <label class="label-control" for="name-lastname">Όνοματεπώνυμο</label>
                                 <div class="help-block with-errors"></div>
                             </div>
 
                             <div class="form-group">
-                                <input type="text" class="form-control-input mandatory" name="country"  required>
+                                <input type="text" class="form-control-input mandatory" name="university"  required>
                                 <label class="label-control" for="name-lastname">Πανεπιστήμιο</label>
                                 <div class="help-block with-errors"></div>
                             </div>
 
                             <div class="form-group">
-                                <input type="text" class="form-control-input mandatory" name="country"  required>
+                                <input type="text" class="form-control-input mandatory" name="department"  required>
                                 <label class="label-control" for="name-lastname">Τμήμα</label>
                                 <div class="help-block with-errors"></div>
                             </div>
 
                             <div class="form-group">
-                                <input type="text" class="form-control-input mandatory" name="address"  required>
+                                <input type="text" class="form-control-input mandatory" name="email"  required>
                                 <label class="label-control" for="email">Email</label>
                                 <div class="help-block with-errors"></div>
                             </div>
 
                             <div class="form-group">
-                                <input type="text" class="form-control-input" name="mandatory"  required>
+                                <input type="text" class="form-control-input" name="phone"  required>
                                 <label class="label-control" for="number">Τηλέφωνο Επικοινωνίας</label>
                                 <div class="help-block with-errors"></div>
                             </div>
@@ -264,32 +306,32 @@
                             <h6> Στοιχεία Αγγελίας</h6>
 
                             <div class="form-group">
-                                <input type="text" class="form-control-input" name="country"  required>
+                                <input type="text" class="form-control-input" name="position"  required>
                                 <label class="label-control" for="name-lastname">Τίτλος</label>
                                 <div class="help-block with-errors"></div>
                             </div>
 
                             <div class="form-group">
-                                <input type="text" class="form-control-input" name="country"  required>
+                                <input type="text" class="form-control-input" name="payment"  required>
+                                <label class="label-control" for="name-lastname">Πληρωμή</label>
+                                <div class="help-block with-errors"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" class="form-control-input" name="duration"  required>
                                 <label class="label-control" for="name-lastname">Διάρκεια Πρακτικής</label>
                                 <div class="help-block with-errors"></div>
                             </div>
 
                             <div class="form-group">
-                                <input type="text" class="form-control-input" name="country"  required>
-                                <label class="label-control" for="name-lastname">Χώρα</label>
-                                <div class="help-block with-errors"></div>
-                            </div>
-
-                            <div class="form-group">
-                                <input type="text" class="form-control-input" name="address"  required>
+                                <input type="text" class="form-control-input" name="loc"  required>
                                 <label class="label-control" for="email">Τοποθεσία</label>
                                 <div class="help-block with-errors"></div>
                             </div>
 
                             <div class="form-group">
-                                <input type="text" class="form-control-input" name="address"  required>
-                                <label class="label-control" for="number">Email Επόπτη</label>
+                                <input type="text" class="form-control-input" name="full-part"  required>
+                                <label class="label-control" for="number">Part-time/ Full-time</label>
                                 <div class="help-block with-errors"></div>
                             </div>
 
@@ -315,32 +357,32 @@
                             <h6> Ζητούμενα Στοιχεία</h6>
 
                             <div class="form-group">
-                                <input type="file" class="form-control-input pleft" name="upload"  accept="application/pdf/vnd.ms-excel" >
+                                <input type="file" class="form-control-input pleft" name="photo"  accept=".pdf" >
                                 <label class="label-control" for="photo">Φωτογραφία</label>
                                 <div class="help-block with-errors"></div>
                             </div>
 
                             <div class="form-group">
-                                <input type="file" class="form-control-input pleft" name="upload"  accept="application/pdf/vnd.ms-excel" >
+                                <input type="file" class="form-control-input pleft" type="upload" name="university_id"  accept="application/pdf/vnd.ms-excel" >
                                 <label class="label-control" for="idnetity">Φοιτητική Ταυτότητα</label>
                                 <div class="help-block with-errors"></div>
                             </div>
 
                             <div class="form-group">
                                 
-                                <input type="file" class="form-control-input pleft" name="upload"  accept="application/pdf/vnd.ms-excel" >
+                                <input type="file" class="form-control-input pleft" type="upload" name="grading"  accept="application/pdf/vnd.ms-excel" >
                                 <label class="label-control" for="grades">Αναλυτική Βαθμολογία</label>
                                 <div class="help-block with-errors"></div>
                             </div>
 
                             <div class="form-group">
-                                <input type="file" class="form-control-input pleft" name="upload"  accept="application/pdf/vnd.ms-excel" >
+                                <input type="file" class="form-control-input pleft" type="upload" name="university_certificate"  accept="application/pdf/vnd.ms-excel" >
                                 <label class="label-control" for="uni">Βεβαίωση Πανεπιστημίου</label>
                                 <div class="help-block with-errors"></div>
                             </div>
 
                             <div class="form-group">
-                                <input type="text" class="form-control-input" name="address"  required>
+                                <input type="text" class="form-control-input" name="reasoning"  required>
                                 <label class="label-control" for="decription">Περιγράψτε τους λόγους που ενδιαφέρεστε για τη θέση</label>
                                 <div class="help-block with-errors"></div>
                             </div>
@@ -403,7 +445,7 @@
                                 <button class="btn width-50 ml-auto">Προσωρινή Αποθήκευση</button>
                             </div>
                             </br>
-                            <button class="btn btn3" id="">Οριστική Υποβολή</button>
+                            <button class="btn btn3" name="submit_studentapp">Οριστική Υποβολή</button>
                 
                             <?php 
                             if (isset($_SESSION['failure']) && ($_SESSION['failure']!="")) {?>                               
