@@ -12,20 +12,13 @@
         $duration = $_POST["duration"];
 		$full_part = $_POST["full_part"];
         $location = $_POST["location"];
+        $id_of_fy = $_SESSION['id'];
 
-		$query = "INSERT INTO advert (department, ad_position, payment, duration, full_part, loc) VALUES ('$department', '$ad_position', '$payment', '$duration', '$full_part', '$location');";
+		$query = "INSERT INTO advert (department, ad_position, payment, duration, full_part, loc, id_of_fy) VALUES ('$department', '$ad_position', '$payment', '$duration', '$full_part', '$location', '$id_of_fy');";
         $result = mysqli_query($conn,$query);
 
         if ($result && $_SESSION['failure']=='')
         {
-            $_SESSION['id']=mysqli_insert_id($conn);
-            $_SESSION['department']=$department;
-            $_SESSION['ad_position']=$ad_position;
-            $_SESSION['payment']=$payment;
-            $_SESSION['duration']=$duration;
-            $_SESSION['full_part']=$full_part;
-            $_SESSION['location']=$location;
-
             header("Location: ./fy-index-ads.php");
         }
     }
@@ -128,7 +121,7 @@
                 </span>
 
                 <span class="nav-item" >
-                    <a class="btn-outline-sm" id="edit-profile-btn" href="php/edit-profile-fy.php">ΠΡΟΦΙΛ</a>
+                    <a class="btn-outline-sm" id="edit-profile-btn" href="php/edit-profile-fy.php"><?php echo $_SESSION['username'];?></a>
                 </span>
 
                 <span class="nav-item" >
