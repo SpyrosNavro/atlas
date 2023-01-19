@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 17, 2023 at 06:56 PM
+-- Generation Time: Jan 19, 2023 at 11:04 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -32,10 +32,17 @@ CREATE TABLE `advert` (
   `department` varchar(50) NOT NULL,
   `ad_position` varchar(50) NOT NULL,
   `payment` varchar(10) NOT NULL,
-  `duration` tinyint(1) NOT NULL,
-  `full_part` tinyint(1) NOT NULL,
+  `duration` varchar(50) NOT NULL,
+  `full_part` varchar(50) NOT NULL,
   `loc` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `advert`
+--
+
+INSERT INTO `advert` (`id_of_ad`, `department`, `ad_position`, `payment`, `duration`, `full_part`, `loc`) VALUES
+(4, 'Πληροφορικής', 'Software Engineer', '500€', '0', '0', 'Χαλάνδρι');
 
 -- --------------------------------------------------------
 
@@ -54,8 +61,8 @@ CREATE TABLE `application` (
   `payment` varchar(10) NOT NULL,
   `full_part` tinyint(1) NOT NULL,
   `duration` tinyint(1) NOT NULL,
-  `loc` varchar(50) NOT NULL,
-  `photo` longblob NOT NULL,
+  `location` varchar(50) NOT NULL,
+  `photo` blob NOT NULL,
   `university_id` blob NOT NULL,
   `grading` blob NOT NULL,
   `university_certificate` blob NOT NULL,
@@ -105,6 +112,16 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `email`, `psw`, `fullname`, `phone`, `id_passport`, `id_passport_number`) VALUES
+(23, '123', '123', '123', '123', '123', 'id', '123'),
+(24, '123', '123', '123123', '123', '123', 'passport', '123'),
+(32, 'purr', 'olga@gmail.com', '111', 'Spyros Navrozidis', '6971940335', 'id', 'AM00000'),
+(33, 'spyros.navro', 'spyros@yahoo.gr', '', 'Σπύρος Ναβροζίδης', '6970000000', 'id', 'ΑΜ12345');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -140,7 +157,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `advert`
 --
 ALTER TABLE `advert`
-  MODIFY `id_of_ad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_of_ad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `application`
@@ -158,7 +175,7 @@ ALTER TABLE `student`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
