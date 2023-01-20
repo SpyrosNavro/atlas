@@ -102,7 +102,7 @@ INSERT INTO `student` (`id_of_student`, `email`, `psw`, `fullname`, `phone`, `un
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
-  `username` varchar(30) NOT NULL,
+  `username` varchar(30) NOT NULL, 
   `email` varchar(30) NOT NULL,
   `psw` varchar(30) NOT NULL,
   `fullname` varchar(50) NOT NULL,
