@@ -168,7 +168,6 @@
         <br>
         <ul class="total-ads">
             <?php 
-                require_once './php/connect.php';
                 if(isset($_SESSION['id']))
                 {   
                     $id_of_fy = $_SESSION['id'];
@@ -179,15 +178,16 @@
                 {
                     $result=NULL;
                 }
+                
                 if(isset($_SESSION['id'])) {
                 
-                while ($row = mysqli_fetch_array($result)) {?> 
-                    <div class="ad">
-                        <a class="ad-position" href="ad.php">
-                            <?php echo $row[2] ?> (<?php echo $row[6]?>) 
-                        </a>
-                    </div>
-                <?php } ?>
+                    while ($row = mysqli_fetch_array($result)) {?> 
+                        <div class="ad">
+                            <a class="ad-position" href="ad.php">
+                                <?php echo $row[2] ?> (<?php echo $row[6]?>) 
+                            </a>
+                        </div>
+                    <?php } ?>
                 <?php } ?>
         </ul>
     </div>
