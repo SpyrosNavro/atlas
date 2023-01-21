@@ -323,6 +323,17 @@ a:hover {
 	cursor: text;
 	transition: all 0.2s ease;
 }
+/* above box */
+.label-above {
+	position: absolute;
+	top: -1.5rem;
+	left: 1rem;
+	color: rgb(19, 18, 18);
+	opacity: 1;
+	font: 400 0.875rem/1.375rem "Open Sans", sans-serif;
+	cursor: text;
+	transition: all 0.2s ease;
+}
 
 /* IE10+ hack to solve lower label text position compared to the rest of the browsers */
 @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {  
@@ -917,18 +928,6 @@ input[type='checkbox'] {
 	border:solid 2px #333;
 	color: white;
 	padding: 11px 32px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 16px;
-	border-radius:10ch;
-}
-
-.log-in-choice {
-	background-color: #4c51af;
-	border:solid 2px #333;
-	color: white;
-	padding: 21px 42px;
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;

@@ -5,45 +5,43 @@
 
 
     if(isset($_POST['submit_studentapp']))
-	{
-		$fullname = $_POST["fullname"];
-		$email = $_POST["email"];
-		$phone = $_POST["phone"];
-        $university = $_POST["university"];
-        $department = $_POST["department"];
-        $position = $_POST["position"];
-        $payment = $_POST["payment"];
-        $full_part = $_POST["full_part"];
-        $duration = $_POST["duration"];
-        $loc = $_POST["loc"];
+	{   
+
+
+
+        $fullname = $_SESSION['fullname'];
+        $email = $_SESSION['email'];
+        $phone = $_SESSION["phone"];
+        $university = $_SESSION['university_of_student'];
+        $department = $_SESSION['university_of_student'];
+        $position = $arr[2];
+        $payment = $arr[3];
+        $full_part = $arr[5];
+        $duration = $arr[4];
+        $loc = $arr[6];
         $photo = $_POST["photo"];
         $university_id = $_POST["university_id"];
         $grading = $_POST["grading"];
         $university_certificate = $_POST["university_certificate"];
         $reasoning = $_POST["reasoning"];
-        $accept_refuse = $POST["accept-refuse"];
+        $accept_refuse = 0; 
     
 
 		$query = "INSERT INTO application (fullname, email, phone, university, department, position, payment, full_part,
          duration, loc, photo, university_id, grading, university_certificate, reasoning, accept_refuse) VALUES ('$fullname', '$email', '$phone', '$university', '$department', '$position', '$payment', '$full_part', '$duration', '$loc', '$photo', '$university_id', '$grading', '$university_certificate', '$reasoning', '$accept_refuse');";
         $result = mysqli_query($conn,$query);
-        if ($result && $_SESSION['failure']=='')
-        {
-			$_SESSION['id']=mysqli_insert_id($conn);
-            $_SESSION['fullname']=$fullname;
-            $_SESSION['email']=$email;
-            $_SESSION['password']=$password;
-            $_SESSION['phone']=$phone;
-            $_SESSION['id_passport']=$id_passport;
-            $_SESSION['id_passport_number']=$id_passport_number;
-            
-            header("Location: ./index.php");
-        }
-        else
-        {
-            $_SESSION['failure'] = 'Μη έγκυρα δεδομένα';
-        }
+
     }
+            // get ad info
+            $myad = mysqli_query($conn, "SELECT * FROM advert WHERE department='Βιολογία'");
+            if ($myad) {
+                $arr = $myad->fetch_array();
+            }
+           
+
+    
+
+
 ?>
 
 <!DOCTYPE html>
@@ -210,7 +208,8 @@
     </button>
     
 
-
+    
+        
 
     <!-- Header -->
     <header id="header" class="ex-2-header">
@@ -252,33 +251,52 @@
 
                             <h6> Προσωπικά Στοιχεία Φοιτητή</h6>
 
+                            </br>
                             <div class="form-group">
-                                <input type="text" class="form-control-input mandatory" name="fullname"  required>
-                                <label class="label-control" for="name-lastname">Όνοματεπώνυμο</label>
+                                <label class="label-above" for="name-lastname">Oνοματεπώνυμο</label>
+                                <input type="text" class="form-control-input mandatory" name="fullname"  readonly>
+
+                                <label class="label-control" for="name-lastname"> <?php echo $_SESSION['fullname'] ?> </label>
+
                                 <div class="help-block with-errors"></div>
                             </div>
 
+                           </br>
                             <div class="form-group">
-                                <input type="text" class="form-control-input mandatory" name="university"  required>
-                                <label class="label-control" for="name-lastname">Πανεπιστήμιο</label>
+                                
+                                <label class="label-above" for="name-lastname">Πανεπιστήμιο</label>
+                                <label class="label-control" for="name-lastname"> <?php echo $_SESSION['university_of_student']; ?> </label>
+                                
+                                <input type="text" class="form-control-input mandatory" name="university"   readonly>
                                 <div class="help-block with-errors"></div>
                             </div>
 
+                            </br>
                             <div class="form-group">
-                                <input type="text" class="form-control-input mandatory" name="department"  required>
-                                <label class="label-control" for="name-lastname">Τμήμα</label>
+                                <label class="label-above" for="name-lastname">Τμήμα</label>
+                                <label class="label-control" for="name-lastname"> <?php echo $_SESSION['department_of_student']; ?> </label>
+
+                                <input type="text" class="form-control-input mandatory" name="department"   readonly>
                                 <div class="help-block with-errors"></div>
                             </div>
 
+                            </br>
                             <div class="form-group">
-                                <input type="text" class="form-control-input mandatory" name="email"  required>
-                                <label class="label-control" for="email">Email</label>
+                                <label class="label-above" for="email">Email</label>
+                                <label class="label-control" for="name-lastname"> <?php echo $_SESSION['email']; ?> </label>
+
+                                <input type="text" class="form-control-input mandatory" name="email"  readonly>
+                                
                                 <div class="help-block with-errors"></div>
                             </div>
 
+                            </br>
                             <div class="form-group">
-                                <input type="text" class="form-control-input" name="phone"  required>
-                                <label class="label-control" for="number">Τηλέφωνο Επικοινωνίας</label>
+                                <label class="label-above" for="number">Τηλέφωνο Επικοινωνίας</label>
+                                <label class="label-control" for="name-lastname"> <?php echo $_SESSION['phone']; ?> </label>
+                                
+                                <input type="text" class="form-control-input" name="phone"  readonly>
+
                                 <div class="help-block with-errors"></div>
                             </div>
 
@@ -310,34 +328,47 @@
                             <hr class="hr-line">
 
                             <h6> Στοιχεία Αγγελίας</h6>
-
+                            </br>
                             <div class="form-group">
-                                <input type="text" class="form-control-input" name="position"  required>
-                                <label class="label-control" for="name-lastname">Τίτλος</label>
+                                
+                                <label class="label-above" for="number">Τίτλος</label>
+                                <label class="label-control" for="name-lastname"> <?php echo $arr[2]; ?> </label>
+                                
+                                <input type="text" class="form-control-input" name="position"  readonly>
                                 <div class="help-block with-errors"></div>
                             </div>
-
+                            </br>
                             <div class="form-group">
-                                <input type="text" class="form-control-input" name="payment"  required>
-                                <label class="label-control" for="name-lastname">Πληρωμή</label>
+                                <label class="label-above" for="number">Πληρωμή</label>
+                                <label class="label-control" for="name-lastname"> <?php echo $arr[3]; ?> </label>
+                        
+                                <input type="text" class="form-control-input" name="payment"  readonly>
+
                                 <div class="help-block with-errors"></div>
                             </div>
-
+                            </br>
                             <div class="form-group">
-                                <input type="text" class="form-control-input" name="duration"  required>
-                                <label class="label-control" for="name-lastname">Διάρκεια Πρακτικής</label>
+                                <label class="label-above" for="number">Διάρκεια Πρακτικής</label>
+                                <label class="label-control" for="name-lastname"> <?php echo $arr[4]; ?> </label>
+                        
+                                <input type="text" class="form-control-input" name="duration"  >
+                     
                                 <div class="help-block with-errors"></div>
                             </div>
-
+                            </br>
                             <div class="form-group">
-                                <input type="text" class="form-control-input" name="loc"  required>
-                                <label class="label-control" for="email">Τοποθεσία</label>
+                                <label class="label-above" for="number">Τοποθεσία</label>
+                                <label class="label-control" for="name-lastname"> <?php echo $arr[6]; ?> </label>
+                                <input type="text" class="form-control-input" name="loc"  readonly>
+                                
                                 <div class="help-block with-errors"></div>
                             </div>
-
+                            </br>
                             <div class="form-group">
-                                <input type="text" class="form-control-input" name="full-part"  required>
-                                <label class="label-control" for="number">Part-time/ Full-time</label>
+                                <label class="label-above" for="number">Part-time/ Full-time</label>
+                                <label class="label-control" for="name-lastname"> <?php echo $arr[5]; ?> </label>
+                                <input type="text" class="form-control-input" name="full_part"  readonly>
+                               
                                 <div class="help-block with-errors"></div>
                             </div>
 
@@ -361,35 +392,44 @@
                             <hr class="hr-line">
 
                             <h6> Ζητούμενα Στοιχεία</h6>
-
+                            </br>
                             <div class="form-group">
+                                <label class="label-above" for="number"> Φωτογραφία </label>
+
                                 <input type="file" class="form-control-input pleft" name="photo"  accept=".pdf" >
-                                <label class="label-control" for="photo">Φωτογραφία</label>
+                                
                                 <div class="help-block with-errors"></div>
                             </div>
-
+                            </br>
                             <div class="form-group">
+                                <label class="label-above" for="number"> Φοιτητική Ταυτότητα </label>
+                                
                                 <input type="file" class="form-control-input pleft" type="upload" name="university_id"  accept="application/pdf/vnd.ms-excel" >
-                                <label class="label-control" for="idnetity">Φοιτητική Ταυτότητα</label>
+                                 
                                 <div class="help-block with-errors"></div>
                             </div>
-
+                            </br>
                             <div class="form-group">
+                                <label class="label-above" for="number"> Αναλυτική Βαθμολογία </label>
                                 
                                 <input type="file" class="form-control-input pleft" type="upload" name="grading"  accept="application/pdf/vnd.ms-excel" >
-                                <label class="label-control" for="grades">Αναλυτική Βαθμολογία</label>
+                                
                                 <div class="help-block with-errors"></div>
                             </div>
-
+                            </br>
                             <div class="form-group">
+                                <label class="label-above" for="number">  Βεβαίωση Πανεπιστημίου </label>
+
                                 <input type="file" class="form-control-input pleft" type="upload" name="university_certificate"  accept="application/pdf/vnd.ms-excel" >
-                                <label class="label-control" for="uni">Βεβαίωση Πανεπιστημίου</label>
+                                 
                                 <div class="help-block with-errors"></div>
                             </div>
-
+                            </br>
                             <div class="form-group">
+                                <label class="label-above" for="number">  Περιγράψτε τους λόγους που ενδιαφέρεστε για τη θέση</label>
+
                                 <input type="text" class="form-control-input" name="reasoning"  required>
-                                <label class="label-control" for="decription">Περιγράψτε τους λόγους που ενδιαφέρεστε για τη θέση</label>
+                                 
                                 <div class="help-block with-errors"></div>
                             </div>
 
@@ -411,35 +451,178 @@
 
                             <h6> Προεπισκόπιση </h6>
 
+                            
+
+
+
+                            <h6> Προσωπικά Στοιχεία Φοιτητή</h6>
+
+                            </br>
                             <div class="form-group">
-                                <input type="text" class="form-control-input" name="country"  required>
-                                <label class="label-control" for="name-lastname">Τίτλος</label>
+                                <label class="label-above" for="name-lastname">Oνοματεπώνυμο</label>
+                                <input type="text" class="form-control-input mandatory" name="fullname"  readonly>
+
+                                <label class="label-control" for="name-lastname"> <?php echo $_SESSION['fullname'] ?> </label>
+
                                 <div class="help-block with-errors"></div>
                             </div>
 
+                            </br>
                             <div class="form-group">
-                                <input type="text" class="form-control-input" name="country"  required>
-                                <label class="label-control" for="name-lastname">Διάρκεια Πρακτικής</label>
+                                
+                                <label class="label-above" for="name-lastname">Πανεπιστήμιο</label>
+                                <label class="label-control" for="name-lastname"> <?php echo $_SESSION['university_of_student']; ?> </label>
+                                
+                                <input type="text" class="form-control-input mandatory" name="university"   readonly>
                                 <div class="help-block with-errors"></div>
                             </div>
 
+                            </br>
                             <div class="form-group">
-                                <input type="text" class="form-control-input" name="country"  required>
-                                <label class="label-control" for="name-lastname">Χώρα</label>
+                                <label class="label-above" for="name-lastname">Τμήμα</label>
+                                <label class="label-control" for="name-lastname"> <?php echo $_SESSION['department_of_student']; ?> </label>
+
+                                <input type="text" class="form-control-input mandatory" name="department"   readonly>
                                 <div class="help-block with-errors"></div>
                             </div>
 
+                            </br>
                             <div class="form-group">
-                                <input type="text" class="form-control-input" name="address"  required>
-                                <label class="label-control" for="email">Τοποθεσία</label>
+                                <label class="label-above" for="email">Email</label>
+                                <label class="label-control" for="name-lastname"> <?php echo $_SESSION['email']; ?> </label>
+
+                                <input type="text" class="form-control-input mandatory" name="email"  readonly>
+                                
                                 <div class="help-block with-errors"></div>
                             </div>
 
+                            </br>
                             <div class="form-group">
-                                <input type="text" class="form-control-input" name="address"  required>
-                                <label class="label-control" for="number">Email Επόπτη</label>
+                                <label class="label-above" for="number">Τηλέφωνο Επικοινωνίας</label>
+                                <label class="label-control" for="name-lastname"> <?php echo $_SESSION['phone']; ?> </label>
+                                
+                                <input type="text" class="form-control-input" name="phone"  readonly>
+
                                 <div class="help-block with-errors"></div>
                             </div>
+
+                        
+
+                            <br>
+                        
+
+
+
+                          
+
+
+                            <hr class="hr-line">
+
+                            <h6> Στοιχεία Αγγελίας</h6>
+
+                            </br>
+                            <div class="form-group">
+                                
+                                <label class="label-above" for="number">Τίτλος</label>
+                                <label class="label-control" for="name-lastname"> <?php echo $arr[2]; ?> </label>
+                                
+                                <input type="text" class="form-control-input" name="position"  readonly>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            </br>
+                            <div class="form-group">
+                                <label class="label-above" for="number">Πληρωμή</label>
+                                <label class="label-control" for="name-lastname"> <?php echo $arr[3]; ?> </label>
+
+                                <input type="text" class="form-control-input" name="payment"  readonly>
+
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            </br>
+                            <div class="form-group">
+                                <label class="label-above" for="number">Διάρκεια Πρακτικής</label>
+                                <label class="label-control" for="name-lastname"> <?php echo $arr[4]; ?> </label>
+
+                                <input type="text" class="form-control-input" name="duration"  readonly>
+
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            </br>
+                            <div class="form-group">
+                                <label class="label-above" for="number">Τοποθεσία</label>
+                                <label class="label-control" for="name-lastname"> <?php echo $arr[6]; ?> </label>
+                                <input type="text" class="form-control-input" name="loc"  readonly>
+                                
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            </br>
+                            <div class="form-group">
+                                <label class="label-above" for="number">Part-time/ Full-time</label>
+                                <label class="label-control" for="name-lastname"> <?php echo $arr[5]; ?> </label>
+                                <input type="text" class="form-control-input" name="full_part"  readonly>
+                            
+                                <div class="help-block with-errors"></div>
+                            </div>
+
+
+
+                            <br>
+
+        
+
+                             
+
+                            <hr class="hr-line">
+
+                            <h6> Ζητούμενα Στοιχεία</h6>
+                            </br>
+                            <div class="form-group">
+                                <label class="label-above" for="number"> Φωτογραφία </label>
+
+                                <input type="file" class="form-control-input pleft" name="photo"  accept=".pdf" >
+                                
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            </br>
+                            <div class="form-group">
+                                <label class="label-above" for="number"> Φοιτητική Ταυτότητα </label>
+                                
+                                <input type="file" class="form-control-input pleft" type="upload" name="university_id"  accept="application/pdf/vnd.ms-excel" >
+                                
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            </br>
+                            <div class="form-group">
+                                <label class="label-above" for="number"> Αναλυτική Βαθμολογία </label>
+                                
+                                <input type="file" class="form-control-input pleft" type="upload" name="grading"  accept="application/pdf/vnd.ms-excel" >
+                                
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            </br>
+                            <div class="form-group">
+                                <label class="label-above" for="number">  Βεβαίωση Πανεπιστημίου </label>
+
+                                <input type="file" class="form-control-input pleft" type="upload" name="university_certificate"  accept="application/pdf/vnd.ms-excel" >
+                                
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            </br>
+                            <div class="form-group">
+                                <label class="label-above" for="number">  Περιγράψτε τους λόγους που ενδιαφέρεστε για τη θέση</label>
+
+                                <input type="text" class="form-control-input" <?php if ($reasoning !=NULL ) 
+                                                                                    echo $reasoning ?>  readonly>
+                               
+                                <div class="help-block with-errors"></div>
+                            </div>
+
+
+
+
+
+
+
 
 
 
@@ -451,6 +634,7 @@
                                 <button class="btn width-50 ml-auto">Προσωρινή Αποθήκευση</button>
                             </div>
                             </br>
+                            <?php  $accept_refuse=0; ?>
                             <button class="btn btn3" name="submit_studentapp">Οριστική Υποβολή</button>
                 
                             <?php 
