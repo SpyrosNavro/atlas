@@ -153,13 +153,6 @@
                 <option value="application">Αιτήσεις</option>
                 <option value="ad">Αγγελίες</option>
             </select>
-
-            <select name="suboptions" id="suboptions">
-                <option value="new">Καινούργιες</option>
-                <option value="edited">Υπό επεξεργασία</option>
-                <option value="finished">Ολοκληρωμένες</option>
-            </select>
-
             <input type="submit" value="OK">
         </form>
         <br>

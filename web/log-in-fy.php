@@ -17,7 +17,6 @@
     
         if ($result)
         {
-
             $arr = $result->fetch_array();
             if ($arr)
             {

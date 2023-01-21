@@ -2,6 +2,17 @@
     session_start();
     require_once './php/connect.php'; // connect to db
     unset($_SESSION['failure']);
+
+    if(isset($_SESSION['id']))
+    {   
+        $id_of_fy = $_SESSION['id'];
+        $query = "SELECT * FROM app WHERE id_of_fy = $id_of_fy"; 
+        $result = mysqli_query($conn, $query);
+    }
+    else
+    {
+        $result=NULL;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -101,7 +112,7 @@
                 </span>
 
                 <span class="nav-item" >
-                    <a class="btn-outline-sm" id="edit-profile-btn" href="php/edit-profile-fy.php">ΠΡΟΦΙΛ</a>
+                    <a class="btn-outline-sm" id="edit-profile-btn" href="php/edit-profile-fy.php"><?php echo $_SESSION['username'];?></a>
                 </span>
 
                 <span class="nav-item" >
