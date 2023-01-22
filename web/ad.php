@@ -2,6 +2,14 @@
     session_start();
     require_once './php/connect.php'; // connect to db
     unset($_SESSION['failure']);
+
+    if (isset($_SESSION['id'])) 
+    {
+        $id_of_ad = $_GET["id"];
+        $query = "SELECT * FROM advert WHERE id_of_ad = $id_of_ad";
+        $result = mysqli_query($conn, $query);
+        $arr = mysqli_fetch_array($result);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -101,7 +109,7 @@
                 </span>
 
                 <span class="nav-item" >
-                    <a class="btn-outline-sm" id="edit-profile-btn" href="php/edit-profileistudent.php">ΠΡΟΦΙΛ</a>
+                    <a class="btn-outline-sm" id="edit-profile-btn" href="php/edit-profileistudent.php"><?php echo $_SESSION['username']; ?></a>
                 </span>
 
                 <span class="nav-item" >
@@ -142,61 +150,40 @@
     <div id="pricing" class="cards-2">
 
         <ul class="breadcrumb">
-            <a href="fy-index-ads.php"> Αρχική Σελίδα > Αγγελίες >&nbsp; </a>
-            <li> Μαρία Παπαδοπούλου </li>
+            <a href="fy-index-ads.php"> Αρχική Σελίδα > Αγγελίες > </a>
+            <li> &nbsp; <?php echo $arr[2]; ?> (<?php echo $arr[6];?>)  </li>
         </ul> </br>
 
         <div class="section-title"> Στοιχεία Αγγελίας </div> <br>
         <div class="full-applicator-info">
             <label class="basic-info" for="univeristy-departments"> Τμήμα </label>
-            <label class="basic-info" for="knowledge"> Γνωστικό Αντικείμενο </label>
+            <label class="basic-info" for="univeristy-departments"> <?php echo $arr[1];?> </label>
+            <br>
             <label class="basic-info" for="position"> Τίτλος Θέσης </label>
+            <label class="basic-info" for="position"> <?php echo $arr[2];?> </label>
+            <br>
             <label class="basic-info" for="payment"> Αμοιβή </label>
+            <label class="basic-info" for="payment"> <?php echo $arr[3];?> </label>
+            <br>
             <label class="basic-info" for="duration">Διάρκεια </label>
+            <label class="basic-info" for="duration"><?php echo $arr[4];?> </label>
             <br>
-            <label class="basic-info" for="university-department"> &nbsp; </label>
-            <label class="basic-info" for="knowledge"> &nbsp; </label>
-            <label class="basic-info" for="position"> &nbsp; </label>
-            <label class="basic-info" for="payment"> &nbsp; </label>
-            <label class="basic-info" for="duration">&nbsp; </label>
-            
-            <br><br>
-
             <label class="basic-info" for="occupation"> Απασχόληση </label>
-            <label class="basic-info" for="place"> Τοποθεσία </label>
-            <label class="basic-info" for="exec-date"> Ημερομηνία εκτέλεσης </label>
-            <label class="basic-info" for="positions"> Θέσεις </label>
+            <label class="basic-info" for="occupation"> <?php echo $arr[5];?> </label>
             <br>
-            <label class="basic-info" for="occupation"> &nbsp; </label>
-            <label class="basic-info" for="place"> &nbsp; </label>
-            <label class="basic-info" for="exec-date"> &nbsp; </label>
-            <label class="basic-info" for="positions"> &nbsp; </label>
+            <label class="basic-info" for="place"> Τοποθεσία </label>
+            <label class="basic-info" for="place"> <?php echo $arr[6];?> </label>
+            <br>
         </div>
         <br>
         <div class="section-title"> Έγγραφα Αγγελίας </div> <br>
         <div class="full-applicator-info">
-            <label class="applicator-info" for="application-id"> Απασχόληση </label>
-            <label class="applicator-info" for="title"> Τοποθεσία </label>
-            <label class="applicator-info" for="submit-date"> Ημερομηνία εκτέλεσης </label>
-            <label class="applicator-info" for="payment"> Θέσεις </label> <br>
-
-            <label class="applicator-info" for="application-id"> &nbsp; </label>
-            <label class="applicator-info" for="title"> &nbsp; </label>
-            <label class="applicator-info" for="submit-date"> &nbsp; </label>
-            <label class="applicator-info" for="payment"> &nbsp; </label> <br> <br>
+            <label class="applicator-files" for="photo"> Φωτογραφία </label> <br>
+            <label class="applicator-files" for="university-id"> Φοιτητική Ταυτότητα (Πάσο) </label> <br>
+            <label class="applicator-files" for="grades"> Αναλυτική βαθμολογία </label> <br>
+            <label class="applicator-files" for="uni-certificate"> Βεβαίωση Πανεπιστημίου </label> <br>
+            <label class="applicator-files" for="reasoning"> Αναφορά για τον λόγο πρακτικής </label> <br>
         </div>
-        <div class="section-title">Απαραίτητα Έγγραφα</div> <br>
-        <div class="full-applicator-info">
-            <label class="applicator-files" for="photo"> Φωτογραφία </label> <button class="x" type="submit"> <b> x </b> </button> <br>
-            <label class="applicator-files" for="university-id"> Φοιτητική Ταυτότητα (Πάσο) </label> <button class="x" type="submit"> <b> x </b> </button> <br>
-            <label class="applicator-files" for="grades"> Αναλυτική βαθμολογία </label> <button class="x" type="submit"> <b> x </b> </button> <br>
-            <label class="applicator-files" for="uni-certificate"> Βεβαίωση Πανεπιστημίου </label> <button class="x" type="submit"> <b> x </b> </button> <br>
-            <label class="applicator-files" for="reasoning"> Αναφορά για τον λόγο πρακτικής </label> <button class="x" type="submit"> <b> x </b> </button> <br>
-        </div>
-
-        <br><br>
-        <button class="accept" type="submit"> Αποδοχή </button>
-        <button class="decline" type="submit"> Απόρριψη </button>
     </div>
     <!-- end of pricing -->
 

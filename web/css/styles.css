@@ -870,6 +870,19 @@ input[type='checkbox'] {
 	padding: initial;
 }
 
+.basic {
+	font-size: 2ch;
+	padding: 10px;
+	width:auto;
+	height: 2rem;
+	padding: initial;
+}
+
+.full-applicator-info {
+	text-align: initial;
+	margin-left: 500px;
+}
+
 .info {
 	font-size: 2ch;
 	padding: initial;
@@ -880,6 +893,14 @@ input[type='checkbox'] {
 	font-size: 2ch;
 	padding: 10px;
 	width: 14rem;
+	height: 2rem;
+	padding: initial;
+}
+
+.applicator {
+	font-size: 2ch;
+	padding: 10px;
+	width:auto;
 	height: 2rem;
 	padding: initial;
 }

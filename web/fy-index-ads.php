@@ -163,7 +163,7 @@
         </form>
         <br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a class="create-ad" method="POST" href="create-ad.php"> Δημιουργία Αίτησης </a> <br>
+        <a class="create-ad" method="POST" href="create-ad.php"> Δημιουργία Αγγελίας </a> <br>
 
         <br>
         <ul class="total-ads">
@@ -183,7 +183,7 @@
                 
                     while ($row = mysqli_fetch_array($result)) {?> 
                         <div class="ad">
-                            <a class="ad-position" href="ad.php">
+                            <a class="ad-position" href="ad.php?id=<?php echo $row[0]?>">
                                 <?php echo $row[2] ?> (<?php echo $row[6]?>) 
                             </a>
                         </div>

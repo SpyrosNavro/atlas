@@ -99,7 +99,7 @@
                 </span>
 
                 <span class="nav-item" >
-                    <a class="btn-outline-sm" id="edit-profile-btn" href="edit-profile-student.php">ΠΡΟΦΙΛ</a>
+                    <a class="btn-outline-sm" id="edit-profile-btn" href="edit-profile-student.php"><?php echo $_SESSION['username'];?></a>
                 </span>
 
                 <span class="nav-item" >

@@ -141,7 +141,7 @@
                 </span>
 
                 <span class="nav-item" >
-                    <a class="btn-outline-sm" id="edit-profile-btn" href="php/edit-profileistudent.php">ΠΡΟΦΙΛ</a>
+                    <a class="btn-outline-sm" id="edit-profile-btn" href="php/edit-profileistudent.php"><?php echo $_SESSION['username'];?></a>
                 </span>
 
                 <span class="nav-item" >

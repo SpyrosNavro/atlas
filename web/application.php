@@ -5,13 +5,31 @@
 
     if(isset($_SESSION['id']))
     {   
-        $id_of_fy = $_SESSION['id'];
-        $query = "SELECT * FROM app WHERE id_of_fy = $id_of_fy"; 
+        $id_of_application = $_GET['id'];
+        $query = "SELECT * FROM app WHERE id_of_application = $id_of_application"; 
         $result = mysqli_query($conn, $query);
+        $arr = mysqli_fetch_array($result);
     }
     else
     {
         $result=NULL;
+    }
+
+    if (isset($_POST['accept'])) 
+    {
+        $query1 = "UPDATE app SET accept_refuse = 'accept' WHERE id_of_application = $id_of_application";
+        $result1 = mysqli_query($conn, $query1);
+
+        header("Location: ./fy-index-applications.php");        
+    }
+
+    $cause = $_POST['cause'];
+    if (isset($_POST['decline'])) 
+    {
+        $query1 = "UPDATE app SET accept_refuse = 'refuse', cause ='$cause' WHERE id_of_application = $id_of_application";
+        $result1 = mysqli_query($conn, $query1);
+
+        header("Location: ./fy-index-applications.php");        
     }
 ?>
 
@@ -60,7 +78,7 @@
             <!-- <a class="navbar-brand logo-text page-scroll" href="index.php">Tivo</a> -->
 
             <!-- Image Logo -->
-            <a class="navbar-brand logo-image" href="index.php"><img src="images/atlas_logo.png" alt="ATLAS logo"></a> 
+            <a class="navbar-brand logo-image" href="fy-index-applications.php"><img src="images/atlas_logo.png" alt="ATLAS logo"></a> 
             <!-- Mobile Menu Toggle Button -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-awesome fas fa-bars"></span>
@@ -153,59 +171,66 @@
     <div id="pricing" class="cards-2">
 
         <ul class="breadcrumb">
-            <a href="fy-index-applications.php"> Αρχική Σελίδα > Αιτήσεις >&nbsp; </a>
-            <li> Μαρία Παπαδοπούλου </li>
+            <a href="fy-index-applications.php"> Αρχική Σελίδα > Αιτήσεις > </a>
+            <li> &nbsp; <?php echo $arr[1]?> (<?php echo $arr[0]?>)</li>
         </ul> </br>
 
         <div class="section-title">Στοιχεία Ενδιαφερόμενου</div> <br>
         <div class="full-applicator-info">
             <label class="basic-info" for="fullName"> Ονοματεπώνυμο </label>
-            <label class="basic-info" for="email"> Email </label>
-            <label class="basic-info" for="phone"> Τηλέφωνο </label>
-            <label class="basic-info" for="university"> Πανεπιστήμιο </label>
-            <label class="basic-info" for="department">Τμήμα </label>
+            <label class="basic" for="fullName"> <?php echo $arr[1]?> </label>
             <br>
-            <label class="basic-info" for="fullName"> &nbsp; </label>
-            <label class="basic-info" for="email"> &nbsp; </label>
-            <label class="basic-info" for="phone"> &nbsp; </label>
-            <label class="basic-info" for="university"> &nbsp; </label>
-            <label class="basic-info" for="department">&nbsp; </label>
+            <label class="basic-info" for="email"> Email </label>
+            <label class="basic" for="email"> <?php echo $arr[2]?> </label>
+            <br>
+            <label class="basic-info" for="phone"> Τηλέφωνο </label>
+            <label class="basic" for="phone"> <?php echo $arr[3]?> </label>
+            <br>
+            <label class="basic-info" for="university"> Πανεπιστήμιο </label>
+            <label class="basic" for="university"> <?php echo $arr[4]?> </label>
+            <br>
+            <label class="basic-info" for="department">Τμήμα </label>
+            <label class="basic" for="department"> <?php echo $arr[5]?> </label>
+            <br>
         </div>
         <br>
         <div class="section-title">Λεπτομέρειες Αίτησης</div> <br>
         <div class="full-applicator-info">
             <label class="applicator-info" for="application-id"> Αριθμός Αίτησης </label>
+            <label class="applicator" for="application-id"> <?php echo $arr[0]?> </label>
+            <br>
             <label class="applicator-info" for="title"> Τίτλος Θέσης </label>
-            <label class="applicator-info" for="submit-date"> Ημερομηνία Υποβολής </label>
-            <label class="applicator-info" for="payment"> Αμοιβή </label> <br>
-
-            <label class="applicator-info" for="application-id"> &nbsp; </label>
-            <label class="applicator-info" for="title"> &nbsp; </label>
-            <label class="applicator-info" for="submit-date"> &nbsp; </label>
-            <label class="applicator-info" for="payment"> &nbsp; </label> <br> <br>
+            <label class="applicator" for="title"> <?php echo $arr[6]?> </label>
+            <br>
+            <label class="applicator-info" for="payment"> Αμοιβή </label>
+            <label class="applicator" for="payment"> <?php echo $arr[7]?> </label>
+            <br>
 
             <label class="applicator-info" for="full-part"> Τρόπος Απασχόλησης </label>
-            <label class="applicator-info" for="exec-date"> Ημερομηνία Εκτέλεσης </label>
+            <label class="applicator" for="full-part"> <?php echo $arr[8]?> </label>
+            <br>
             <label class="applicator-info" for="duration"> Διάρκεια Πρακτικής </label>
-            <label class="applicator-info" for="place"> Τοποθεσία </label> <br>
-
-            <label class="applicator-info" for="full-part"> &nbsp; </label>
-            <label class="applicator-info" for="exec-date"> &nbsp; </label>
-            <label class="applicator-info" for="duration"> &nbsp; </label>
-            <label class="applicator-info" for="place"> &nbsp; </label>
+            <label class="applicator" for="duration"> <?php echo $arr[9]?> </label>
+            <br>
+            <label class="applicator-info" for="place"> Τοποθεσία </label>
+            <label class="applicator" for="place"> <?php echo $arr[10]?> </label>
+            <br>
         </div>
         <div class="section-title">Απαραίτητα Έγγραφα</div> <br>
         <div class="full-applicator-info">
-            <label class="applicator-files" for="photo"> Φωτογραφία </label> <button class="x" type="submit"> <b> x </b> </button> <br>
-            <label class="applicator-files" for="university-id"> Φοιτητική Ταυτότητα (Πάσο) </label> <button class="x" type="submit"> <b> x </b> </button> <br>
-            <label class="applicator-files" for="grades"> Αναλυτική βαθμολογία </label> <button class="x" type="submit"> <b> x </b> </button> <br>
-            <label class="applicator-files" for="uni-certificate"> Βεβαίωση Πανεπιστημίου </label> <button class="x" type="submit"> <b> x </b> </button> <br>
-            <label class="applicator-files" for="reasoning"> Αναφορά για τον λόγο πρακτικής </label> <button class="x" type="submit"> <b> x </b> </button> <br>
+            <label class="applicator-files" for="photo"> Φωτογραφία </label> <br>
+            <label class="applicator-files" for="university-id"> Φοιτητική Ταυτότητα (Πάσο) </label> <br>
+            <label class="applicator-files" for="grades"> Αναλυτική βαθμολογία </label> <br>
+            <label class="applicator-files" for="uni-certificate"> Βεβαίωση Πανεπιστημίου </label> <br>
+            <label class="applicator-files" for="reasoning"> Αναφορά για τον λόγο πρακτικής </label> <br>
         </div>
 
         <br><br>
-        <button class="accept" type="submit"> Αποδοχή </button>
-        <button class="decline" type="submit"> Απόρριψη </button>
+        <form action = "" method="post">
+            <button class="accept" type="submit" name="accept"> Αποδοχή </button>
+            <button class="decline" type="submit" name="decline"> Απόρριψη </button> <br><br>
+            <textarea name="cause" rows="10" cols="50" value="Write the reason as to why the application got declined" required> Write the reason as to why the application got declined </textarea>
+        </form>
     </div>
     <!-- end of pricing -->
 
