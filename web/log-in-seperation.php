@@ -149,8 +149,8 @@
         <div class="container">            
             <div class="row">
                 <div class="col-lg-12">
-                    <h3> Σύνδεση ως: </h3>
-                    <a class="log-in-choice" href="log-in-student.php"> ΦΟΙΤΗΤΗΣ </a>
+                    <h3> Σύνδεση ως: </h3> <br>
+                    <a class="log-in-choice" href="log-in-student.php"> ΦΟΙΤΗΤΗΣ </a> &nbsp;&nbsp;
                     <a class="log-in-choice" href="log-in-fy.php"> ΦΟΡΕΑΣ ΥΠΟΔΟΧΗΣ </a>    
 
                 </div> <!-- end of col -->

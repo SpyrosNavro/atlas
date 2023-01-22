@@ -1763,6 +1763,11 @@ input[type='checkbox'] {
 	width: 1.125rem;
 }
 
+.form-container {
+	width: 50rem;
+	margin-left: 20rem;
+}
+
 .slider-2 .swiper-button-prev:focus,
 .slider-2 .swiper-button-next:focus {
 	/* even if you can't see it chrome you can see it on mobile device */
@@ -2038,6 +2043,14 @@ a:hover.back-to-top {
 	background-color: #ffffff;
 	text-align: center;
 	min-height: 100vh;
+}
+
+.log-in-choice {
+	background-color: rgb(50, 50, 174);
+	border: 1.5px solid black;
+	border-radius: 20ch;
+	padding: 22px;
+	;
 }
 
 .ex-2-header h1,

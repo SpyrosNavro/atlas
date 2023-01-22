@@ -2,6 +2,83 @@
     session_start();
     require_once './php/connect.php'; // connect to db
     unset($_SESSION['failure']);
+
+    if(isset($_POST['save_changes']))
+	{
+        $id_of_student = $_SESSION['id'];
+        $email = $_SESSION['email'];
+        $password = $_SESSION['psw'];
+        $fullname = $_SESSION['fullname'];
+        $phone = $_SESSION['phone'];
+        $university_of_student = $_SESSION['university_of_student'];
+        $department_of_student = $_SESSION['department_of_student'];
+
+        $result = mysqli_query($conn, "SELECT * FROM student WHERE id_of_student=$id_of_student");
+        if ($result) {
+            $arr = $result->fetch_array();
+        }
+
+
+        // ------------
+        if( ($_POST['email'] != $arr[1]) && ($_POST['email'] != '') ) {
+            $email = $_POST['email'];
+        }
+
+        // -------------
+        if( ($_POST['password'] != $arr[2]) && ($_POST['password'] != '') ) {
+            $password = $_POST['password'];
+
+            $confirmation = $_POST['confirmation'];
+            if ($password != $confirmation) {
+                echo "The two passwords do not match\n";
+                $_SESSION['failure'] = 'Μη έγκυρα δεδομένα';
+            }
+        }
+
+        // ------------
+        if( ($_POST['fullname'] != $arr[4]) && ($_POST['fullname'] != '') ) {
+            $fullname = $_POST['fullname'];
+        }
+
+        // ------------
+        if( ($_POST['phone'] != $arr[5]) && ($_POST['phone'] != '') ) {
+            $phone = $_POST['phone'];
+        }
+
+        // -----------
+        if( ($_POST['university_of_student'] != $arr[5]) && ($_POST['university_of_student'] != '') ) {
+            $university_of_student = $_POST['university_of_student'];
+        }
+
+        // -----------
+        if( ($_POST['department_of_student'] != $arr[6]) && ($_POST['department_of_student'] != '') ) {
+            $department_of_student = $_POST['department_of_student'];
+        }
+
+
+        //$hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+
+        $id_of_student = $_SESSION['id'];
+        $query = "UPDATE student SET email = '$email', psw = '$password', fullname = '$fullname', phone = '$phone', university_of_student = '$university_of_student', department_of_student = '$department_of_student' WHERE id_of_student = $id_of_student";
+        $result = mysqli_query($conn,$query);
+        
+        if ($result)
+        {
+            $_SESSION['id'] = $id_of_student;
+            $_SESSION['email']=$email;
+            $_SESSION['psw']=$password;
+            $_SESSION['fullname']=$fullname;
+            $_SESSION['phone']=$phone;
+            $_SESSION['university_of_student']=$university_of_student;
+            $_SESSION['department_of_student']=$department_of_student;
+            
+            header("Location: ./student-page.php");
+        }
+        else
+        {
+            $_SESSION['failure'] = 'Μη έγκυρα δεδομένα';
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -101,7 +178,7 @@
                 </span>
 
                 <span class="nav-item" >
-                    <a class="btn-outline-sm" id="edit-profile-btn" href="php/edit-profileistudent.php"><?php echo $_SESSION['username'];?></a>
+                    <a class="btn-outline-sm" id="edit-profile-btn" href="php/edit-profileistudent.php"><?php echo $_SESSION['fullname'];?></a>
                 </span>
 
                 <span class="nav-item" >
@@ -147,14 +224,83 @@
         </ul>
         </br>
 
-        <div class="section-title">  </div> <br>
-        <!-- --------------------------------------------------------------------- -->
-        <!-- --------------------------------------------------------------------- -->
-        <!-- --------------------------------------------------------------------- -->
-        <form  action="" method="post">
+        <div class="form-container">
+            <form  action="" method="post">
+                <h6> Βασικά Στοιχεία </h6>
+                <div class="form-group">
+                    <input type="text" class="form-control-input" name="email"  >
+                    <label class="label-control" for="email">Email: <?php echo $_SESSION['email'];?></label>
+                    <div class="help-block with-errors"></div>
+                </div>
 
+                <div class="form-group">
+                    <input type="password" id="password" name="password" placeholder="Κωδικός">
+                    <div class="help-block with-errors"></div>
+                </div>
 
-        </form>
+                <div class="form-group">
+                    <input type="password" id="confirmation" name="confirmation"  placeholder="Επιβεβαίωση" >
+                    <div class="help-block with-errors"></div>
+                </div>
+                
+                <input type="checkbox" onclick="myFunction()">Εμφάνιση κωδικού
+
+                <script>
+                function myFunction() {
+                    var x = document.getElementById("password");
+                    if (x.type === "password") {
+                        x.type = "text";
+                    } else {
+                        x.type = "password";
+                    }
+                    var y = document.getElementById("confirmation");
+                    if (y.type === "password") {
+                        y.type = "text";
+                    } else {
+                        y.type = "password";
+                    }
+                }
+                </script>
+
+                <hr class="hr-line">
+
+                <h6> Προσωπικά Στοιχεία </h6>
+
+                <div class="form-group">
+                    <input type="text" class="form-control-input" name="fullname">
+                    <label class="label-control" for="fullname">Ονοματεπώνυμο: <?php echo $_SESSION['fullname'];?></label>
+                    <div class="help-block with-errors"></div>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-control-input" name="phone"  >
+                    <label class="label-control" for="number">Τηλέφωνο: <?php echo $_SESSION['phone'];?></label>
+                    <div class="help-block with-errors"></div>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-control-input" name="university_of_student"  >
+                    <label class="label-control" for="university_of_student">Πανεπιστήμιο Φοιτητή: <?php echo $_SESSION['university_of_student'];?></label>
+                    <div class="help-block with-errors"></div>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-control-input" name="department_of_student"  >
+                    <label class="label-control" for="id-passport">Τμήμα Φοιτητή: <?php echo $_SESSION['department_of_student'];?></label>
+                    <div class="help-block with-errors"></div>
+                </div>
+
+                <br>
+                
+                <div class="form-group">
+                    <button type="submit" name="save_changes" class="btn">ΑΠΟΘΗΚΕΥΣΗ</button>
+                </div>
+                <?php 
+                if (isset($_SESSION['failure']) && ($_SESSION['failure']!="")) {?>                               
+                    <div class="failure" style="margin-bottom: 10px;font-size: 18px;color: red;"><?php echo $_SESSION['failure']; ?></div>
+                <?php }?>
+            </form>
+        </div> <!-- end of form container -->
     </div> <!-- end of cards-2 -->
     <!-- end of pricing -->
 
