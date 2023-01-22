@@ -28,6 +28,7 @@
                 $_SESSION['phone']=$arr[5];
                 $_SESSION['id_passport']=$arr[6];
                 $_SESSION['id_passport_number']=$arr[7];
+                $_SESSION['company']=$arr[8];
 
                 header("Location: ./fy-index-applications.php");
             }

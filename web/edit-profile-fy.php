@@ -60,12 +60,17 @@
         if( ($_POST['id_passport_number'] != $arr[7]) && ($_POST['id_passport_number'] != '') ) {
             $id_passport_number = $_POST['id_passport_number'];
         }
+        
+        // -------------
+        if( ($_POST['company'] != $arr[8]) && ($_POST['company'] != '') ) {
+            $company = $_POST['company'];
+        }
 
 
         //$hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
         $id = $_SESSION['id'];
-        $query = "UPDATE user SET username = '$username', email = '$email', psw = '$password', fullname = '$fullname', phone = '$phone', id_passport = '$id_passport', id_passport_number = '$id_passport_number' WHERE id = $id";
+        $query = "UPDATE user SET username = '$username', email = '$email', psw = '$password', fullname = '$fullname', phone = '$phone', id_passport = '$id_passport', id_passport_number = '$id_passport_number', company='$company' WHERE id = $id";
         $result = mysqli_query($conn,$query);
         
         if ($result)
@@ -77,6 +82,7 @@
             $_SESSION['phone']=$phone;
             $_SESSION['id_passport']=$id_passport;
             $_SESSION['id_passport_number']=$id_passport_number;
+            $_SESSION['company']=$company;
             
             header("Location: ./fy-index-applications.php");
         }
@@ -243,6 +249,12 @@
                 <div class="form-group">
                     <input type="text" class="form-control-input" name="email"  >
                     <label class="label-control" for="email">Email: <?php echo $_SESSION['email'];?> </label>
+                    <div class="help-block with-errors"></div>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-control-input" name="company"  >
+                    <label class="label-control" for="company">Εταιρία: <?php echo $_SESSION['company'];?> </label>
                     <div class="help-block with-errors"></div>
                 </div>
 

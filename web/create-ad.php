@@ -13,8 +13,9 @@
 		$full_part = $_POST["full_part"];
         $location = $_POST["location"];
         $id_of_fy = $_SESSION['id'];
+        $company_ad = $_SESSION['company'];
 
-		$query = "INSERT INTO advert (department, ad_position, payment, duration, full_part, loc, id_of_fy) VALUES ('$department', '$ad_position', '$payment', '$duration', '$full_part', '$location', '$id_of_fy');";
+		$query = "INSERT INTO advert (department, ad_position, payment, duration, full_part, loc, id_of_fy, company_ad) VALUES ('$department', '$ad_position', '$payment', '$duration', '$full_part', '$location', '$id_of_fy', '$company_ad');";
         $result = mysqli_query($conn,$query);
 
         if ($result && $_SESSION['failure']=='')

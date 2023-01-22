@@ -23,7 +23,7 @@
     <meta name="author" content="Inovatik">
 
     <!-- Website Title -->
-    <title>ΑΤΛΑΣ</title>
+    <title>Αγγελία</title>
     
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext" rel="stylesheet">
@@ -156,23 +156,26 @@
 
         <div class="section-title"> Στοιχεία Αγγελίας </div> <br>
         <div class="full-applicator-info">
+        <label class="basic-info" for="company"> Εταιρία </label>
+            <label class="basic" for="company"> <?php echo $arr[8];?> </label>
+            <br>
             <label class="basic-info" for="univeristy-departments"> Τμήμα </label>
-            <label class="basic-info" for="univeristy-departments"> <?php echo $arr[1];?> </label>
+            <label class="basic" for="univeristy-departments"> <?php echo $arr[1];?> </label>
             <br>
             <label class="basic-info" for="position"> Τίτλος Θέσης </label>
-            <label class="basic-info" for="position"> <?php echo $arr[2];?> </label>
+            <label class="basic" for="position"> <?php echo $arr[2];?> </label>
             <br>
             <label class="basic-info" for="payment"> Αμοιβή </label>
-            <label class="basic-info" for="payment"> <?php echo $arr[3];?> </label>
+            <label class="basic" for="payment"> <?php echo $arr[3];?> </label>
             <br>
             <label class="basic-info" for="duration">Διάρκεια </label>
-            <label class="basic-info" for="duration"><?php echo $arr[4];?> </label>
+            <label class="basic" for="duration"><?php echo $arr[4];?> </label>
             <br>
             <label class="basic-info" for="occupation"> Απασχόληση </label>
-            <label class="basic-info" for="occupation"> <?php echo $arr[5];?> </label>
+            <label class="basic" for="occupation"> <?php echo $arr[5];?> </label>
             <br>
             <label class="basic-info" for="place"> Τοποθεσία </label>
-            <label class="basic-info" for="place"> <?php echo $arr[6];?> </label>
+            <label class="basic" for="place"> <?php echo $arr[6];?> </label>
             <br>
         </div>
         <br>

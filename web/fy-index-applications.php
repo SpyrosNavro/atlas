@@ -3,15 +3,19 @@
     require_once './php/connect.php'; // connect to db
     unset($_SESSION['failure']);
 
-    if ($_POST['options'] == 'application') 
+    if (isset($_POST['ok']))
     {
-        header("Location: ./fy-index-applications.php"); 
-    }
+        if (isset($_POST['application'])) 
+        {
+            header("Location: ./fy-index-applications.php"); 
+        }
 
-    if ($_POST['options'] == 'ad') 
-    {
-        header("Location: ./fy-index-ads.php"); 
+        if (isset($_POST['ad'])) 
+        {
+            header("Location: ./fy-index-ads.php"); 
+        }
     }
+    
 ?>
 
 <!DOCTYPE html>
@@ -156,14 +160,14 @@
         </ul>
 
         </br>
-        <form action="fy-index-ads.php">
+        <form action="" method="post">
             <label for="choose">Επιλέξτε:</label>
 
             <select name="options" id="options">
-                <option value="application">Αιτήσεις</option>
-                <option value="ad">Αγγελίες</option>
+                <option name="application">Αιτήσεις</option>
+                <option name="ad">Αγγελίες</option>
             </select>
-            <input type="submit" value="OK">
+            <input type="submit" value="OK" name="ok">
         </form>
         <br>
         <ul class="total-applications">
