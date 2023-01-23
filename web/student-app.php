@@ -4,6 +4,22 @@
     unset($_SESSION['failure']);
 
 
+    // take advert info
+    if(isset($_SESSION['id'])){
+
+        $gotid = $_GET['id'];
+        $myad = mysqli_query($conn, "SELECT * FROM advert WHERE id_of_ad=$gotid");
+        
+         
+        $arr = mysqli_fetch_array($myad);
+
+    }
+
+    if(isset($_POST['reasoning'])) {
+        $reasoning = $_POST["reasoning"];
+        $_SESSION['reasoning'] = $reasoning;
+    }
+
     if(isset($_POST['submit_studentapp']))
 	{   
 
@@ -23,25 +39,30 @@
         $university_id = $_POST["university_id"];
         $grading = $_POST["grading"];
         $university_certificate = $_POST["university_certificate"];
-        $reasoning = $_POST["reasoning"];
-        $accept_refuse = 0; 
+         
+        $accept_refuse = "none"; 
+        
+        $_SESSION["photo"] = $photo;
+        
+        $_SESSION["university_certificate"] = $university_certificate; 
     
 
-		$query = "INSERT INTO application (fullname, email, phone, university, department, position, payment, full_part,
+		$query = "INSERT INTO app (fullname, email, phone, university, department, position, payment, full_part,
          duration, loc, photo, university_id, grading, university_certificate, reasoning, accept_refuse) VALUES ('$fullname', '$email', '$phone', '$university', '$department', '$position', '$payment', '$full_part', '$duration', '$loc', '$photo', '$university_id', '$grading', '$university_certificate', '$reasoning', '$accept_refuse');";
         $result = mysqli_query($conn,$query);
 
+        header("Location: ./student-page.php");
     }
-            // get ad info
-            $myad = mysqli_query($conn, "SELECT * FROM advert WHERE department='Βιολογία'");
-            if ($myad) {
-                $arr = $myad->fetch_array();
-            }
-           
-
-    
 
 
+             
+          
+
+
+
+
+            
+            
 ?>
 
 <!DOCTYPE html>
@@ -99,7 +120,7 @@
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="index.php">ΑΡΧΙΚΗ ΣΕΛΙΔΑ<span class="sr-only">(current)</span></a>
+                        <a class="nav-link page-scroll active" href="index.php">ΑΡΧΙΚΗ ΣΕΛΙΔΑ</a>
                     </li>
 
                     <?php 
@@ -107,7 +128,7 @@
                     { ?>
 
                         <li class="nav-item">
-                            <a class="nav-link page-scroll" href="#header">ΑΝΑΚΟΙΝΩΣΕΙΣ</a>
+                            <a class="nav-link page-scroll" href="announcements.php">ΑΝΑΚΟΙΝΩΣΕΙΣ</a>
                         </li>
 
                     <?php
@@ -115,7 +136,7 @@
                     ?>
                         
                         <li class="nav-item">
-                            <a class="nav-link page-scroll" href="#header">ΑΝΑΚΟΙΝΩΣΕΙΣ</a>
+                            <a class="nav-link page-scroll" href="announcements.php">ΑΝΑΚΟΙΝΩΣΕΙΣ</a>
                         </li>
 
                     <?php
@@ -130,8 +151,9 @@
                         <a class="nav-link page-scroll" href="communication.php">ΕΠΙΚΟΙΝΩΝΙΑ</a>
                     </li>
                 </ul>
+
                 <span class="nav-item" >
-                    <a class="btn-outline-sm" id="login-btn" href="log-in.php">ΣΥΝΔΕΣΗ</a>
+                    <a class="btn-outline-sm" id="login-btn" href="log-in-seperation.php">ΣΥΝΔΕΣΗ</a>
                 </span>
 
                 <span class="nav-item" >
@@ -174,6 +196,7 @@
         </div> <!-- end of container -->
     </nav> <!-- end of navbar -->
     <!-- end of navigation -->
+    
     </br></br></br>
 
 
@@ -185,21 +208,15 @@
     </ul>
 
 
-    <div class="navbar2 active">
-        <a href="#home">Αναζήτηση θέσεων</a>
-        <div class="subnav2">
-
-            <button class="subnavbtn active">Οι Αιτήσεις μου <i class="fa fa-caret-down"></i></button>
-            
-            <div class="subnav2-content active">
-                <div class= "tab-2 active">
-                    <a href="Sprocessing.php">Υπο Επεξεργασία</a>
-                </div>
-                <a href="Scommited.php">Υποβεβλημένες</a>
+    <div class="navbar2 nav-link active">
+        <a href="student-page.php" style="color:rgb(255, 0, 0);">Αναζήτηση θέσεων</a>
+        <div class="subnav2 active">
+            <button class="subnavbtn">Οι Αιτήσεις μου <i class="fa fa-caret-down"></i></button>
+            <div class="subnav2-content">
+            <a href="Sprocessing.php">Υπο Επεξεργασία</a>
+            <a href="Scommited.php">Υποβεβλημένες</a>
             </div>
         </div> 
-
-        
     </div>
 
     
@@ -254,9 +271,10 @@
                             </br>
                             <div class="form-group">
                                 <label class="label-above" for="name-lastname">Oνοματεπώνυμο</label>
+                                <label class="label-control" for="name-lastname"> <?php echo $_SESSION['fullname'] ?> </label>
+
                                 <input type="text" class="form-control-input mandatory" name="fullname"  readonly>
 
-                                <label class="label-control" for="name-lastname"> <?php echo $_SESSION['fullname'] ?> </label>
 
                                 <div class="help-block with-errors"></div>
                             </div>
@@ -351,7 +369,7 @@
                                 <label class="label-above" for="number">Διάρκεια Πρακτικής</label>
                                 <label class="label-control" for="name-lastname"> <?php echo $arr[4]; ?> </label>
                         
-                                <input type="text" class="form-control-input" name="duration"  >
+                                <input type="text" class="form-control-input" name="duration"  readonly>
                      
                                 <div class="help-block with-errors"></div>
                             </div>
@@ -453,8 +471,7 @@
 
                             
 
-
-
+                                    
                             <h6> Προσωπικά Στοιχεία Φοιτητή</h6>
 
                             </br>
@@ -506,14 +523,14 @@
                                 <div class="help-block with-errors"></div>
                             </div>
 
-                        
+
 
                             <br>
-                        
 
 
 
-                          
+
+
 
 
                             <hr class="hr-line">
@@ -560,7 +577,7 @@
                                 <label class="label-above" for="number">Part-time/ Full-time</label>
                                 <label class="label-control" for="name-lastname"> <?php echo $arr[5]; ?> </label>
                                 <input type="text" class="form-control-input" name="full_part"  readonly>
-                            
+
                                 <div class="help-block with-errors"></div>
                             </div>
 
@@ -568,60 +585,23 @@
 
                             <br>
 
-        
 
-                             
+
+                            
 
                             <hr class="hr-line">
 
-                            <h6> Ζητούμενα Στοιχεία</h6>
-                            </br>
-                            <div class="form-group">
-                                <label class="label-above" for="number"> Φωτογραφία </label>
 
-                                <input type="file" class="form-control-input pleft" name="photo"  accept=".pdf" >
-                                
+
+
+
+
+
+
+                            <div class="form-group checkbox">
+                                <input type="checkbox" id="sterms" value="Agreed-to-Terms" required>Συμφωνώ με τους <a href="privacy-policy.html" style="color:blue !important">Όρους</a> του ΑΤΛΑΣ
                                 <div class="help-block with-errors"></div>
                             </div>
-                            </br>
-                            <div class="form-group">
-                                <label class="label-above" for="number"> Φοιτητική Ταυτότητα </label>
-                                
-                                <input type="file" class="form-control-input pleft" type="upload" name="university_id"  accept="application/pdf/vnd.ms-excel" >
-                                
-                                <div class="help-block with-errors"></div>
-                            </div>
-                            </br>
-                            <div class="form-group">
-                                <label class="label-above" for="number"> Αναλυτική Βαθμολογία </label>
-                                
-                                <input type="file" class="form-control-input pleft" type="upload" name="grading"  accept="application/pdf/vnd.ms-excel" >
-                                
-                                <div class="help-block with-errors"></div>
-                            </div>
-                            </br>
-                            <div class="form-group">
-                                <label class="label-above" for="number">  Βεβαίωση Πανεπιστημίου </label>
-
-                                <input type="file" class="form-control-input pleft" type="upload" name="university_certificate"  accept="application/pdf/vnd.ms-excel" >
-                                
-                                <div class="help-block with-errors"></div>
-                            </div>
-                            </br>
-                            <div class="form-group">
-                                <label class="label-above" for="number">  Περιγράψτε τους λόγους που ενδιαφέρεστε για τη θέση</label>
-
-                                <input type="text" class="form-control-input" <?php if ($reasoning !=NULL ) 
-                                                                                    echo $reasoning ?>  readonly>
-                               
-                                <div class="help-block with-errors"></div>
-                            </div>
-
-
-
-
-
-
 
 
 

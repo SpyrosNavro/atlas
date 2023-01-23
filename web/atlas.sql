@@ -67,7 +67,7 @@ CREATE TABLE `app` (
   `university_id` blob NOT NULL,
   `grading` blob NOT NULL,
   `university_certificate` blob NOT NULL,
-  `reasoning` blob NOT NULL,
+  `reasoning` text NOT NULL,
   `accept_refuse` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=greek COLLATE=greek_general_ci;
 

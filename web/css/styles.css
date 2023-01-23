@@ -1023,7 +1023,7 @@ input[type='checkbox'] {
 
   }
 
-  .navbar2 a.active{
+  .navbar2 a:active{
 	float: left;
 	font-size: 16px;
 	color: rgb(247, 29, 29);
@@ -1058,6 +1058,12 @@ input[type='checkbox'] {
   
   .subnav2:hover .subnav2-content {
 	display: block;
+  }
+
+  .ACTIVE2-content a {
+	float: left;
+	color: rgb(237, 15, 15);
+	text-decoration: none;
   }
 
 /* Saved for Student */

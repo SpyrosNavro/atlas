@@ -40,7 +40,6 @@
     </div>
     <!-- end of preloader -->
     
-
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
         <div class="container">
@@ -149,12 +148,12 @@
 
 
     <div class="navbar2 nav-link active">
-        <a href="student-page.php" style="color:rgb(255, 0, 0);">Αναζήτηση θέσεων</a>
+        <a href="student-page.php" >Αναζήτηση θέσεων</a>
         <div class="subnav2 active">
-            <button class="subnavbtn">Οι Αιτήσεις μου <i class="fa fa-caret-down"></i></button>
+            <button class="subnavbtn" style="color:rgb(255, 0, 0);">Οι Αιτήσεις μου <i class="fa fa-caret-down"></i></button>
             <div class="subnav2-content">
             <a href="Sprocessing.php">Υπο Επεξεργασία</a>
-            <a href="Scommited.php">Υποβεβλημένες</a>
+            <a href="Scommited.php" style="color:rgb(255, 0, 0);">Υποβεβλημένες</a>
             </div>
         </div> 
     </div>
@@ -168,92 +167,33 @@
     <header id="header" class="ex-2-header">
         
             
-        <div class="form-container">
-                    <form  action="" method="post">
-
-                        <h6> Αναζητήση αγγελιών</h6>
-                        <hr class="hr-line">
-                    <div class="step-rowSearch">
-                        <div class="step-colSearch">
-                            <label for="country"> Επιλέξτε Χώρα:</label>
-                            <input id="country" placeholder="Αναζητήστε Χώρα" list="countries">
-                            <datalist id="countries">
-                                <option value="Ελλάδα">
-                                <option value="Βέλγιο">
-                                <option value="Σουηδία">
-                            </datalist>  
-                        </div>
-
-                        <div class="step-colSearch">
-                            
-                                <label for="country"> Επιλέξτε Τμήμα:</label>
-
-                                <div onclick="myFunction()" class="">
-                                    <input id="country" placeholder="Αναζητήστε Χώρα" id="myInput3" onkeyup="filterFunction()">
-
-
-                                
-                                    <div id="" class="dropdown3-content">
-                                        <a href="#about">About</a>
-                                        <a href="#base">Base</a>
-                                        <a href="#blog">Blog</a>
-                                        <a href="#contact">Contact</a>
-                                        <a href="#custom">Custom</a>
-                                        <a href="#support">Support</a>
-                                        <a href="#tools">Tools</a>
-                                    </div>
-                                 </div>
-                        </div>
-
-                    </div>
-                        
-
-                    <br>
-                        <div class ="">
-                            <button class="btn width-30 btn-next ml-auto btn-next">Αναζήτηση</button>
-                        </div>
-
-                    </form>
-
-                    
-
-
-                    
     
-
-
-
-
-
-        </div> <!-- end of form container -->
-                    <!-- end of  Search form -->
+         
 
         </br>
                     
-                    <h6> Αγγελίες</h6>
+                    <h6> Υποβεβλημένες Αιτήσεις</h6>
                     
                     <?php 
-                        $myads = mysqli_query($conn, "SELECT * FROM advert");
-                            while($arr = $myads->fetch_array()){
+                         
+                        $myapps = mysqli_query($conn, "SELECT * FROM app WHERE fullname='".$_SESSION['fullname']."' ");
+                            while($arr = $myapps->fetch_array()){
                                  
                             
                              
                         ?>
                             </br>
                             <div class="form-container">
+                            
                                 <div class="step-rowAd">
                                     <div class="step-colAd">
-                                        <a href="advertinfo.php?id=<?php echo $arr[0];?>"><?php echo $arr[2]; ?></a>
+                                        <a href="appcommitedinfo.php?id=<?php echo $arr[0];?>"><?php echo $arr[6]; ?></a>
                                     </div>
-                                    <div class="step-colAd">
-                                        <a href="student-app.php?id=<?php echo $arr[0];?>"><button class="btn width-80 btn-next ml-auto btn-next">Υποβολή Αίτησης</button><a>
-                                        
-                                        
-                                    </div>
+                                    
                                     
                                 </div>
                                 <div class="step-rowAd" style="left:50px;">
-                                        Τοποθεσία: <?php echo $arr[6]; ?>  
+                                        Αριθμός Αίτησης: <?php echo $arr[0]; ?>  
                                 </div>
                             
 

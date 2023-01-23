@@ -40,7 +40,6 @@
     </div>
     <!-- end of preloader -->
     
-
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
         <div class="container">
@@ -60,7 +59,7 @@
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link page-scroll active" href="index.php">ΑΡΧΙΚΗ ΣΕΛΙΔΑ</a>
+                        <a class="nav-link page-scroll" href="index.php">ΑΡΧΙΚΗ ΣΕΛΙΔΑ<span class="sr-only">(current)</span></a>
                     </li>
 
                     <?php 
@@ -68,7 +67,7 @@
                     { ?>
 
                         <li class="nav-item">
-                            <a class="nav-link page-scroll" href="announcements.php">ΑΝΑΚΟΙΝΩΣΕΙΣ</a>
+                            <a class="nav-link page-scroll" href="#header">ΑΝΑΚΟΙΝΩΣΕΙΣ</a>
                         </li>
 
                     <?php
@@ -76,7 +75,7 @@
                     ?>
                         
                         <li class="nav-item">
-                            <a class="nav-link page-scroll" href="announcements.php">ΑΝΑΚΟΙΝΩΣΕΙΣ</a>
+                            <a class="nav-link page-scroll" href="#header">ΑΝΑΚΟΙΝΩΣΕΙΣ</a>
                         </li>
 
                     <?php
@@ -91,17 +90,12 @@
                         <a class="nav-link page-scroll" href="communication.php">ΕΠΙΚΟΙΝΩΝΙΑ</a>
                     </li>
                 </ul>
-
                 <span class="nav-item" >
-                    <a class="btn-outline-sm" id="login-btn" href="log-in-seperation.php">ΣΥΝΔΕΣΗ</a>
+                    <a class="btn-outline-sm" id="login-btn" href="log-in.php">ΣΥΝΔΕΣΗ</a>
                 </span>
 
                 <span class="nav-item" >
                     <a class="btn-outline-sm" id="signup-btn" href="sign-up.php">ΕΓΓΡΑΦΗ</a>
-                </span>
-
-                <span class="nav-item" >
-                    <a class="btn-outline-sm" id="edit-profile-btn" href="php/edit-profileistudent.php">ΠΡΟΦΙΛ</a>
                 </span>
 
                 <span class="nav-item" >
@@ -115,7 +109,6 @@
                             console.log("success");
                              document.getElementById("login-btn").style.display = "none";
                              document.getElementById("signup-btn").style.display = "none";
-                             document.getElementById("edit-profile-btn").style.display = "block";
                              document.getElementById("disconnect-btn").style.display = "block";
                         </script>
 
@@ -126,7 +119,6 @@
                         <script>
                              document.getElementById("login-btn").style.display = "block";
                              document.getElementById("signup-btn").style.display = "block";
-                             document.getElementById("edit-profile-btn").style.display = "none";
                              document.getElementById("disconnect-btn").style.display = "none";
                         </script>
                     <?php
@@ -136,7 +128,6 @@
         </div> <!-- end of container -->
     </nav> <!-- end of navbar -->
     <!-- end of navigation -->
-    
     </br></br></br>
 
 
@@ -148,8 +139,8 @@
     </ul>
 
 
-    <div class="navbar2 nav-link active">
-        <a href="student-page.php" style="color:rgb(255, 0, 0);">Αναζήτηση θέσεων</a>
+    <div class="navbar2 active">
+        <a href="#home">Αναζήτηση θέσεων</a>
         <div class="subnav2 active">
             <button class="subnavbtn">Οι Αιτήσεις μου <i class="fa fa-caret-down"></i></button>
             <div class="subnav2-content">
@@ -186,7 +177,7 @@
 
                         <div class="step-colSearch">
                             
-                                <label for="country"> Επιλέξτε Τμήμα:</label>
+                                <label for="country"> Επιλέξτε Χώρα:</label>
 
                                 <div onclick="myFunction()" class="">
                                     <input id="country" placeholder="Αναζητήστε Χώρα" id="myInput3" onkeyup="filterFunction()">
@@ -207,6 +198,26 @@
 
                     </div>
                         
+                    <div clas="step-rowSearch">
+                        <div class="step-colSearch">
+                            <div class="dropdown3">
+                                    <button onclick="myFunction()" class="dropbtn3">Dropdown</button>
+                                    <div id="myDropdown3" class="dropdown3-content">
+                                        <input type="text" placeholder="Search.." id="myInput3" onkeyup="filterFunction()">
+                                        <a href="#about">About</a>
+                                        <a href="#base">Base</a>
+                                        <a href="#blog">Blog</a>
+                                        <a href="#contact">Contact</a>
+                                        <a href="#custom">Custom</a>
+                                        <a href="#support">Support</a>
+                                        <a href="#tools">Tools</a>
+                                    </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
 
                     <br>
                         <div class ="">
@@ -215,56 +226,21 @@
 
                     </form>
 
-                    
-
 
                     
-    
+                
+
+
+
+
+
 
 
 
 
 
         </div> <!-- end of form container -->
-                    <!-- end of  Search form -->
-
-        </br>
-                    
-                    <h6> Αγγελίες</h6>
-                    
-                    <?php 
-                        $myads = mysqli_query($conn, "SELECT * FROM advert");
-                            while($arr = $myads->fetch_array()){
-                                 
-                            
-                             
-                        ?>
-                            </br>
-                            <div class="form-container">
-                                <div class="step-rowAd">
-                                    <div class="step-colAd">
-                                        <a href="advertinfo.php?id=<?php echo $arr[0];?>"><?php echo $arr[2]; ?></a>
-                                    </div>
-                                    <div class="step-colAd">
-                                        <a href="student-app.php?id=<?php echo $arr[0];?>"><button class="btn width-80 btn-next ml-auto btn-next">Υποβολή Αίτησης</button><a>
-                                        
-                                        
-                                    </div>
-                                    
-                                </div>
-                                <div class="step-rowAd" style="left:50px;">
-                                        Τοποθεσία: <?php echo $arr[6]; ?>  
-                                </div>
-                            
-
-                            </div>
-
-                        <?php    
-                            }
-                        
-                        ?>
-        </div>
-
+                    <!-- end of form -->
 
     
 

@@ -2,6 +2,19 @@
     session_start();
     require_once './php/connect.php'; // connect to db
     unset($_SESSION['failure']);
+
+    if(isset($_SESSION['id'])){
+
+        $gotid = $_GET['id'];
+        $myad = mysqli_query($conn, "SELECT * FROM advert WHERE id_of_ad=$gotid");
+        
+         
+        $arr = mysqli_fetch_array($myad);
+
+    }
+     
+    
+
 ?>
 
 <!DOCTYPE html>
@@ -136,7 +149,6 @@
         </div> <!-- end of container -->
     </nav> <!-- end of navbar -->
     <!-- end of navigation -->
-    
     </br></br></br>
 
 
@@ -159,111 +171,71 @@
         </div> 
     </div>
 
-
-
-
-
-
-    <!-- Header -->
-    <header id="header" class="ex-2-header">
-        
-            
-        <div class="form-container">
-                    <form  action="" method="post">
-
-                        <h6> Αναζητήση αγγελιών</h6>
-                        <hr class="hr-line">
-                    <div class="step-rowSearch">
-                        <div class="step-colSearch">
-                            <label for="country"> Επιλέξτε Χώρα:</label>
-                            <input id="country" placeholder="Αναζητήστε Χώρα" list="countries">
-                            <datalist id="countries">
-                                <option value="Ελλάδα">
-                                <option value="Βέλγιο">
-                                <option value="Σουηδία">
-                            </datalist>  
-                        </div>
-
-                        <div class="step-colSearch">
-                            
-                                <label for="country"> Επιλέξτε Τμήμα:</label>
-
-                                <div onclick="myFunction()" class="">
-                                    <input id="country" placeholder="Αναζητήστε Χώρα" id="myInput3" onkeyup="filterFunction()">
-
-
-                                
-                                    <div id="" class="dropdown3-content">
-                                        <a href="#about">About</a>
-                                        <a href="#base">Base</a>
-                                        <a href="#blog">Blog</a>
-                                        <a href="#contact">Contact</a>
-                                        <a href="#custom">Custom</a>
-                                        <a href="#support">Support</a>
-                                        <a href="#tools">Tools</a>
-                                    </div>
-                                 </div>
-                        </div>
-
-                    </div>
-                        
-
-                    <br>
-                        <div class ="">
-                            <button class="btn width-30 btn-next ml-auto btn-next">Αναζήτηση</button>
-                        </div>
-
-                    </form>
-
-                    
-
-
-                    
     
+    <header id="header" class="ex-2-header">
 
-
-
-
-
-        </div> <!-- end of form container -->
-                    <!-- end of  Search form -->
 
         </br>
-                    
-                    <h6> Αγγελίες</h6>
-                    
-                    <?php 
-                        $myads = mysqli_query($conn, "SELECT * FROM advert");
-                            while($arr = $myads->fetch_array()){
-                                 
-                            
-                             
-                        ?>
-                            </br>
-                            <div class="form-container">
-                                <div class="step-rowAd">
-                                    <div class="step-colAd">
-                                        <a href="advertinfo.php?id=<?php echo $arr[0];?>"><?php echo $arr[2]; ?></a>
-                                    </div>
-                                    <div class="step-colAd">
-                                        <a href="student-app.php?id=<?php echo $arr[0];?>"><button class="btn width-80 btn-next ml-auto btn-next">Υποβολή Αίτησης</button><a>
-                                        
-                                        
-                                    </div>
-                                    
-                                </div>
-                                <div class="step-rowAd" style="left:50px;">
-                                        Τοποθεσία: <?php echo $arr[6]; ?>  
-                                </div>
-                            
+                 
 
+                    <h6> Αγγελία</h6>
+
+                    <div class="form-container">
+                                
+                                <div class="step-colAd" style="left:180px">
+                                <a href="student-app.php?id=<?php echo $arr[0];?>"><button class="btn width-80 btn-next ml-auto btn-next">Υποβολή Αίτησης</button><a>
+                                        
+                                </div>
+                        </br>              
+                        <div class="form-group">
+                                
+                                <label class="label-above" for="number">Τίτλος</label>
+                                <label class="label-control" for="name-lastname"> <?php echo $arr[2]; ?> </label>
+                                
+                                <input type="text" class="form-control-input" name="position"  readonly>
+                                <div class="help-block with-errors"></div>
                             </div>
-
-                        <?php    
-                            }
+                            </br>
+                            <div class="form-group">
+                                <label class="label-above" for="number">Πληρωμή</label>
+                                <label class="label-control" for="name-lastname"> <?php echo $arr[3]; ?> </label>
                         
-                        ?>
-        </div>
+                                <input type="text" class="form-control-input" name="payment"  readonly>
+
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            </br>
+                            <div class="form-group">
+                                <label class="label-above" for="number">Διάρκεια Πρακτικής</label>
+                                <label class="label-control" for="name-lastname"> <?php echo $arr[4]; ?> </label>
+                        
+                                <input type="text" class="form-control-input" name="duration"  readonly>
+                     
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            </br>
+                            <div class="form-group">
+                                <label class="label-above" for="number">Τοποθεσία</label>
+                                <label class="label-control" for="name-lastname"> <?php echo $arr[6]; ?> </label>
+                                <input type="text" class="form-control-input" name="loc"  readonly>
+                                
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            </br>
+                            <div class="form-group">
+                                <label class="label-above" for="number">Part-time/ Full-time</label>
+                                <label class="label-control" for="name-lastname"> <?php echo $arr[5]; ?> </label>
+                                <input type="text" class="form-control-input" name="full_part"  readonly>
+                               
+                                <div class="help-block with-errors"></div>
+                            </div>
+                                    
+                                
+                    
+
+                    </div>
+                    
+            
 
 
     
