@@ -5,12 +5,12 @@
 
     if (isset($_POST['ok']))
     {
-        if (isset($_POST['application'])) 
+        if ($_POST['options'] == 'application')
         {
             header("Location: ./fy-index-applications.php"); 
         }
 
-        if (isset($_POST['ad'])) 
+        if ($_POST['options'] == 'ad')
         {
             header("Location: ./fy-index-ads.php"); 
         }
@@ -164,8 +164,8 @@
             <label for="choose">Επιλέξτε:</label>
 
             <select name="options" id="options">
-                <option name="application">Αιτήσεις</option>
-                <option name="ad">Αγγελίες</option>
+                <option name="application" value="application">Αιτήσεις</option>
+                <option name="ad" value="ad">Αγγελίες</option>
             </select>
             <input type="submit" value="OK" name="ok">
         </form>
