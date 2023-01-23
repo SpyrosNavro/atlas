@@ -3,81 +3,100 @@
     require_once './php/connect.php'; // connect to db
     unset($_SESSION['failure']);
 
-    if(isset($_POST['save_changes']))
+    $id=$_GET['idd'];
+    $result = mysqli_query($conn, "SELECT * FROM advert WHERE id_of_ad=$id");
+    if ($result) {
+        $arr = $result->fetch_array();
+    }
+
+    if(isset($_POST['submit_ad']))
 	{
-        $id_of_student = $_SESSION['id'];
-        $email = $_SESSION['email'];
-        $password = $_SESSION['psw'];
-        $fullname = $_SESSION['fullname'];
-        $phone = $_SESSION['phone'];
-        $university_of_student = $_SESSION['university_of_student'];
-        $department_of_student = $_SESSION['department_of_student'];
-
-        $result = mysqli_query($conn, "SELECT * FROM student WHERE id_of_student=$id_of_student");
-        if ($result) {
-            $arr = $result->fetch_array();
-        }
-
-
+        $department=$arr[1];
+        $ad_position=$arr[2];
+        $payment=$arr[3];
+        $duration=$arr[4];
+        $full_part=$arr[5];
+        $loc=$arr[6];
         // ------------
-        if( ($_POST['email'] != $arr[1]) && ($_POST['email'] != '') ) {
-            $email = $_POST['email'];
-        }
-
-        // -------------
-        if( ($_POST['password'] != $arr[2]) && ($_POST['password'] != '') ) {
-            $password = $_POST['password'];
-
-            $confirmation = $_POST['confirmation'];
-            if ($password != $confirmation) {
-                echo "The two passwords do not match\n";
-                $_SESSION['failure'] = 'Μη έγκυρα δεδομένα';
-            }
+        if( ($_POST['department'] != $arr[1]) && ($_POST['department'] != '') ) {
+            $department = $_POST['department'];
         }
 
         // ------------
-        if( ($_POST['fullname'] != $arr[4]) && ($_POST['fullname'] != '') ) {
-            $fullname = $_POST['fullname'];
+        if( ($_POST['ad_position'] != $arr[2]) && ($_POST['ad_position'] != '') ) {
+            $ad_position = $_POST['ad_position'];
         }
 
         // ------------
-        if( ($_POST['phone'] != $arr[5]) && ($_POST['phone'] != '') ) {
-            $phone = $_POST['phone'];
+        if( ($_POST['payment'] != $arr[3]) && ($_POST['payment'] != '') ) {
+            $payment = $_POST['payment'];
+        }
+
+        // ------------
+        if( ($_POST['duration'] != $arr[4]) && ($_POST['duration'] != '') ) {
+            $duration = $_POST['duration'];
         }
 
         // -----------
-        if( ($_POST['university_of_student'] != $arr[5]) && ($_POST['university_of_student'] != '') ) {
-            $university_of_student = $_POST['university_of_student'];
+        if( ($_POST['full_part'] != $arr[5]) && ($_POST['full_part'] != '') ) {
+            $full_part = $_POST['full_part'];
         }
 
         // -----------
-        if( ($_POST['department_of_student'] != $arr[6]) && ($_POST['department_of_student'] != '') ) {
-            $department_of_student = $_POST['department_of_student'];
+        if( ($_POST['location'] != $arr[6]) && ($_POST['location'] != '') ) {
+            $loc = $_POST['location'];
         }
-
 
         //$hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
-        $id_of_student = $_SESSION['id'];
-        $query = "UPDATE student SET email = '$email', psw = '$password', fullname = '$fullname', phone = '$phone', university_of_student = '$university_of_student', department_of_student = '$department_of_student' WHERE id_of_student = $id_of_student";
+        $query = "UPDATE advert SET department = '$department', ad_position = '$ad_position', payment = '$payment', duration = '$duration', full_part = '$full_part', loc = '$loc', temporary_ad = 'permanent' WHERE id_of_ad = $id";
         $result = mysqli_query($conn,$query);
-        
-        if ($result)
-        {
-            $_SESSION['id'] = $id_of_student;
-            $_SESSION['email']=$email;
-            $_SESSION['psw']=$password;
-            $_SESSION['fullname']=$fullname;
-            $_SESSION['phone']=$phone;
-            $_SESSION['university_of_student']=$university_of_student;
-            $_SESSION['department_of_student']=$department_of_student;
-            
-            header("Location: ./student-page.php");
+        header("Location: ./fy-index-ads.php");
+    }
+
+    if(isset($_POST['temporary']))
+	{
+        $department=$arr[1];
+        $ad_position=$arr[2];
+        $payment=$arr[3];
+        $duration=$arr[4];
+        $full_part=$arr[5];
+        $loc=$arr[6];
+        // ------------
+        if( ($_POST['department'] != $arr[1]) && ($_POST['department'] != '') ) {
+            $department = $_POST['department'];
         }
-        else
-        {
-            $_SESSION['failure'] = 'Μη έγκυρα δεδομένα';
+
+        // ------------
+        if( ($_POST['ad_position'] != $arr[2]) && ($_POST['ad_position'] != '') ) {
+            $ad_position = $_POST['ad_position'];
         }
+
+        // ------------
+        if( ($_POST['payment'] != $arr[3]) && ($_POST['payment'] != '') ) {
+            $payment = $_POST['payment'];
+        }
+
+        // ------------
+        if( ($_POST['duration'] != $arr[4]) && ($_POST['duration'] != '') ) {
+            $duration = $_POST['duration'];
+        }
+
+        // -----------
+        if( ($_POST['full_part'] != $arr[5]) && ($_POST['full_part'] != '') ) {
+            $full_part = $_POST['full_part'];
+        }
+
+        // -----------
+        if( ($_POST['loc'] != $arr[6]) && ($_POST['loc'] != '') ) {
+            $loc = $_POST['loc'];
+        }
+
+        //$hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+
+        $query = "UPDATE advert SET department = '$department', ad_position = '$ad_position', payment = '$payment', duration = '$duration', full_part = '$full_part', loc = '$loc', temporary_ad = 'temporary' WHERE id_of_ad = $id";
+        $result = mysqli_query($conn,$query);
+        header("Location: ./fy-index-ads.php");
     }
 ?>
 
@@ -92,7 +111,7 @@
     <meta name="author" content="Inovatik">
 
     <!-- Website Title -->
-    <title>Επεξεργασία Προφίλ Φοιτητή</title>
+    <title>Επεξεργασία Προφίλ Φορέα Υποδοχής</title>
     
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext" rel="stylesheet">
@@ -126,7 +145,7 @@
             <!-- <a class="navbar-brand logo-text page-scroll" href="index.php">Tivo</a> -->
 
             <!-- Image Logo -->
-            <a class="navbar-brand logo-image" href="index.php"><img src="images/atlas_logo.png" alt="ATLAS logo"></a> 
+            <a class="navbar-brand logo-image" href="fy-index-ads.php"><img src="images/atlas_logo.png" alt="ATLAS logo"></a> 
             <!-- Mobile Menu Toggle Button -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-awesome fas fa-bars"></span>
@@ -137,7 +156,7 @@
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link page-scroll active" href="index.php">ΑΡΧΙΚΗ ΣΕΛΙΔΑ</a>
+                        <a class="nav-link page-scroll active" href="fy-index-applications.php">ΑΡΧΙΚΗ ΣΕΛΙΔΑ</a>
                     </li>
 
                     <?php 
@@ -178,7 +197,7 @@
                 </span>
 
                 <span class="nav-item" >
-                    <a class="btn-outline-sm" id="edit-profile-btn" href="php/edit-profileistudent.php"><?php echo $_SESSION['fullname'];?></a>
+                    <a class="btn-outline-sm" id="edit-profile-btn" href="/edit-profile-fy.php"><?php echo $_SESSION['username'];?></a>
                 </span>
 
                 <span class="nav-item" >
@@ -220,87 +239,81 @@
     <div id="pricing" class="cards-2">
 
         <ul class="breadcrumb">
-            <li> Επεξεργασία Προφίλ Φοιτητή </li>
+            <li> Επεξεργασία Προφίλ Φορέα Υποδοχής </li>
         </ul>
         </br>
-
+        
+        <!-- Sign Up Form -->
         <div class="form-container">
+            
             <form  action="" method="post">
-                <h6> Βασικά Στοιχεία </h6>
-                <div class="form-group">
-                    <input type="text" class="form-control-input" name="email"  >
-                    <label class="label-control" for="email">Email: <?php echo $_SESSION['email'];?></label>
-                    <div class="help-block with-errors"></div>
+                <div class="card-3">
+                    <!-- ΤΜΗΜΑ, ΓΝΩΣΤΙΚΟ ΑΝΤΙΚΕΙΜΕΝΟ, ΤΙΤΛΟΣ ΣΠΟΥΔΩΝ -->
+                    <div class="form-group">
+                        <input type="text" class="form-input" name="department">
+                        <label class="label-control" for="department"> Τμήμα: <?php echo $arr[1];?> </label>
+                        <div class="help-block with-errors"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-input" name="ad_position">
+                        <label class="label-control" for="ad_position"> Τίτλος Θέσης: <?php echo $arr[2];?> </label>
+                        <div class="help-block with-errors"></div>
+                    </div>
+
+                    <!-- ΑΜΟΙΒΗ, ΔΙΑΡΚΕΙΑ, ΤΡΟΠΟΣ ΑΠΑΣΧΟΛΗΣΗΣ -->
+                    <div class="form-group">
+                        <input type="text" class="form-input" name="payment">
+                        <label class="label-control" for="payment"> Αμοιβή: <?php echo $arr[3];?> </label>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Διάρκεια:</p>
+                    <div class="form-group radio button">
+                        &nbsp;<input type="radio" id="three_months" name="duration" value="three_months" checked> 3 μήνες
+                        &nbsp;<input type="radio" id="six_months" name="duration" value="six_months"> 6 μήνες
+                    </div>
+
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Απασχόληση:</p>
+                    <div class="form-group radio button">
+                        &nbsp;<input type="radio" id="full" name="full_part" value="full" checked> Πλήρης
+                        &nbsp;<input type="radio" id="part" name="full_part" value="part"> Μερική
+                    </div>
+
+                    <!-- ΤΟΟΘΕΣΙΑ, ΗΜΕΡΟΜΗΝΙΑ ΕΚΤΕΛΕΣΗΣ, ΘΕΣΕΙΣ -->
+                    <div class="form-group">
+                        <input type="text" class="form-input" name="location">
+                        <label class="label-control" for="location"> Τοποθεσία: <?php echo $arr[6];?> </label>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <br>
                 </div>
 
-                <div class="form-group">
-                    <input type="password" id="password" name="password" placeholder="Κωδικός">
-                    <div class="help-block with-errors"></div>
-                </div>
+                <!-- --------------------------------------------------------------------- -->
+                <!-- --------------------------------------------------------------------- -->
+                <!-- --------------------------------------------------------------------- -->
 
-                <div class="form-group">
-                    <input type="password" id="confirmation" name="confirmation"  placeholder="Επιβεβαίωση" >
-                    <div class="help-block with-errors"></div>
-                </div>
+                <div class="section-title"> Έγγραφα Αγγελίας </div> 
                 
-                <input type="checkbox" onclick="myFunction()">Εμφάνιση κωδικού
-
-                <script>
-                function myFunction() {
-                    var x = document.getElementById("password");
-                    if (x.type === "password") {
-                        x.type = "text";
-                    } else {
-                        x.type = "password";
-                    }
-                    var y = document.getElementById("confirmation");
-                    if (y.type === "password") {
-                        y.type = "text";
-                    } else {
-                        y.type = "password";
-                    }
-                }
-                </script>
-
-                <hr class="hr-line">
-
-                <h6> Προσωπικά Στοιχεία </h6>
-
-                <div class="form-group">
-                    <input type="text" class="form-control-input" name="fullname">
-                    <label class="label-control" for="fullname">Ονοματεπώνυμο: <?php echo $_SESSION['fullname'];?></label>
-                    <div class="help-block with-errors"></div>
-                </div>
-
-                <div class="form-group">
-                    <input type="text" class="form-control-input" name="phone"  >
-                    <label class="label-control" for="number">Τηλέφωνο: <?php echo $_SESSION['phone'];?></label>
-                    <div class="help-block with-errors"></div>
-                </div>
-
-                <div class="form-group">
-                    <input type="text" class="form-control-input" name="university_of_student"  >
-                    <label class="label-control" for="university_of_student">Πανεπιστήμιο Φοιτητή: <?php echo $_SESSION['university_of_student'];?></label>
-                    <div class="help-block with-errors"></div>
-                </div>
-
-                <div class="form-group">
-                    <input type="text" class="form-control-input" name="department_of_student"  >
-                    <label class="label-control" for="id-passport">Τμήμα Φοιτητή: <?php echo $_SESSION['department_of_student'];?></label>
-                    <div class="help-block with-errors"></div>
+                <br>
+                
+                <div class="neccessary-files">
+                    <b>Απαιτείται η επικόλληση των εξής αρχείων:</b><br>
+                    • Φωτογραφία <br>
+                    • Φοιτητική ταυτότητα (πάσο)<br>
+                    • Αναλυτική βαθμολογία<br>
+                    • Βεβαίωση πανεπιστημίου<br>
+                    • Αναφορά για τον λόγο πρακτικής <br>
                 </div>
 
                 <br>
-                
-                <div class="form-group">
-                    <button type="submit" name="save_changes" class="btn">ΑΠΟΘΗΚΕΥΣΗ</button>
-                </div>
-                <?php 
-                if (isset($_SESSION['failure']) && ($_SESSION['failure']!="")) {?>                               
-                    <div class="failure" style="margin-bottom: 10px;font-size: 18px;color: red;"><?php echo $_SESSION['failure']; ?></div>
-                <?php }?>
+
+                <button type="submit" name="submit_ad" style="margin: 15px;background-color: #4c51af;color: white;margin: 15px;background-color: #4c51af;color: white;border-radius: 10px;"> Οριστική Υποβολή </button> <br>
+                <button type="submit" name="temporary" value="Προσωρινή Αποθήκευση" style="border-radius: 10px;"> Προσωρινή Αποθήκευση </button>
             </form>
+
         </div> <!-- end of form container -->
+        <!-- end of sign up form -->
     </div> <!-- end of cards-2 -->
     <!-- end of pricing -->
 

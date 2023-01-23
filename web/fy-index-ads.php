@@ -2,6 +2,19 @@
     session_start();
     require_once './php/connect.php'; // connect to db
     unset($_SESSION['failure']);
+
+    if (isset($_POST['ok']))
+    {
+        if ($_POST['options'] == 'application')
+        {
+            header("Location: ./fy-index-applications.php"); 
+        }
+
+        if ($_POST['options'] == 'ad')
+        {
+            header("Location: ./fy-index-ads.php"); 
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -146,32 +159,28 @@
         </ul>
 
         </br>
-        <form action="fy-index-applications.php">
+        <form action="" method="post">
             <label for="choose">Επιλέξτε:</label>
 
             <select name="options" id="options">
-                <option value="ad">Αγγελίες</option>
-                <option value="application">Αιτήσεις</option>
+                <option name="ad" value="ad">Αγγελίες</option>
+                <option name="application" value="application">Αιτήσεις</option>
             </select>
 
-            <select name="suboptions" id="suboptions">
-                <option value="edited"> Προσωρινά Αποθηκευμένη </option>
-                <option value="finished"> Οριστικές </option>
-            </select>
-
-            <input type="submit" value="OK">
+            <input type="submit" value="OK" name="ok">
         </form>
         <br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a class="create-ad" method="POST" href="create-ad.php"> Δημιουργία Αίτησης </a> <br>
+        <a class="create-ad" method="POST" href="create-ad.php"> Δημιουργία Αγγελίας </a> <br>
 
         <br>
         <ul class="total-ads">
+            <h3>Οριστικές:</h3>
             <?php 
                 if(isset($_SESSION['id']))
-                {   
+                {  
                     $id_of_fy = $_SESSION['id'];
-                    $query = "SELECT * FROM advert WHERE id_of_fy = $id_of_fy"; 
+                    $query = "SELECT * FROM advert WHERE id_of_fy = $id_of_fy AND temporary_ad='permanent'"; 
                     $result = mysqli_query($conn, $query);
                 }
                 else
@@ -183,7 +192,33 @@
                 
                     while ($row = mysqli_fetch_array($result)) {?> 
                         <div class="ad">
-                            <a class="ad-position" href="ad.php">
+                            <a class="ad-position" href="ad.php?idd=<?php echo $row[0]?>">
+                                <?php echo $row[2] ?> (<?php echo $row[6]?>) 
+                            </a>
+                        </div>
+                    <?php } ?>
+                <?php } ?>
+        </ul>
+
+        <ul class="total-ads">
+            <h3>Προσωρινά Αποθηκευμένες:</h3>
+            <?php 
+                if(isset($_SESSION['id']))
+                {  
+                    $id_of_fy = $_SESSION['id'];
+                    $query = "SELECT * FROM advert WHERE id_of_fy = $id_of_fy AND temporary_ad='temporary'"; 
+                    $result = mysqli_query($conn, $query);
+                }
+                else
+                {
+                    $result=NULL;
+                }
+                
+                if(isset($_SESSION['id'])) {
+                
+                    while ($row = mysqli_fetch_array($result)) {?> 
+                        <div class="ad">
+                            <a class="ad-position" href="edit-ad.php?idd=<?php echo $row[0]?>">
                                 <?php echo $row[2] ?> (<?php echo $row[6]?>) 
                             </a>
                         </div>

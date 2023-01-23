@@ -15,7 +15,7 @@
     <meta name="author" content="Inovatik">
 
     <!-- Website Title -->
-    <title>ΑΤΛΑΣ</title>
+    <title>Σύνδεση ΑΤΛΑΣ</title>
     
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext" rel="stylesheet">
@@ -101,7 +101,7 @@
                 </span>
 
                 <span class="nav-item" >
-                    <a class="btn-outline-sm" id="edit-profile-btn" href="php/edit-profileistudent.php">ΠΡΟΦΙΛ</a>
+                    <a class="btn-outline-sm" id="edit-profile-btn" href="php/edit-profileistudent.php"><?php echo $_SESSION['username'];?></a>
                 </span>
 
                 <span class="nav-item" >
@@ -149,8 +149,8 @@
         <div class="container">            
             <div class="row">
                 <div class="col-lg-12">
-                    <h3> Σύνδεση ως: </h3>
-                    <a class="log-in-choice" href="log-in-student.php"> ΦΟΙΤΗΤΗΣ </a>
+                    <h3> Σύνδεση ως: </h3> <br>
+                    <a class="log-in-choice" href="log-in-student.php"> ΦΟΙΤΗΤΗΣ </a> &nbsp;&nbsp;
                     <a class="log-in-choice" href="log-in-fy.php"> ΦΟΡΕΑΣ ΥΠΟΔΟΧΗΣ </a>    
 
                 </div> <!-- end of col -->

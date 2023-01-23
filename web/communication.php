@@ -67,9 +67,33 @@
 
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link page-scroll" href="index.php">ΑΡΧΙΚΗ ΣΕΛΙΔΑ</a>
-                    </li>
+                <?php 
+                    if( isset($_SESSION['username']))
+                    { ?>
+
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll" href="fy-index-applications.php">ΑΡΧΙΚΗ ΣΕΛΙΔΑ</span></a>
+                        </li>
+
+                    <?php
+                    } elseif(isset($_SESSION['id_of_student'])) {
+                    ?>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll" href="student-page.php">ΑΡΧΙΚΗ ΣΕΛΙΔΑ</span></a>
+                        </li>
+
+                    <?php
+                    } else {
+                    ?>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll" href="index.php">ΑΡΧΙΚΗ ΣΕΛΙΔΑ</a>
+                        </li>
+
+                    <?php
+                    }
+                    ?>
 
                     <?php 
                     if( isset($_SESSION['email']))
@@ -108,7 +132,7 @@
                 </span>
 
                 <span class="nav-item" >
-                    <a class="btn-outline-sm" id="edit-profile-btn" href="php/edit-profileistudent.php">ΠΡΟΦΙΛ</a>
+                    <a class="btn-outline-sm" id="edit-profile-btn" href="php/edit-profileistudent.php"><?php echo $_SESSION['username'];?></a>
                 </span>
 
                 <span class="nav-item" >

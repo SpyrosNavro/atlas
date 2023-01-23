@@ -13,6 +13,7 @@
 		$phone = $_POST["phone"];
         $id_passport = $_POST["id_passport"];
         $id_passport_number = $_POST["id_passport_number"];
+        $company = $_POST["company"];
 
 		$confirmation = $_POST["confirmation"];
 
@@ -22,7 +23,7 @@
             $_SESSION['failure'] = 'Μη έγκυρα δεδομένα';
 		}
         //$hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-		$query = "INSERT INTO user (username, email, psw, fullname, phone, id_passport, id_passport_number) VALUES ('$username', '$email', '$password', '$fullname', '$phone', '$id_passport', '$id_passport_number');";
+		$query = "INSERT INTO user (username, email, psw, fullname, phone, id_passport, id_passport_number, company) VALUES ('$username', '$email', '$password', '$fullname', '$phone', '$id_passport', '$id_passport_number', '$company');";
         $result = mysqli_query($conn,$query);
         
         if ($result && $_SESSION['failure']=='')
@@ -35,6 +36,7 @@
             $_SESSION['phone']=$phone;
             $_SESSION['id_passport']=$id_passport;
             $_SESSION['id_passport_number']=$id_passport_number;
+            $_SESSION['company'] = $company;
             
             header("Location: ./fy-index-applications.php");
         }
@@ -150,7 +152,7 @@
                 </span>
 
                 <span class="nav-item" >
-                    <a class="btn-outline-sm" id="edit-profile-btn" href="php/edit-profileistudent.php">ΠΡΟΦΙΛ</a>
+                    <a class="btn-outline-sm" id="edit-profile-btn" href="php/edit-profileistudent.php"><?php echo $_SESSION['username'];?></a>
                 </span>
 
                 <span class="nav-item" >
@@ -212,6 +214,12 @@
                             <div class="form-group">
                                 <input type="text" class="form-control-input" name="email"  required>
                                 <label class="label-control" for="email">Email</label>
+                                <div class="help-block with-errors"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" class="form-control-input" name="company"  required>
+                                <label class="label-control" for="company">Εταιρία</label>
                                 <div class="help-block with-errors"></div>
                             </div>
 

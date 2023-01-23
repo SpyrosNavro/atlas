@@ -2,6 +2,20 @@
     session_start();
     require_once './php/connect.php'; // connect to db
     unset($_SESSION['failure']);
+
+    if (isset($_POST['ok']))
+    {
+        if ($_POST['options'] == 'application')
+        {
+            header("Location: ./fy-index-applications.php"); 
+        }
+
+        if ($_POST['options'] == 'ad')
+        {
+            header("Location: ./fy-index-ads.php"); 
+        }
+    }
+    
 ?>
 
 <!DOCTYPE html>
@@ -146,34 +160,41 @@
         </ul>
 
         </br>
-        <form action="fy-index-ads.php">
+        <form action="" method="post">
             <label for="choose">Επιλέξτε:</label>
 
             <select name="options" id="options">
-                <option value="application">Αιτήσεις</option>
-                <option value="ad">Αγγελίες</option>
+                <option name="application" value="application">Αιτήσεις</option>
+                <option name="ad" value="ad">Αγγελίες</option>
             </select>
-            <input type="submit" value="OK">
+            <input type="submit" value="OK" name="ok">
         </form>
         <br>
         <ul class="total-applications">
-            <div class="application">
-                <a class="profile-picture" href="application.php"><img src="images/chuu1.webp" alt="Profile Picture"></a>
-                <a class="applicator-name" href="application.php">
-                    Μαρία Παπαδοπούλου <br>
-                    Ειδίκευση: Δήμαρχος <br>
-                    Ημερομηνία Υποβολής: 15/1/2023
-                </a>
-            </div>
-            <div class="application">
-                <a class="profile-picture" href="index.php"><img src="images/yves.webp" alt="Profile Picture"></a>
-                <a class="applicator-name" href="application.php">
-                    Αντωνία Βασιλειάδου <br>
-                    Ειδίκευση: Σλατινα <br>
-                    Ημερομηνία Υποβολής: 15/1/2023
-                </a>
-            </div>
-            
+            <?php 
+                if(isset($_SESSION['id']))
+                {   
+                    $id_of_fy = $_SESSION['id'];
+                    $query = "SELECT * FROM app WHERE id_of_agency = $id_of_fy AND accept_refuse = 'none' "; 
+                    $result = mysqli_query($conn, $query);
+                }
+                else
+                {
+                    $result=NULL;
+                }
+                
+                if(isset($_SESSION['id'])) {
+                
+                    while ($row = mysqli_fetch_array($result)) {?> 
+                        <div class="application">
+                            <a class="profile-picture" href="application.php"><img src="images/chuu1.webp" alt="Profile Picture"></a>
+                            <a class="applicator-name" href="application.php?id=<?php echo $row[0]?>">
+                                <?php echo $row[1] ?> <br>
+                                Position: <?php echo $row[6]?> 
+                            </a>
+                        </div>
+                    <?php } ?>
+                <?php } ?>            
         </ul>
     </div>
     <!-- Footer -->
