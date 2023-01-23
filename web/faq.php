@@ -58,7 +58,27 @@
             <!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Tivo</a> -->
 
             <!-- Image Logo -->
-            <a class="navbar-brand logo-image" href="index.php"><img src="images/atlas_logo.png" alt="ATLAS logo"></a> 
+            <?php 
+                    if( isset($_SESSION['username']))
+                    { ?>
+
+                        <a class="navbar-brand logo-image" href="fy-index-applications.php"><img src="images/atlas_logo.png" alt="ATLAS logo"></a> 
+
+                    <?php
+                    } elseif(isset($_SESSION['id_of_student'])) {
+                    ?>
+                        
+                        <a class="navbar-brand logo-image" href="student-page.php"><img src="images/atlas_logo.png" alt="ATLAS logo"></a> 
+
+                    <?php
+                    } else {
+                    ?>
+                        
+                        <a class="navbar-brand logo-image" href="index.php"><img src="images/atlas_logo.png" alt="ATLAS logo"></a> 
+
+                    <?php
+                    }
+                    ?>
             <!-- Mobile Menu Toggle Button -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-awesome fas fa-bars"></span>
@@ -134,7 +154,7 @@
                 </span>
 
                 <span class="nav-item" >
-                    <a class="btn-outline-sm" id="edit-profile-btn" href="php/edit-profileistudent.php"><?php echo $_SESSION['username'];?></a>
+                    <a class="btn-outline-sm" id="edit-profile-btn" href="php/edit-profileistudent.php">ΠΡΟΦΙΛ</a>
                 </span>
 
                 <span class="nav-item" >

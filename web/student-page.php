@@ -49,7 +49,8 @@
             <!-- <a class="navbar-brand logo-text page-scroll" href="index.php">Tivo</a> -->
 
             <!-- Image Logo -->
-            <a class="navbar-brand logo-image" href="index.php"><img src="images/atlas_logo.png" alt="ATLAS logo"></a> 
+            <a class="navbar-brand logo-image" href="student-page.php"><img src="images/atlas_logo.png" alt="ATLAS logo"></a> 
+
             <!-- Mobile Menu Toggle Button -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-awesome fas fa-bars"></span>
@@ -189,7 +190,7 @@
                                 <label for="country"> Επιλέξτε Τμήμα:</label>
 
                                 <div onclick="myFunction()" class="">
-                                    <input id="country" placeholder="Αναζητήστε Χώρα" id="myInput3" onkeyup="filterFunction()">
+                                    <input id="country" placeholder="Αναζητήστε Τμήμα" id="myInput3" onkeyup="filterFunction()">
 
 
                                 

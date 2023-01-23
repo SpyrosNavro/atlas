@@ -23,9 +23,9 @@
         header("Location: ./fy-index-applications.php");        
     }
 
-    $cause = $_POST['cause'];
     if (isset($_POST['decline'])) 
     {
+        $cause = $_POST['cause'];
         $query1 = "UPDATE app SET accept_refuse = 'refuse', cause ='$cause' WHERE id_of_application = $id_of_application";
         $result1 = mysqli_query($conn, $query1);
 

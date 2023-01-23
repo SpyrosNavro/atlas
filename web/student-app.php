@@ -22,9 +22,6 @@
 
     if(isset($_POST['submit_studentapp']))
 	{   
-
-
-
         $fullname = $_SESSION['fullname'];
         $email = $_SESSION['email'];
         $phone = $_SESSION["phone"];
@@ -35,6 +32,7 @@
         $full_part = $arr[5];
         $duration = $arr[4];
         $loc = $arr[6];
+        $id_of_agency=$arr[7];
         $photo = $_POST["photo"];
         $university_id = $_POST["university_id"];
         $grading = $_POST["grading"];
@@ -48,7 +46,7 @@
     
 
 		$query = "INSERT INTO app (fullname, email, phone, university, department, position, payment, full_part,
-         duration, loc, photo, university_id, grading, university_certificate, reasoning, accept_refuse) VALUES ('$fullname', '$email', '$phone', '$university', '$department', '$position', '$payment', '$full_part', '$duration', '$loc', '$photo', '$university_id', '$grading', '$university_certificate', '$reasoning', '$accept_refuse');";
+         duration, loc, photo, university_id, grading, university_certificate, reasoning, accept_refuse, id_of_agency, cause, temporary_app) VALUES ('$fullname', '$email', '$phone', '$university', '$department', '$position', '$payment', '$full_part', '$duration', '$loc', '$photo', '$university_id', '$grading', '$university_certificate', '$reasoning', '$accept_refuse', $id_of_agency,'', 'permanent');";
         $result = mysqli_query($conn,$query);
 
         header("Location: ./student-page.php");
@@ -109,7 +107,27 @@
             <!-- <a class="navbar-brand logo-text page-scroll" href="index.php">Tivo</a> -->
 
             <!-- Image Logo -->
-            <a class="navbar-brand logo-image" href="index.php"><img src="images/atlas_logo.png" alt="ATLAS logo"></a> 
+            <?php 
+                    if( isset($_SESSION['username']))
+                    { ?>
+
+                        <a class="navbar-brand logo-image" href="fy-index-applications.php"><img src="images/atlas_logo.png" alt="ATLAS logo"></a> 
+
+                    <?php
+                    } elseif(isset($_SESSION['id_of_student'])) {
+                    ?>
+                        
+                        <a class="navbar-brand logo-image" href="student-page.php"><img src="images/atlas_logo.png" alt="ATLAS logo"></a> 
+
+                    <?php
+                    } else {
+                    ?>
+                        
+                        <a class="navbar-brand logo-image" href="index.php"><img src="images/atlas_logo.png" alt="ATLAS logo"></a> 
+
+                    <?php
+                    }
+                    ?>
             <!-- Mobile Menu Toggle Button -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-awesome fas fa-bars"></span>
@@ -161,7 +179,7 @@
                 </span>
 
                 <span class="nav-item" >
-                    <a class="btn-outline-sm" id="edit-profile-btn" href="php/edit-profileistudent.php"><?php echo $_SESSION['username'];?></a>
+                    <a class="btn-outline-sm" id="edit-profile-btn" href="php/edit-profileistudent.php"><?php echo $_SESSION['fullname'];?></a>
                 </span>
 
                 <span class="nav-item" >

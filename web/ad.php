@@ -5,7 +5,7 @@
 
     if (isset($_SESSION['id'])) 
     {
-        $id_of_ad = $_GET["id"];
+        $id_of_ad = $_GET["idd"];
         $query = "SELECT * FROM advert WHERE id_of_ad = $id_of_ad";
         $result = mysqli_query($conn, $query);
         $arr = mysqli_fetch_array($result);
@@ -57,7 +57,27 @@
             <!-- <a class="navbar-brand logo-text page-scroll" href="index.php">Tivo</a> -->
 
             <!-- Image Logo -->
-            <a class="navbar-brand logo-image" href="index.php"><img src="images/atlas_logo.png" alt="ATLAS logo"></a> 
+            <?php 
+                    if( isset($_SESSION['username']))
+                    { ?>
+
+                        <a class="navbar-brand logo-image" href="fy-index-applications.php"><img src="images/atlas_logo.png" alt="ATLAS logo"></a> 
+
+                    <?php
+                    } elseif(isset($_SESSION['id_of_student'])) {
+                    ?>
+                        
+                        <a class="navbar-brand logo-image" href="student-page.php"><img src="images/atlas_logo.png" alt="ATLAS logo"></a> 
+
+                    <?php
+                    } else {
+                    ?>
+                        
+                        <a class="navbar-brand logo-image" href="index.php"><img src="images/atlas_logo.png" alt="ATLAS logo"></a> 
+
+                    <?php
+                    }
+                    ?>
             <!-- Mobile Menu Toggle Button -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-awesome fas fa-bars"></span>
